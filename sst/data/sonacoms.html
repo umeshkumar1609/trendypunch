@@ -1,0 +1,6571 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Umesh Kamboj Stock Panel</title>
+    <meta name="viewport" content="width=device-width" />	
+	<style>
+	body{
+		background: #eee url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAMAAAC6sdbXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF3d3d////riJKgAAAAAJ0Uk5T/wDltzBKAAAAFUlEQVR42mJgBAEGGMmAxAYCgAADAAGGABmnk/7aAAAAAElFTkSuQmCC);
+		font: 13px 'trebuchet MS', Arial, Helvetica;
+		margin:0;
+		padding:0;
+	}
+	
+	h2, p {
+		text-align: center;
+		color: #444;
+		text-shadow: 0 1px 0 #fff;	
+	}
+	
+	a {
+		color: #2A679F;
+	}
+	
+	/* You don't need the above styles, they are demo-specific ----------- */
+	
+	#menu, #menu ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+	#menu {
+		width: 99.80%;
+		margin: 0px auto;
+		border: 1px solid #222;
+		background-color: #111;
+		background-image: -moz-linear-gradient(#444, #111); 
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#444), to(#111));	
+		background-image: -webkit-linear-gradient(#444, #111);	
+		background-image: -o-linear-gradient(#444, #111);
+		background-image: -ms-linear-gradient(#444, #111);
+		background-image: linear-gradient(#444, #111);
+		-moz-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+		-webkit-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+		box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+	}
+	
+	#menu:before,
+	#menu:after {
+		content: "";
+		display: table;
+	}
+	
+	#menu:after {
+		clear: both;
+	}
+	
+	#menu {
+		zoom:1;
+	}
+	
+	#menu li {
+		float: left;
+		border-right: 1px solid #222;
+		-moz-box-shadow: 1px 0 0 #444;
+		-webkit-box-shadow: 1px 0 0 #444;
+		box-shadow: 1px 0 0 #444;
+		position: relative;
+	}
+	
+	#menu a {
+		float: left;
+		padding: 12px 30px;
+		color: #999;
+		text-transform: uppercase;
+		font: bold 12px Arial, Helvetica;
+		text-decoration: none;
+		text-shadow: 0 1px 0 #000;
+	}
+	
+	#menu li:hover > a {
+		color: #fafafa;
+	}
+	
+	*html #menu li a:hover { /* IE6 only */
+		color: #fafafa;
+	}
+	
+	#menu ul {
+		margin: 20px 0 0 0;
+		_margin: 0; /*IE6 only*/
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		top: 38px;
+		left: 0;
+		z-index: 1;    
+		background: #444;
+		background: -moz-linear-gradient(#444, #111);
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#444), to(#111));
+		background: -webkit-linear-gradient(#444, #111);    
+		background: -o-linear-gradient(#444, #111);	
+		background: -ms-linear-gradient(#444, #111);	
+		background: linear-gradient(#444, #111);
+		-moz-box-shadow: 0 -1px rgba(255,255,255,.3);
+		-webkit-box-shadow: 0 -1px 0 rgba(255,255,255,.3);
+		box-shadow: 0 -1px 0 rgba(255,255,255,.3);	
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+		-webkit-transition: all .2s ease-in-out;
+		-moz-transition: all .2s ease-in-out;
+		-ms-transition: all .2s ease-in-out;
+		-o-transition: all .2s ease-in-out;
+		transition: all .2s ease-in-out;  
+	}
+
+	#menu li:hover > ul {
+		opacity: 1;
+		visibility: visible;
+		margin: 0;
+	}
+	
+	#menu ul ul {
+		top: 0;
+		left: 150px;
+		margin: 0 0 0 20px;
+		_margin: 0; /*IE6 only*/
+		-moz-box-shadow: -1px 0 0 rgba(255,255,255,.3);
+		-webkit-box-shadow: -1px 0 0 rgba(255,255,255,.3);
+		box-shadow: -1px 0 0 rgba(255,255,255,.3);		
+	}
+	
+	#menu ul li {
+		float: none;
+		display: block;
+		border: 0;
+		_line-height: 0; /*IE6 only*/
+		-moz-box-shadow: 0 1px 0 #111, 0 2px 0 #666;
+		-webkit-box-shadow: 0 1px 0 #111, 0 2px 0 #666;
+		box-shadow: 0 1px 0 #111, 0 2px 0 #666;
+	}
+	
+	#menu ul li:last-child {   
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;    
+	}
+	
+	#menu ul a {    
+		padding: 10px;
+		width:auto;
+		min-width:130px;
+		_height: 10px; /*IE6 only*/
+		display: block;
+		white-space: nowrap;
+		float: none;
+		text-transform: none;
+	}
+	
+	#menu ul a:hover {
+		background-color: #0186ba;
+		background-image: -moz-linear-gradient(#04acec,  #0186ba);	
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#04acec), to(#0186ba));
+		background-image: -webkit-linear-gradient(#04acec, #0186ba);
+		background-image: -o-linear-gradient(#04acec, #0186ba);
+		background-image: -ms-linear-gradient(#04acec, #0186ba);
+		background-image: linear-gradient(#04acec, #0186ba);
+	}
+	
+	#menu ul li:first-child > a {
+		-moz-border-radius: 3px 3px 0 0;
+		-webkit-border-radius: 3px 3px 0 0;
+		border-radius: 3px 3px 0 0;
+	}
+	
+	#menu ul li:first-child > a:after {
+		content: '';
+		position: absolute;
+		left: 40px;
+		top: -6px;
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+		border-bottom: 6px solid #444;
+	}
+	
+	#menu ul ul li:first-child a:after {
+		left: -6px;
+		top: 50%;
+		margin-top: -6px;
+		border-left: 0;	
+		border-bottom: 6px solid transparent;
+		border-top: 6px solid transparent;
+		border-right: 6px solid #3b3b3b;
+	}
+	
+	#menu ul li:first-child a:hover:after {
+		border-bottom-color: #04acec; 
+	}
+	
+	#menu ul ul li:first-child a:hover:after {
+		border-right-color: #0299d3; 
+		border-bottom-color: transparent; 	
+	}
+	
+	#menu ul li:last-child > a {
+		-moz-border-radius: 0 0 3px 3px;
+		-webkit-border-radius: 0 0 3px 3px;
+		border-radius: 0 0 3px 3px;
+	}
+	
+	/* Mobile */
+	#menu-trigger {
+		display: none;
+	}
+
+	@media screen and (max-width: 600px) {
+
+		/* nav-wrap */
+		#menu-wrap {
+			position: relative;
+		}
+
+		#menu-wrap * {
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		/* menu icon */
+		#menu-trigger {
+			display: block; /* show menu icon */
+			height: 40px;
+			line-height: 40px;
+			cursor: pointer;		
+			padding: 0 0 0 35px;
+			border: 1px solid #222;
+			color: #fafafa;
+			font-weight: bold;
+			background-color: #111;
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAMAAADeWG8gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE2QjAxNjRDOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE2QjAxNjREOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTZCMDE2NEE5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTZCMDE2NEI5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz42AEtnAAAABlBMVEX///////9VfPVsAAAAAnRSTlP/AOW3MEoAAAAWSURBVHjaYmAgFzBiACKFho6NAAEGAD07AG1pn932AAAAAElFTkSuQmCC) no-repeat 10px center, -moz-linear-gradient(#444, #111); 
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAMAAADeWG8gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE2QjAxNjRDOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE2QjAxNjREOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTZCMDE2NEE5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTZCMDE2NEI5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz42AEtnAAAABlBMVEX///////9VfPVsAAAAAnRSTlP/AOW3MEoAAAAWSURBVHjaYmAgFzBiACKFho6NAAEGAD07AG1pn932AAAAAElFTkSuQmCC) no-repeat 10px center, -webkit-linear-gradient(#444, #111);	
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAMAAADeWG8gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE2QjAxNjRDOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE2QjAxNjREOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTZCMDE2NEE5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTZCMDE2NEI5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz42AEtnAAAABlBMVEX///////9VfPVsAAAAAnRSTlP/AOW3MEoAAAAWSURBVHjaYmAgFzBiACKFho6NAAEGAD07AG1pn932AAAAAElFTkSuQmCC) no-repeat 10px center, -o-linear-gradient(#444, #111);
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAMAAADeWG8gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE2QjAxNjRDOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE2QjAxNjREOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTZCMDE2NEE5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTZCMDE2NEI5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz42AEtnAAAABlBMVEX///////9VfPVsAAAAAnRSTlP/AOW3MEoAAAAWSURBVHjaYmAgFzBiACKFho6NAAEGAD07AG1pn932AAAAAElFTkSuQmCC) no-repeat 10px center, -ms-linear-gradient(#444, #111);
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAMAAADeWG8gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE2QjAxNjRDOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE2QjAxNjREOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTZCMDE2NEE5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTZCMDE2NEI5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz42AEtnAAAABlBMVEX///////9VfPVsAAAAAnRSTlP/AOW3MEoAAAAWSURBVHjaYmAgFzBiACKFho6NAAEGAD07AG1pn932AAAAAElFTkSuQmCC) no-repeat 10px center, linear-gradient(#444, #111);
+			-moz-border-radius: 6px;
+			-webkit-border-radius: 6px;
+			border-radius: 6px;
+			-moz-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+			-webkit-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+			box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+		}
+		
+		/* main nav */
+		#menu {
+			margin: 0; padding: 10px;
+			position: absolute;
+			top: 40px;
+			width: 100%;
+			z-index: 1;
+			background-color: #444;
+			display: none;
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;		
+		}
+
+		#menu:after {
+			content: '';
+			position: absolute;
+			left: 25px;
+			top: -8px;
+			border-left: 8px solid transparent;
+			border-right: 8px solid transparent;
+			border-bottom: 8px solid #444;
+		}	
+
+		#menu ul {
+			position: static;
+			visibility: visible;
+			opacity: 1;
+			margin: 0;
+			background: none;
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;				
+		}
+
+		#menu ul ul {
+			margin: 0 0 0 20px !important;
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;		
+		}
+
+		#menu li {
+			position: static;
+			display: block;
+			float: none;
+			border: 0;
+			margin: 5px;
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;			
+		}
+
+		#menu ul li{
+			margin-left: 20px;
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;		
+		}
+
+		#menu a{
+			display: block;
+			float: none;
+			padding: 0;
+			color: #999;
+		}
+
+		#menu a:hover{
+			color: #fafafa;
+		}	
+
+		#menu ul a{
+			padding: 0;
+			width: auto;		
+		}
+
+		#menu ul a:hover{
+			background: none;	
+		}
+
+		#menu ul li:first-child a:after,
+		#menu ul ul li:first-child a:after {
+			border: 0;
+		}		
+
+	}
+
+	@media screen and (min-width: 600px) {
+		#menu {
+			display: block !important;
+		}
+	}	
+
+	/* iPad */
+	.no-transition {
+		-webkit-transition: none;
+		-moz-transition: none;
+		-ms-transition: none;
+		-o-transition: none;
+		transition: none;
+		opacity: 1;
+		visibility: visible;
+		display: none;  		
+	}
+
+	#menu li:hover > .no-transition {
+		display: block;
+	}
+	</style>
+
+</head>
+<body>
+
+<nav id="menu-wrap">    
+	<ul id="menu">
+		<li><a href="http://localhost/sm/mystock/trading/">Home</a></li>
+
+		
+		<li>
+			<a href="#">20 Days High Low (SST)</a>
+			<ul>
+
+			<!------------------------------------------------------------------------>
+				<li>
+					<a href="#">20 Days High Buy</a>
+					<ul>
+						
+											<li>
+							<a href="http://localhost/sm/mystock/trading/sst/index/nifty-50.html">NIFTY 50</a>		
+										
+						</li>
+						
+											<li>
+							<a href="http://localhost/sm/mystock/trading/sst/index/nifty-100.html">NIFTY 100</a>		
+										
+						</li>
+						
+											<li>
+							<a href="http://localhost/sm/mystock/trading/sst/index/nifty-200.html">NIFTY 200</a>		
+										
+						</li>
+						
+											<li>
+							<a href="http://localhost/sm/mystock/trading/sst/index/nifty-500.html">NIFTY 500</a>		
+										
+						</li>
+						
+											<li>
+							<a href="http://localhost/sm/mystock/trading/sst/index/nifty-midsmallcap-400.html">NIFTY MIDSMALLCAP 400</a>		
+										
+						</li>
+						
+						
+						
+											
+
+						
+					</ul>					
+				</li>
+				<!--------------------------------------------------------------------------------->
+
+
+
+				
+			
+			</ul>
+		</li>
+		
+		
+		<li><a href="">About</a></li>
+		<li><a href="">Contact</a></li>
+	</ul>
+</nav>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script>
+    $(function() {
+		if ($.browser.msie && $.browser.version.substr(0,1)<7)
+		{
+		$('li').has('ul').mouseover(function(){
+			$(this).children('ul').css('visibility','visible');
+			}).mouseout(function(){
+			$(this).children('ul').css('visibility','hidden');
+			})
+		}
+
+		/* Mobile */
+		$('#menu-wrap').prepend('<div id="menu-trigger">Menu</div>');		
+		$("#menu-trigger").on("click", function(){
+			$("#menu").slideToggle();
+		});
+
+		// iPad
+		var isiPad = navigator.userAgent.match(/iPad/i) != null;
+		if (isiPad) $('#menu ul').addClass('no-transition');      
+    });          
+</script>
+
+</body>
+</html><style type="text/css">
+tr.red th {
+  background: #0186ba;
+  color: white;
+}
+th {
+  position: sticky;
+  top: 0; /* Don't forget this, required for the stickiness */
+  height:40px;
+  border-color:#f2f2f2;
+}
+td{
+	height:30px;
+	width:auto;
+	border-color:#f2f2f2;
+}
+</style>
+
+    <!-- Data list table --> 
+    <table class="table table-striped table-bordered" width="100%" border="1" cellpadding="0" cellspacing="0">
+        <thead class="thead-dark">
+            <tr class="red">
+                <th>ID</th>
+                <th>Symbol</th>
+<th>Date</th>
+                <th>series</th>
+				<th>Prev Close</th>
+			    <th>Open</th>
+                <th>High</th>
+				<th>Low</th>
+				<th>Ltp</th>
+				<th>Close</th>
+				<th>20 Days High</th>
+				<th>20 Days Low</th>
+				<th>Action</th>
+				<th>Change</th>
+				<th>volume</th>
+				<th>Value</th>
+				<th>No of Trades</th>
+				<th>5 SMA</th>
+				<th>9 SMA</th>
+				<th>20 SMA</th>
+				<th>44 SMA</th>
+				<th>50 SMA</th>
+				<th>100 SMA</th>
+				<th>200 SMA</th>
+
+            </tr>
+        </thead>
+        <tbody>
+		<tr><td colspan="24"><h2>SONA BLW PRECISION FORGINGS LIMITED</h2></td></tr>
+        								
+		            <tr bgcolor="">
+                <td>141</td>
+                <td>SONACOMS</td>
+                <td>14-JAN-2022</td>
+                <td>NSE:EQ</td>
+				<td>751.75</td>
+                <td>748.95</td>
+				 <td bgcolor="">766</td>
+				  <td>745.15</td>
+				   
+				    <td>757</td>
+					 <td>756.25</td>
+					 
+					 <td>778.75 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.6%					  </td>
+					 
+						 
+						 <td>605337</td>
+						  <td>458213538.75</td>
+						   <td>23951</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >752.6</td>
+						    <td  bgcolor="lightblue" >746.89</td>
+							 <td  bgcolor="lightblue" >729.4</td>
+							  <td  bgcolor="lightblue" >741.89</td>
+							   <td  bgcolor="lightblue" >734.43</td>
+							    <td  bgcolor="lightblue" >661.31</td>
+								 <td  bgcolor="lightblue" >416.98</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>140</td>
+                <td>SONACOMS</td>
+                <td>13-JAN-2022</td>
+                <td>NSE:EQ</td>
+				<td>759.4</td>
+                <td>759</td>
+				 <td bgcolor="">759.4</td>
+				  <td>746</td>
+				   
+				    <td>752.75</td>
+					 <td>751.75</td>
+					 
+					 <td>798.9 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.01%					  </td>
+					 
+						 
+						 <td>805465</td>
+						  <td>605159681.95</td>
+						   <td>24370</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >748.18</td>
+						    <td  bgcolor="lightblue" >745.15</td>
+							 <td  bgcolor="lightblue" >729.38</td>
+							  <td  bgcolor="lightblue" >740.16</td>
+							   <td  bgcolor="lightblue" >732.18</td>
+							    <td  bgcolor="lightblue" >658.2</td>
+								 <td  bgcolor="lightblue" >413.2</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>139</td>
+                <td>SONACOMS</td>
+                <td>12-JAN-2022</td>
+                <td>NSE:EQ</td>
+				<td>756.1</td>
+                <td>763</td>
+				 <td bgcolor="">776.1</td>
+				  <td>741</td>
+				   
+				    <td>758.45</td>
+					 <td>759.4</td>
+					 
+					 <td>807.25 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.44%					  </td>
+					 
+						 
+						 <td>2075189</td>
+						  <td>1579968476.5</td>
+						   <td>54204</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >744.29</td>
+						    <td  bgcolor="lightblue" >744.24</td>
+							 <td  bgcolor="lightblue" >730.77</td>
+							  <td  bgcolor="lightblue" >738.87</td>
+							   <td  bgcolor="lightblue" >730.13</td>
+							    <td  bgcolor="lightblue" >655.35</td>
+								 <td  bgcolor="lightblue" >409.44</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>138</td>
+                <td>SONACOMS</td>
+                <td>11-JAN-2022</td>
+                <td>NSE:EQ</td>
+				<td>739.5</td>
+                <td>740</td>
+				 <td bgcolor="">769</td>
+				  <td>740</td>
+				   
+				    <td>757</td>
+					 <td>756.1</td>
+					 
+					 <td>809.95 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				2.24%					  </td>
+					 
+						 
+						 <td>1570079</td>
+						  <td>1189717572.85</td>
+						   <td>47387</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >740.1</td>
+						    <td  bgcolor="lightblue" >740.21</td>
+							 <td  bgcolor="lightblue" >732.63</td>
+							  <td  bgcolor="lightblue" >737.21</td>
+							   <td  bgcolor="lightblue" >727.91</td>
+							    <td  bgcolor="lightblue" >652.49</td>
+								 <td  bgcolor="lightblue" >405.65</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>137</td>
+                <td>SONACOMS</td>
+                <td>10-JAN-2022</td>
+                <td>NSE:EQ</td>
+				<td>734.15</td>
+                <td>738</td>
+				 <td bgcolor="">747.8</td>
+				  <td>733.9</td>
+				   
+				    <td>739</td>
+					 <td>739.5</td>
+					 
+					 <td>839.9 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.73%					  </td>
+					 
+						 
+						 <td>893975</td>
+						  <td>661512122</td>
+						   <td>24082</td>
+						 
+						   
+						   <td >739.71</td>
+						    <td  bgcolor="lightblue" >735.02</td>
+							 <td  bgcolor="lightblue" >734.81</td>
+							  <td  bgcolor="lightblue" >735.6</td>
+							   <td  bgcolor="lightblue" >725.74</td>
+							    <td  bgcolor="lightblue" >649.9</td>
+								 <td  bgcolor="lightblue" >401.87</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>136</td>
+                <td>SONACOMS</td>
+                <td>07-JAN-2022</td>
+                <td>NSE:EQ</td>
+				<td>732.3</td>
+                <td>735.1</td>
+				 <td bgcolor="">744.4</td>
+				  <td>727.15</td>
+				   
+				    <td>735.5</td>
+					 <td>734.15</td>
+					 
+					 <td>839.9 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.25%					  </td>
+					 
+						 
+						 <td>802851</td>
+						  <td>590950613.65</td>
+						   <td>24339</td>
+						 
+						   
+						   <td >739.92</td>
+						    <td  bgcolor="lightblue" >733.84</td>
+							 <td >738.97</td>
+							  <td  bgcolor="lightblue" >733.93</td>
+							   <td  bgcolor="lightblue" >724.32</td>
+							    <td  bgcolor="lightblue" >647.66</td>
+								 <td  bgcolor="lightblue" >398.17</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>135</td>
+                <td>SONACOMS</td>
+                <td>06-JAN-2022</td>
+                <td>NSE:EQ</td>
+				<td>738.45</td>
+                <td>732</td>
+				 <td bgcolor="">735</td>
+				  <td>718</td>
+				   
+				    <td>732</td>
+					 <td>732.3</td>
+					 
+					 <td>839.9 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.83%					  </td>
+					 
+						 
+						 <td>1238144</td>
+						  <td>898475631.5</td>
+						   <td>45676</td>
+						 
+						   
+						   <td >741.8</td>
+						    <td  bgcolor="lightblue" >730.55</td>
+							 <td >741.72</td>
+							  <td >732.38</td>
+							   <td  bgcolor="lightblue" >721.94</td>
+							    <td  bgcolor="lightblue" >645.34</td>
+								 <td  bgcolor="lightblue" >394.5</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>134</td>
+                <td>SONACOMS</td>
+                <td>05-JAN-2022</td>
+                <td>NSE:EQ</td>
+				<td>754.15</td>
+                <td>753</td>
+				 <td bgcolor="">755</td>
+				  <td>736</td>
+				   
+				    <td>740</td>
+					 <td>738.45</td>
+					 
+					 <td>839.9 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-2.08%					  </td>
+					 
+						 
+						 <td>859528</td>
+						  <td>637529023.8</td>
+						   <td>30251</td>
+						 
+						   
+						   <td >739.97</td>
+						    <td  bgcolor="lightblue" >728.38</td>
+							 <td >743.91</td>
+							  <td  bgcolor="lightblue" >730.36</td>
+							   <td  bgcolor="lightblue" >720.08</td>
+							    <td  bgcolor="lightblue" >642.93</td>
+								 <td  bgcolor="lightblue" >390.84</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>133</td>
+                <td>SONACOMS</td>
+                <td>04-JAN-2022</td>
+                <td>NSE:EQ</td>
+				<td>740.55</td>
+                <td>745</td>
+				 <td bgcolor="">778.75</td>
+				  <td>744</td>
+				   
+				    <td>752.2</td>
+					 <td>754.15</td>
+					 
+					 <td>839.9 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.84%					  </td>
+					 
+						 
+						 <td>2515125</td>
+						  <td>1913103299.85</td>
+						   <td>69606</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >734.16</td>
+						    <td  bgcolor="lightblue" >723.94</td>
+							 <td  bgcolor="lightblue" >745.56</td>
+							  <td  bgcolor="lightblue" >728.33</td>
+							   <td  bgcolor="lightblue" >717.39</td>
+							    <td  bgcolor="lightblue" >640.53</td>
+								 <td  bgcolor="lightblue" >387.15</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>132</td>
+                <td>SONACOMS</td>
+                <td>03-JAN-2022</td>
+                <td>NSE:EQ</td>
+				<td>743.55</td>
+                <td>743.55</td>
+				 <td bgcolor="">750</td>
+				  <td>736.55</td>
+				   
+				    <td>740.1</td>
+					 <td>740.55</td>
+					 
+					 <td>839.9 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.4%					  </td>
+					 
+						 
+						 <td>801634</td>
+						  <td>595075334.4</td>
+						   <td>27264</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >729.1</td>
+						    <td  bgcolor="lightblue" >717.49</td>
+							 <td >745.88</td>
+							  <td  bgcolor="lightblue" >725.93</td>
+							   <td  bgcolor="lightblue" >714.63</td>
+							    <td  bgcolor="lightblue" >637.88</td>
+								 <td  bgcolor="lightblue" >383.37</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>131</td>
+                <td>SONACOMS</td>
+                <td>31-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>723.15</td>
+                <td>725</td>
+				 <td bgcolor="">748.7</td>
+				  <td>722</td>
+				   
+				    <td>739.5</td>
+					 <td>743.55</td>
+					 
+					 <td>839.9 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				2.82%					  </td>
+					 
+						 
+						 <td>1533044</td>
+						  <td>1130408030.4</td>
+						   <td>42041</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >721.9</td>
+						    <td  bgcolor="lightblue" >714.02</td>
+							 <td >746.44</td>
+							  <td  bgcolor="lightblue" >723.82</td>
+							   <td  bgcolor="lightblue" >712.32</td>
+							    <td  bgcolor="lightblue" >635.26</td>
+								 <td  bgcolor="lightblue" >379.67</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>130</td>
+                <td>SONACOMS</td>
+                <td>30-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>709.4</td>
+                <td>709.8</td>
+				 <td bgcolor="">727.7</td>
+				  <td>709.75</td>
+				   
+				    <td>723</td>
+					 <td>723.15</td>
+					 
+					 <td>839.9 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.94%					  </td>
+					 
+						 
+						 <td>939497</td>
+						  <td>675505740.55</td>
+						   <td>28025</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >715.74</td>
+						    <td  bgcolor="lightblue" >709.09</td>
+							 <td >747.58</td>
+							  <td  bgcolor="lightblue" >722.11</td>
+							   <td  bgcolor="lightblue" >710.32</td>
+							    <td  bgcolor="lightblue" >631.94</td>
+								 <td  bgcolor="lightblue" >375.95</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>129</td>
+                <td>SONACOMS</td>
+                <td>29-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>728.85</td>
+                <td>730</td>
+				 <td bgcolor="">734.6</td>
+				  <td>706.25</td>
+				   
+				    <td>710</td>
+					 <td>709.4</td>
+					 
+					 <td>839.9 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-2.67%					  </td>
+					 
+						 
+						 <td>1025937</td>
+						  <td>738779448.1</td>
+						   <td>29074</td>
+						 
+						   
+						   <td >710.81</td>
+						    <td >712.73</td>
+							 <td >749.37</td>
+							  <td >719.66</td>
+							   <td >709.81</td>
+							    <td  bgcolor="lightblue" >628.8</td>
+								 <td  bgcolor="lightblue" >372.34</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>128</td>
+                <td>SONACOMS</td>
+                <td>28-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>704.55</td>
+                <td>708.5</td>
+				 <td bgcolor="">732</td>
+				  <td>705.5</td>
+				   
+				    <td>731</td>
+					 <td>728.85</td>
+					 
+					 <td>839.9 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				3.45%					  </td>
+					 
+						 
+						 <td>1299478</td>
+						  <td>935104956.75</td>
+						   <td>35555</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >708.15</td>
+						    <td  bgcolor="lightblue" >720.52</td>
+							 <td >751.13</td>
+							  <td  bgcolor="lightblue" >718.06</td>
+							   <td  bgcolor="lightblue" >710.93</td>
+							    <td  bgcolor="lightblue" >625.93</td>
+								 <td  bgcolor="lightblue" >368.79</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>127</td>
+                <td>SONACOMS</td>
+                <td>27-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>712.75</td>
+                <td>712</td>
+				 <td bgcolor="">716</td>
+				  <td>694.4</td>
+				   
+				    <td>703</td>
+					 <td>704.55</td>
+					 
+					 <td>839.9 </td>
+					  <td>680.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.15%					  </td>
+					 
+						 
+						 <td>1256299</td>
+						  <td>884907853.85</td>
+						   <td>36412</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >704.24</td>
+						    <td >728.06</td>
+							 <td >752.11</td>
+							  <td >715.22</td>
+							   <td >711.46</td>
+							    <td  bgcolor="lightblue" >623</td>
+								 <td  bgcolor="lightblue" >365.15</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>126</td>
+                <td>SONACOMS</td>
+                <td>24-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>698.5</td>
+                <td>703.75</td>
+				 <td bgcolor="">717.8</td>
+				  <td>680.15</td>
+				   
+				    <td>715</td>
+					 <td>712.75</td>
+					 
+					 <td>839.9 </td>
+					  <td>676.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				2.04%					  </td>
+					 
+						 
+						 <td>2108002</td>
+						  <td>1470973624.75</td>
+						   <td>53446</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >703.18</td>
+						    <td >738.62</td>
+							 <td >754.05</td>
+							  <td >713.21</td>
+							   <td  bgcolor="lightblue" >712.2</td>
+							    <td  bgcolor="lightblue" >620.34</td>
+								 <td  bgcolor="lightblue" >361.62</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>125</td>
+                <td>SONACOMS</td>
+                <td>23-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>696.1</td>
+                <td>702.9</td>
+				 <td bgcolor="">711</td>
+				  <td>691.9</td>
+				   
+				    <td>699</td>
+					 <td>698.5</td>
+					 
+					 <td>839.9 </td>
+					  <td>676.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.34%					  </td>
+					 
+						 
+						 <td>1653715</td>
+						  <td>1160561926.15</td>
+						   <td>50003</td>
+						 
+						   
+						   <td >711.8</td>
+						    <td >750.83</td>
+							 <td >754.88</td>
+							  <td >711.22</td>
+							   <td >710.96</td>
+							    <td  bgcolor="lightblue" >617.61</td>
+								 <td  bgcolor="lightblue" >358.06</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>124</td>
+                <td>SONACOMS</td>
+                <td>22-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>709.3</td>
+                <td>714.8</td>
+				 <td bgcolor="">723</td>
+				  <td>694</td>
+				   
+				    <td>695.4</td>
+					 <td>696.1</td>
+					 
+					 <td>839.9 </td>
+					  <td>676.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.86%					  </td>
+					 
+						 
+						 <td>1580443</td>
+						  <td>1118172330.05</td>
+						   <td>47137</td>
+						 
+						   
+						   <td >728</td>
+						    <td >760.92</td>
+							 <td >757.95</td>
+							  <td >709.97</td>
+							   <td >710.03</td>
+							    <td  bgcolor="lightblue" >614.98</td>
+								 <td  bgcolor="lightblue" >354.57</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>123</td>
+                <td>SONACOMS</td>
+                <td>21-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>699.25</td>
+                <td>714</td>
+				 <td bgcolor="">728.75</td>
+				  <td>704.2</td>
+				   
+				    <td>709.85</td>
+					 <td>709.3</td>
+					 
+					 <td>839.9 </td>
+					  <td>676.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.44%					  </td>
+					 
+						 
+						 <td>1682321</td>
+						  <td>1204696458.2</td>
+						   <td>64149</td>
+						 
+						   
+						   <td >748.12</td>
+						    <td >769.8</td>
+							 <td >760.24</td>
+							  <td >710</td>
+							   <td  bgcolor="lightblue" >708.72</td>
+							    <td  bgcolor="lightblue" >612.21</td>
+								 <td  bgcolor="lightblue" >351.09</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>122</td>
+                <td>SONACOMS</td>
+                <td>20-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>755.85</td>
+                <td>753</td>
+				 <td bgcolor="">755.3</td>
+				  <td>690</td>
+				   
+				    <td>693</td>
+					 <td>699.25</td>
+					 
+					 <td>839.9 </td>
+					  <td>676.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-7.49%					  </td>
+					 
+						 
+						 <td>3720125</td>
+						  <td>2640570460.1</td>
+						   <td>152573</td>
+						 
+						   
+						   <td >766.18</td>
+						    <td >776.7</td>
+							 <td >761.71</td>
+							  <td >711.29</td>
+							   <td >707.6</td>
+							    <td  bgcolor="lightblue" >609.08</td>
+								 <td  bgcolor="lightblue" >347.54</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>121</td>
+                <td>SONACOMS</td>
+                <td>17-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>779.5</td>
+                <td>778.6</td>
+				 <td bgcolor="">798.9</td>
+				  <td>741.25</td>
+				   
+				    <td>773.05</td>
+					 <td>755.85</td>
+					 
+					 <td>839.9 </td>
+					  <td>676.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-3.03%					  </td>
+					 
+						 
+						 <td>12307302</td>
+						  <td>9354426207.15</td>
+						   <td>118684</td>
+						 
+						   
+						   <td >790.87</td>
+						    <td >783.51</td>
+							 <td >761.57</td>
+							  <td  bgcolor="lightblue" >712.56</td>
+							   <td  bgcolor="lightblue" >705.23</td>
+							    <td  bgcolor="lightblue" >606.14</td>
+								 <td  bgcolor="lightblue" >344.04</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>120</td>
+                <td>SONACOMS</td>
+                <td>16-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>796.7</td>
+                <td>806.9</td>
+				 <td bgcolor="">807.25</td>
+				  <td>776.1</td>
+				   
+				    <td>778.5</td>
+					 <td>779.5</td>
+					 
+					 <td>839.9 </td>
+					  <td>676.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-2.16%					  </td>
+					 
+						 
+						 <td>1694604</td>
+						  <td>1326907871.6</td>
+						   <td>52861</td>
+						 
+						   
+						   <td >797.56</td>
+						    <td >783.06</td>
+							 <td  bgcolor="lightblue" >759.28</td>
+							  <td  bgcolor="lightblue" >712.23</td>
+							   <td  bgcolor="lightblue" >701.82</td>
+							    <td  bgcolor="lightblue" >602.82</td>
+								 <td  bgcolor="lightblue" >340.27</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>119</td>
+                <td>SONACOMS</td>
+                <td>15-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>799.6</td>
+                <td>805.7</td>
+				 <td bgcolor="">809.95</td>
+				  <td>790.7</td>
+				   
+				    <td>799.75</td>
+					 <td>796.7</td>
+					 
+					 <td>839.9 </td>
+					  <td>676.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.36%					  </td>
+					 
+						 
+						 <td>1914028</td>
+						  <td>1527359343.65</td>
+						   <td>60175</td>
+						 
+						   
+						   <td >796.86</td>
+						    <td  bgcolor="lightblue" >781.6</td>
+							 <td  bgcolor="lightblue" >755.85</td>
+							  <td  bgcolor="lightblue" >709.31</td>
+							   <td  bgcolor="lightblue" >697.73</td>
+							    <td  bgcolor="lightblue" >599.43</td>
+								 <td  bgcolor="lightblue" >336.37</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>118</td>
+                <td>SONACOMS</td>
+                <td>14-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>822.7</td>
+                <td>822.4</td>
+				 <td bgcolor="lightblue">839.9</td>
+				  <td>795</td>
+				   
+				    <td>801</td>
+					 <td>799.6</td>
+					 
+					 <td>829.5 </td>
+					  <td>676.2</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-2.81%					  </td>
+					 
+						 
+						 <td>3330102</td>
+						  <td>2701341809.95</td>
+						   <td>136171</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >791.8</td>
+						    <td  bgcolor="lightblue" >777.41</td>
+							 <td  bgcolor="lightblue" >751.64</td>
+							  <td  bgcolor="lightblue" >706.01</td>
+							   <td  bgcolor="lightblue" >693.05</td>
+							    <td  bgcolor="lightblue" >595.86</td>
+								 <td  bgcolor="lightblue" >332.38</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>117</td>
+                <td>SONACOMS</td>
+                <td>13-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>789.3</td>
+                <td>797.7</td>
+				 <td bgcolor="lightblue">829.5</td>
+				  <td>795.4</td>
+				   
+				    <td>822.95</td>
+					 <td>822.7</td>
+					 
+					 <td>817.9 </td>
+					  <td>676.2</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				4.23%					  </td>
+					 
+						 
+						 <td>4051746</td>
+						  <td>3306906686.7</td>
+						   <td>94803</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >783.99</td>
+						    <td  bgcolor="lightblue" >771.31</td>
+							 <td  bgcolor="lightblue" >746.18</td>
+							  <td  bgcolor="lightblue" >702.18</td>
+							   <td  bgcolor="lightblue" >688.18</td>
+							    <td  bgcolor="lightblue" >591.8</td>
+								 <td  bgcolor="lightblue" >328.39</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>116</td>
+                <td>SONACOMS</td>
+                <td>10-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>776</td>
+                <td>777.95</td>
+				 <td bgcolor="">792</td>
+				  <td>775.25</td>
+				   
+				    <td>789.15</td>
+					 <td>789.3</td>
+					 
+					 <td>817.9 </td>
+					  <td>670.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.71%					  </td>
+					 
+						 
+						 <td>1666681</td>
+						  <td>1309275893.75</td>
+						   <td>47698</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >769.8</td>
+						    <td  bgcolor="lightblue" >763.04</td>
+							 <td  bgcolor="lightblue" >739.04</td>
+							  <td  bgcolor="lightblue" >698.32</td>
+							   <td  bgcolor="lightblue" >682.99</td>
+							    <td  bgcolor="lightblue" >587.59</td>
+								 <td  bgcolor="lightblue" >324.27</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>115</td>
+                <td>SONACOMS</td>
+                <td>09-DEC-2021</td>
+                <td>NSE:EQ</td>
+				<td>771.4</td>
+                <td>782</td>
+				 <td bgcolor="lightblue">817.9</td>
+				  <td>772.6</td>
+				   
+				    <td>774.8</td>
+					 <td>776</td>
+					 
+					 <td>812.5 </td>
+					  <td>670.2</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.6%					  </td>
+					 
+						 
+						 <td>5381019</td>
+						  <td>4278507809.9</td>
+						   <td>156320</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >765.22</td>
+						    <td  bgcolor="lightblue" >757.95</td>
+							 <td  bgcolor="lightblue" >734.32</td>
+							  <td  bgcolor="lightblue" >693.59</td>
+							   <td  bgcolor="lightblue" >678.33</td>
+							    <td  bgcolor="lightblue" >583.64</td>
+								 <td  bgcolor="lightblue" >320.33</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>114</td>
+                <td>SONACOMS</td>
+                <td>08-Dec-2021</td>
+                <td>NSE:EQ</td>
+				<td>760.55</td>
+                <td>772</td>
+				 <td bgcolor="">778</td>
+				  <td>763.75</td>
+				   
+				    <td>775</td>
+					 <td>771.4</td>
+					 
+					 <td>812.5 </td>
+					  <td>670.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.43%					  </td>
+					 
+						 
+						 <td>1162024</td>
+						  <td>894,446,865.05</td>
+						   <td>37959</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >761.81</td>
+						    <td  bgcolor="lightblue" >752.76</td>
+							 <td  bgcolor="lightblue" >729.86</td>
+							  <td  bgcolor="lightblue" >689.25</td>
+							   <td  bgcolor="lightblue" >674.02</td>
+							    <td  bgcolor="lightblue" >579.9</td>
+								 <td  bgcolor="lightblue" >316.45</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>113</td>
+                <td>SONACOMS</td>
+                <td>07-Dec-2021</td>
+                <td>NSE:EQ</td>
+				<td>751.75</td>
+                <td>759.1</td>
+				 <td bgcolor="">778</td>
+				  <td>755.2</td>
+				   
+				    <td>765</td>
+					 <td>760.55</td>
+					 
+					 <td>812.5 </td>
+					  <td>661.4</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.17%					  </td>
+					 
+						 
+						 <td>2180750</td>
+						  <td>1,674,468,921.30</td>
+						   <td>80464</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >756.47</td>
+						    <td  bgcolor="lightblue" >751.49</td>
+							 <td  bgcolor="lightblue" >725.53</td>
+							  <td  bgcolor="lightblue" >684.8</td>
+							   <td  bgcolor="lightblue" >669.75</td>
+							    <td  bgcolor="lightblue" >576.21</td>
+								 <td  bgcolor="lightblue" >312.59</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>112</td>
+                <td>SONACOMS</td>
+                <td>06-Dec-2021</td>
+                <td>NSE:EQ</td>
+				<td>766.4</td>
+                <td>771.4</td>
+				 <td bgcolor="">771.95</td>
+				  <td>748.65</td>
+				   
+				    <td>752.6</td>
+					 <td>751.75</td>
+					 
+					 <td>812.5 </td>
+					  <td>656.65</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.91%					  </td>
+					 
+						 
+						 <td>1219012</td>
+						  <td>926,451,469.55</td>
+						   <td>39629</td>
+						 
+						   
+						   <td >754.02</td>
+						    <td  bgcolor="lightblue" >749.41</td>
+							 <td  bgcolor="lightblue" >720.82</td>
+							  <td  bgcolor="lightblue" >680.3</td>
+							   <td  bgcolor="lightblue" >666.03</td>
+							    <td  bgcolor="lightblue" >572.69</td>
+								 <td  bgcolor="lightblue" >308.79</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>111</td>
+                <td>SONACOMS</td>
+                <td>03-Dec-2021</td>
+                <td>NSE:EQ</td>
+				<td>758.95</td>
+                <td>767.3</td>
+				 <td bgcolor="lightblue">812.5</td>
+				  <td>763.4</td>
+				   
+				    <td>764.95</td>
+					 <td>766.4</td>
+					 
+					 <td>775 </td>
+					  <td>649.6</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.98%					  </td>
+					 
+						 
+						 <td>3977053</td>
+						  <td>3,119,233,661.15</td>
+						   <td>137957</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >752.37</td>
+						    <td  bgcolor="lightblue" >747.96</td>
+							 <td  bgcolor="lightblue" >716.52</td>
+							  <td  bgcolor="lightblue" >675.84</td>
+							   <td  bgcolor="lightblue" >662.5</td>
+							    <td  bgcolor="lightblue" >569.4</td>
+								 <td  bgcolor="lightblue" >305.03</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>110</td>
+                <td>SONACOMS</td>
+                <td>02-Dec-2021</td>
+                <td>NSE:EQ</td>
+				<td>744.7</td>
+                <td>748.8</td>
+				 <td bgcolor="">767</td>
+				  <td>746.05</td>
+				   
+				    <td>759.05</td>
+					 <td>758.95</td>
+					 
+					 <td>775 </td>
+					  <td>635.65</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.91%					  </td>
+					 
+						 
+						 <td>1741210</td>
+						  <td>1,321,012,428.75</td>
+						   <td>58444</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >744.95</td>
+						    <td  bgcolor="lightblue" >740.18</td>
+							 <td  bgcolor="lightblue" >710.38</td>
+							  <td  bgcolor="lightblue" >671.23</td>
+							   <td  bgcolor="lightblue" >658.42</td>
+							    <td  bgcolor="lightblue" >565.76</td>
+								 <td  bgcolor="lightblue" >301.2</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>109</td>
+                <td>SONACOMS</td>
+                <td>01-Dec-2021</td>
+                <td>NSE:EQ</td>
+				<td>748.3</td>
+                <td>758.65</td>
+				 <td bgcolor="">766</td>
+				  <td>741.25</td>
+				   
+				    <td>743</td>
+					 <td>744.7</td>
+					 
+					 <td>775 </td>
+					  <td>635.65</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.48%					  </td>
+					 
+						 
+						 <td>1408465</td>
+						  <td>1,056,712,856.25</td>
+						   <td>44944</td>
+						 
+						   
+						   <td >745.15</td>
+						    <td  bgcolor="lightblue" >734.74</td>
+							 <td  bgcolor="lightblue" >704.89</td>
+							  <td  bgcolor="lightblue" >666.62</td>
+							   <td  bgcolor="lightblue" >654.57</td>
+							    <td  bgcolor="lightblue" >562.22</td>
+								 <td  bgcolor="lightblue" >297.4</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>108</td>
+                <td>SONACOMS</td>
+                <td>30-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>743.5</td>
+                <td>750</td>
+				 <td bgcolor="">770.95</td>
+				  <td>736.55</td>
+				   
+				    <td>749.75</td>
+					 <td>748.3</td>
+					 
+					 <td>775 </td>
+					  <td>635.65</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.65%					  </td>
+					 
+						 
+						 <td>1737253</td>
+						  <td>1,308,809,334.85</td>
+						   <td>52532</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >744.58</td>
+						    <td  bgcolor="lightblue" >730.98</td>
+							 <td  bgcolor="lightblue" >700.08</td>
+							  <td  bgcolor="lightblue" >662.43</td>
+							   <td  bgcolor="lightblue" >651.08</td>
+							    <td  bgcolor="lightblue" >558.65</td>
+								 <td  bgcolor="lightblue" >293.68</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>107</td>
+                <td>SONACOMS</td>
+                <td>29-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>729.3</td>
+                <td>725</td>
+				 <td bgcolor="">747.8</td>
+				  <td>676.2</td>
+				   
+				    <td>742</td>
+					 <td>743.5</td>
+					 
+					 <td>775 </td>
+					  <td>635.65</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.95%					  </td>
+					 
+						 
+						 <td>2865447</td>
+						  <td>2,068,467,663.95</td>
+						   <td>114749</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >742.66</td>
+						    <td  bgcolor="lightblue" >727.02</td>
+							 <td  bgcolor="lightblue" >695.05</td>
+							  <td  bgcolor="lightblue" >658.11</td>
+							   <td  bgcolor="lightblue" >647.82</td>
+							    <td  bgcolor="lightblue" >555</td>
+								 <td  bgcolor="lightblue" >289.94</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>106</td>
+                <td>SONACOMS</td>
+                <td>26-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>759.95</td>
+                <td>745</td>
+				 <td bgcolor="">768.5</td>
+				  <td>725.05</td>
+				   
+				    <td>727</td>
+					 <td>729.3</td>
+					 
+					 <td>775 </td>
+					  <td>618</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-4.03%					  </td>
+					 
+						 
+						 <td>2200440</td>
+						  <td>1,638,150,223.20</td>
+						   <td>71284</td>
+						 
+						   
+						   <td >733.23</td>
+						    <td  bgcolor="lightblue" >721.11</td>
+							 <td  bgcolor="lightblue" >691.3</td>
+							  <td  bgcolor="lightblue" >654.27</td>
+							   <td  bgcolor="lightblue" >644.6</td>
+							    <td  bgcolor="lightblue" >551.34</td>
+								 <td  bgcolor="lightblue" >286.22</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>105</td>
+                <td>SONACOMS</td>
+                <td>25-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>741.85</td>
+                <td>747.9</td>
+				 <td bgcolor="lightblue">775</td>
+				  <td>745</td>
+				   
+				    <td>760</td>
+					 <td>759.95</td>
+					 
+					 <td>769.4 </td>
+					  <td>612</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				2.44%					  </td>
+					 
+						 
+						 <td>2012494</td>
+						  <td>1,530,663,910.80</td>
+						   <td>74115</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >729.37</td>
+						    <td  bgcolor="lightblue" >715.62</td>
+							 <td  bgcolor="lightblue" >685.58</td>
+							  <td  bgcolor="lightblue" >650.76</td>
+							   <td  bgcolor="lightblue" >641.45</td>
+							    <td  bgcolor="lightblue" >547.5</td>
+								 <td  bgcolor="lightblue" >282.57</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>104</td>
+                <td>SONACOMS</td>
+                <td>24-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>738.7</td>
+                <td>748.1</td>
+				 <td bgcolor="lightblue">769.4</td>
+				  <td>734.05</td>
+				   
+				    <td>743</td>
+					 <td>741.85</td>
+					 
+					 <td>749 </td>
+					  <td>608</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.43%					  </td>
+					 
+						 
+						 <td>2527904</td>
+						  <td>1,909,862,413.25</td>
+						   <td>90619</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >719.56</td>
+						    <td  bgcolor="lightblue" >708.41</td>
+							 <td  bgcolor="lightblue" >679.55</td>
+							  <td  bgcolor="lightblue" >646.28</td>
+							   <td  bgcolor="lightblue" >637.92</td>
+							    <td  bgcolor="lightblue" >543.32</td>
+								 <td  bgcolor="lightblue" >278.77</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>103</td>
+                <td>SONACOMS</td>
+                <td>23-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>696.35</td>
+                <td>690</td>
+				 <td bgcolor="lightblue">749</td>
+				  <td>687.9</td>
+				   
+				    <td>741.9</td>
+					 <td>738.7</td>
+					 
+					 <td>726 </td>
+					  <td>586</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				6.08%					  </td>
+					 
+						 
+						 <td>3179965</td>
+						  <td>2,325,166,725.10</td>
+						   <td>93166</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >713.71</td>
+						    <td  bgcolor="lightblue" >702.27</td>
+							 <td  bgcolor="lightblue" >672.66</td>
+							  <td  bgcolor="lightblue" >642.29</td>
+							   <td  bgcolor="lightblue" >634.1</td>
+							    <td  bgcolor="lightblue" >539.39</td>
+								 <td  bgcolor="lightblue" >275.06</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>102</td>
+                <td>SONACOMS</td>
+                <td>22-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>710</td>
+                <td>716.4</td>
+				 <td bgcolor="">723.8</td>
+				  <td>681.35</td>
+				   
+				    <td>697.5</td>
+					 <td>696.35</td>
+					 
+					 <td>726 </td>
+					  <td>586</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.92%					  </td>
+					 
+						 
+						 <td>2997923</td>
+						  <td>2,119,268,303.10</td>
+						   <td>113013</td>
+						 
+						   
+						   <td >704.03</td>
+						    <td  bgcolor="lightblue" >696.3</td>
+							 <td  bgcolor="lightblue" >666.53</td>
+							  <td  bgcolor="lightblue" >638.46</td>
+							   <td  bgcolor="lightblue" >630.22</td>
+							    <td  bgcolor="lightblue" >535.48</td>
+								 <td  bgcolor="lightblue" >271.37</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>101</td>
+                <td>SONACOMS</td>
+                <td>18-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>710.9</td>
+                <td>713.7</td>
+				 <td bgcolor="">719.95</td>
+				  <td>690</td>
+				   
+				    <td>708.15</td>
+					 <td>710</td>
+					 
+					 <td>726 </td>
+					  <td>586</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.13%					  </td>
+					 
+						 
+						 <td>2185044</td>
+						  <td>1,541,316,199.60</td>
+						   <td>75517</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >700.75</td>
+						    <td  bgcolor="lightblue" >692.96</td>
+							 <td  bgcolor="lightblue" >662.97</td>
+							  <td  bgcolor="lightblue" >635.94</td>
+							   <td  bgcolor="lightblue" >627.27</td>
+							    <td  bgcolor="lightblue" >532.16</td>
+								 <td  bgcolor="lightblue" >267.89</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>100</td>
+                <td>SONACOMS</td>
+                <td>17-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>712.6</td>
+                <td>708.4</td>
+				 <td bgcolor="lightblue">726</td>
+				  <td>707.6</td>
+				   
+				    <td>712</td>
+					 <td>710.9</td>
+					 
+					 <td>720.9 </td>
+					  <td>586</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.24%					  </td>
+					 
+						 
+						 <td>1717766</td>
+						  <td>1,227,068,208.50</td>
+						   <td>57895</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >697.75</td>
+						    <td  bgcolor="lightblue" >688.04</td>
+							 <td  bgcolor="lightblue" >659.64</td>
+							  <td  bgcolor="lightblue" >633.04</td>
+							   <td  bgcolor="lightblue" >624.05</td>
+							    <td  bgcolor="lightblue" >528.68</td>
+								 <td  bgcolor="lightblue" >264.34</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>99</td>
+                <td>SONACOMS</td>
+                <td>16-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>690.3</td>
+                <td>695.8</td>
+				 <td bgcolor="">720.9</td>
+				  <td>692.5</td>
+				   
+				    <td>708.05</td>
+					 <td>712.6</td>
+					 
+					 <td>773.3 </td>
+					  <td>586</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				3.23%					  </td>
+					 
+						 
+						 <td>2855058</td>
+						  <td>2,018,227,466.40</td>
+						   <td>81541</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >692.9</td>
+						    <td  bgcolor="lightblue" >680.56</td>
+							 <td  bgcolor="lightblue" >658.97</td>
+							  <td  bgcolor="lightblue" >629.89</td>
+							   <td  bgcolor="lightblue" >620.34</td>
+							    <td  bgcolor="lightblue" >521.57</td>
+								 <td  bgcolor="lightblue" >260.78</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>98</td>
+                <td>SONACOMS</td>
+                <td>15-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>679.95</td>
+                <td>685.1</td>
+				 <td bgcolor="">700</td>
+				  <td>684</td>
+				   
+				    <td>692.4</td>
+					 <td>690.3</td>
+					 
+					 <td>805.95 </td>
+					  <td>586</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.52%					  </td>
+					 
+						 
+						 <td>1495935</td>
+						  <td>1,033,943,351.55</td>
+						   <td>45325</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >687.37</td>
+						    <td  bgcolor="lightblue" >673.53</td>
+							 <td  bgcolor="lightblue" >661.62</td>
+							  <td  bgcolor="lightblue" >626.95</td>
+							   <td  bgcolor="lightblue" >615.98</td>
+							    <td  bgcolor="lightblue" >514.44</td>
+								 <td  bgcolor="lightblue" >257.22</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>97</td>
+                <td>SONACOMS</td>
+                <td>12-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>695</td>
+                <td>701</td>
+				 <td bgcolor="">703.1</td>
+				  <td>670.2</td>
+				   
+				    <td>680.95</td>
+					 <td>679.95</td>
+					 
+					 <td>813 </td>
+					  <td>586</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-2.17%					  </td>
+					 
+						 
+						 <td>1816218</td>
+						  <td>1,236,555,663.90</td>
+						   <td>61619</td>
+						 
+						   
+						   <td >682.57</td>
+						    <td  bgcolor="lightblue" >668.87</td>
+							 <td  bgcolor="lightblue" >664.87</td>
+							  <td  bgcolor="lightblue" >623.77</td>
+							   <td  bgcolor="lightblue" >612.14</td>
+							    <td  bgcolor="lightblue" >507.54</td>
+								 <td  bgcolor="lightblue" >253.77</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>96</td>
+                <td>SONACOMS</td>
+                <td>11-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>686.65</td>
+                <td>687</td>
+				 <td bgcolor="">713.4</td>
+				  <td>687</td>
+				   
+				    <td>695.3</td>
+					 <td>695</td>
+					 
+					 <td>813 </td>
+					  <td>586</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.22%					  </td>
+					 
+						 
+						 <td>2305663</td>
+						  <td>1,616,667,325.00</td>
+						   <td>75856</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >679.72</td>
+						    <td  bgcolor="lightblue" >665.29</td>
+							 <td  bgcolor="lightblue" >667.94</td>
+							  <td  bgcolor="lightblue" >620.7</td>
+							   <td  bgcolor="lightblue" >608.55</td>
+							    <td  bgcolor="lightblue" >500.74</td>
+								 <td  bgcolor="lightblue" >250.37</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>95</td>
+                <td>SONACOMS</td>
+                <td>10-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>684.95</td>
+                <td>680</td>
+				 <td bgcolor="">701</td>
+				  <td>676.3</td>
+				   
+				    <td>686.85</td>
+					 <td>686.65</td>
+					 
+					 <td>813 </td>
+					  <td>586</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.25%					  </td>
+					 
+						 
+						 <td>1784031</td>
+						  <td>1,230,040,290.60</td>
+						   <td>44467</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >669.43</td>
+						    <td  bgcolor="lightblue" >662.33</td>
+							 <td  bgcolor="lightblue" >665.74</td>
+							  <td  bgcolor="lightblue" >617.38</td>
+							   <td  bgcolor="lightblue" >604.9</td>
+							    <td  bgcolor="lightblue" >493.79</td>
+								 <td  bgcolor="lightblue" >246.89</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>94</td>
+                <td>SONACOMS</td>
+                <td>09-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>666.3</td>
+                <td>668</td>
+				 <td bgcolor="">697.55</td>
+				  <td>661.4</td>
+				   
+				    <td>684</td>
+					 <td>684.95</td>
+					 
+					 <td>813 </td>
+					  <td>586</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				2.8%					  </td>
+					 
+						 
+						 <td>2961288</td>
+						  <td>2,022,443,022.90</td>
+						   <td>72310</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >661.97</td>
+						    <td  bgcolor="lightblue" >654.38</td>
+							 <td  bgcolor="lightblue" >664</td>
+							  <td  bgcolor="lightblue" >614.25</td>
+							   <td  bgcolor="lightblue" >600.65</td>
+							    <td  bgcolor="lightblue" >486.92</td>
+								 <td  bgcolor="lightblue" >243.46</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>93</td>
+                <td>SONACOMS</td>
+                <td>08-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>665.7</td>
+                <td>669</td>
+				 <td bgcolor="">679.75</td>
+				  <td>656.65</td>
+				   
+				    <td>667.8</td>
+					 <td>666.3</td>
+					 
+					 <td>813 </td>
+					  <td>586</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.09%					  </td>
+					 
+						 
+						 <td>1739351</td>
+						  <td>1,162,055,320.00</td>
+						   <td>53117</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >654.66</td>
+						    <td  bgcolor="lightblue" >649.31</td>
+							 <td  bgcolor="lightblue" >661.3</td>
+							  <td  bgcolor="lightblue" >610.63</td>
+							   <td  bgcolor="lightblue" >596.38</td>
+							    <td  bgcolor="lightblue" >480.07</td>
+								 <td  bgcolor="lightblue" >240.04</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>92</td>
+                <td>SONACOMS</td>
+                <td>04-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>643.55</td>
+                <td>650.2</td>
+				 <td bgcolor="">668.75</td>
+				  <td>649.6</td>
+				   
+				    <td>664</td>
+					 <td>665.7</td>
+					 
+					 <td>813 </td>
+					  <td>584</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				3.44%					  </td>
+					 
+						 
+						 <td>1101448</td>
+						  <td>729,726,575.90</td>
+						   <td>38960</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >650.94</td>
+						    <td  bgcolor="lightblue" >642.38</td>
+							 <td  bgcolor="lightblue" >660.63</td>
+							  <td  bgcolor="lightblue" >606.72</td>
+							   <td  bgcolor="lightblue" >592.5</td>
+							    <td  bgcolor="lightblue" >473.41</td>
+								 <td  bgcolor="lightblue" >236.7</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>91</td>
+                <td>SONACOMS</td>
+                <td>03-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>649.35</td>
+                <td>654</td>
+				 <td bgcolor="">655.45</td>
+				  <td>635.65</td>
+				   
+				    <td>643.8</td>
+					 <td>643.55</td>
+					 
+					 <td>813 </td>
+					  <td>573</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.89%					  </td>
+					 
+						 
+						 <td>1127716</td>
+						  <td>728,137,110.40</td>
+						   <td>29841</td>
+						 
+						   
+						   <td >651.48</td>
+						    <td  bgcolor="lightblue" >636.87</td>
+							 <td >656.4</td>
+							  <td  bgcolor="lightblue" >602.92</td>
+							   <td  bgcolor="lightblue" >588.19</td>
+							    <td  bgcolor="lightblue" >466.75</td>
+								 <td  bgcolor="lightblue" >233.38</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>90</td>
+                <td>SONACOMS</td>
+                <td>02-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>648.4</td>
+                <td>653</td>
+				 <td bgcolor="">669.2</td>
+				  <td>648.4</td>
+				   
+				    <td>649.3</td>
+					 <td>649.35</td>
+					 
+					 <td>813 </td>
+					  <td>555</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.15%					  </td>
+					 
+						 
+						 <td>1857969</td>
+						  <td>1,216,465,545.50</td>
+						   <td>44035</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >645.78</td>
+						    <td  bgcolor="lightblue" >634.83</td>
+							 <td >653.48</td>
+							  <td  bgcolor="lightblue" >599.66</td>
+							   <td  bgcolor="lightblue" >584.23</td>
+							    <td  bgcolor="lightblue" >460.32</td>
+								 <td  bgcolor="lightblue" >230.16</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>89</td>
+                <td>SONACOMS</td>
+                <td>01-Nov-2021</td>
+                <td>NSE:EQ</td>
+				<td>647.7</td>
+                <td>653.7</td>
+				 <td bgcolor="">669.8</td>
+				  <td>645.2</td>
+				   
+				    <td>648.9</td>
+					 <td>648.4</td>
+					 
+					 <td>813 </td>
+					  <td>555</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.11%					  </td>
+					 
+						 
+						 <td>1838861</td>
+						  <td>1,203,862,823.25</td>
+						   <td>56157</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >643.77</td>
+						    <td  bgcolor="lightblue" >634.16</td>
+							 <td >649.77</td>
+							  <td  bgcolor="lightblue" >596.56</td>
+							   <td  bgcolor="lightblue" >580.57</td>
+							    <td  bgcolor="lightblue" >453.82</td>
+								 <td  bgcolor="lightblue" >226.91</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>88</td>
+                <td>SONACOMS</td>
+                <td>29-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>668.4</td>
+                <td>664</td>
+				 <td bgcolor="">678.1</td>
+				  <td>637.2</td>
+				   
+				    <td>645.15</td>
+					 <td>647.7</td>
+					 
+					 <td>813 </td>
+					  <td>549.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-3.1%					  </td>
+					 
+						 
+						 <td>2563167</td>
+						  <td>1,681,331,979.85</td>
+						   <td>82894</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >634.89</td>
+						    <td  bgcolor="lightblue" >639.63</td>
+							 <td  bgcolor="lightblue" >645.48</td>
+							  <td  bgcolor="lightblue" >592.6</td>
+							   <td  bgcolor="lightblue" >577.07</td>
+							    <td  bgcolor="lightblue" >447.34</td>
+								 <td  bgcolor="lightblue" >223.67</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>87</td>
+                <td>SONACOMS</td>
+                <td>28-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>615.05</td>
+                <td>618</td>
+				 <td bgcolor="">705.4</td>
+				  <td>618</td>
+				   
+				    <td>665</td>
+					 <td>668.4</td>
+					 
+					 <td>813 </td>
+					  <td>549.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				8.67%					  </td>
+					 
+						 
+						 <td>7525179</td>
+						  <td>5,110,866,771.00</td>
+						   <td>139740</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >628.57</td>
+						    <td  bgcolor="lightblue" >652.73</td>
+							 <td  bgcolor="lightblue" >640.89</td>
+							  <td  bgcolor="lightblue" >588.59</td>
+							   <td  bgcolor="lightblue" >574.05</td>
+							    <td  bgcolor="lightblue" >440.86</td>
+								 <td  bgcolor="lightblue" >220.43</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>86</td>
+                <td>SONACOMS</td>
+                <td>27-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>639.3</td>
+                <td>643</td>
+				 <td bgcolor="">647.9</td>
+				  <td>612</td>
+				   
+				    <td>617</td>
+					 <td>615.05</td>
+					 
+					 <td>813 </td>
+					  <td>549.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-3.79%					  </td>
+					 
+						 
+						 <td>1718860</td>
+						  <td>1,078,284,735.05</td>
+						   <td>58022</td>
+						 
+						   
+						   <td >619.92</td>
+						    <td >662.37</td>
+							 <td >635.63</td>
+							  <td  bgcolor="lightblue" >584.14</td>
+							   <td  bgcolor="lightblue" >571</td>
+							    <td  bgcolor="lightblue" >434.18</td>
+								 <td  bgcolor="lightblue" >217.09</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>85</td>
+                <td>SONACOMS</td>
+                <td>26-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>604</td>
+                <td>608</td>
+				 <td bgcolor="">654.05</td>
+				  <td>608</td>
+				   
+				    <td>639.95</td>
+					 <td>639.3</td>
+					 
+					 <td>813 </td>
+					  <td>549.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				5.84%					  </td>
+					 
+						 
+						 <td>3210594</td>
+						  <td>2,036,779,283.10</td>
+						   <td>80752</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >625.58</td>
+						    <td >676.41</td>
+							 <td  bgcolor="lightblue" >632.69</td>
+							  <td  bgcolor="lightblue" >580.39</td>
+							   <td  bgcolor="lightblue" >568.74</td>
+							    <td  bgcolor="lightblue" >428.03</td>
+								 <td  bgcolor="lightblue" >214.01</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>84</td>
+                <td>SONACOMS</td>
+                <td>25-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>616.1</td>
+                <td>618</td>
+				 <td bgcolor="">626.9</td>
+				  <td>586</td>
+				   
+				    <td>603.5</td>
+					 <td>604</td>
+					 
+					 <td>813 </td>
+					  <td>548</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.96%					  </td>
+					 
+						 
+						 <td>1874816</td>
+						  <td>1,138,937,877.45</td>
+						   <td>51191</td>
+						 
+						   
+						   <td >637.24</td>
+						    <td >677.71</td>
+							 <td >628.75</td>
+							  <td  bgcolor="lightblue" >575.98</td>
+							   <td  bgcolor="lightblue" >565.78</td>
+							    <td  bgcolor="lightblue" >421.64</td>
+								 <td  bgcolor="lightblue" >210.82</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>83</td>
+                <td>SONACOMS</td>
+                <td>22-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>625.15</td>
+                <td>629.75</td>
+				 <td bgcolor="">666.45</td>
+				  <td>611.25</td>
+				   
+				    <td>613.4</td>
+					 <td>616.1</td>
+					 
+					 <td>813 </td>
+					  <td>548</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.45%					  </td>
+					 
+						 
+						 <td>2566541</td>
+						  <td>1,631,361,463.95</td>
+						   <td>68549</td>
+						 
+						   
+						   <td >669.57</td>
+						    <td >683.02</td>
+							 <td >626.45</td>
+							  <td  bgcolor="lightblue" >572.85</td>
+							   <td  bgcolor="lightblue" >563.68</td>
+							    <td  bgcolor="lightblue" >415.6</td>
+								 <td  bgcolor="lightblue" >207.8</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>82</td>
+                <td>SONACOMS</td>
+                <td>21-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>643.35</td>
+                <td>643.2</td>
+				 <td bgcolor="">653.4</td>
+				  <td>601</td>
+				   
+				    <td>622.9</td>
+					 <td>625.15</td>
+					 
+					 <td>813 </td>
+					  <td>548</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-2.83%					  </td>
+					 
+						 
+						 <td>2746143</td>
+						  <td>1,718,307,944.10</td>
+						   <td>84432</td>
+						 
+						   
+						   <td >697.38</td>
+						    <td >684.67</td>
+							 <td  bgcolor="lightblue" >624.39</td>
+							  <td  bgcolor="lightblue" >569.62</td>
+							   <td  bgcolor="lightblue" >561.14</td>
+							    <td  bgcolor="lightblue" >409.43</td>
+								 <td  bgcolor="lightblue" >204.72</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>81</td>
+                <td>SONACOMS</td>
+                <td>20-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>697.6</td>
+                <td>691.9</td>
+				 <td bgcolor="">694</td>
+				  <td>630</td>
+				   
+				    <td>642.05</td>
+					 <td>643.35</td>
+					 
+					 <td>813 </td>
+					  <td>548</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-7.78%					  </td>
+					 
+						 
+						 <td>4178371</td>
+						  <td>2,713,797,482.30</td>
+						   <td>156836</td>
+						 
+						   
+						   <td >720.63</td>
+						    <td >687.76</td>
+							 <td  bgcolor="lightblue" >621.87</td>
+							  <td  bgcolor="lightblue" >566.69</td>
+							   <td  bgcolor="lightblue" >558.19</td>
+							    <td  bgcolor="lightblue" >403.18</td>
+								 <td  bgcolor="lightblue" >201.59</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>80</td>
+                <td>SONACOMS</td>
+                <td>19-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>765.65</td>
+                <td>771.4</td>
+				 <td bgcolor="">773.3</td>
+				  <td>674</td>
+				   
+				    <td>696.25</td>
+					 <td>697.6</td>
+					 
+					 <td>813 </td>
+					  <td>547.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-8.89%					  </td>
+					 
+						 
+						 <td>1716466</td>
+						  <td>1,261,455,553.40</td>
+						   <td>65263</td>
+						 
+						   
+						   <td >722.16</td>
+						    <td  bgcolor="lightblue" >680.84</td>
+							 <td  bgcolor="lightblue" >617.84</td>
+							  <td  bgcolor="lightblue" >563.8</td>
+							   <td  bgcolor="lightblue" >553.56</td>
+							    <td  bgcolor="lightblue" >396.75</td>
+								 <td  bgcolor="lightblue" >198.37</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>79</td>
+                <td>SONACOMS</td>
+                <td>18-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>755.15</td>
+                <td>762</td>
+				 <td bgcolor="">805.95</td>
+				  <td>755</td>
+				   
+				    <td>766</td>
+					 <td>765.65</td>
+					 
+					 <td>813 </td>
+					  <td>547.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.39%					  </td>
+					 
+						 
+						 <td>2396092</td>
+						  <td>1,862,456,723.90</td>
+						   <td>70394</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >713</td>
+						    <td  bgcolor="lightblue" >668.36</td>
+							 <td  bgcolor="lightblue" >611.27</td>
+							  <td  bgcolor="lightblue" >559.35</td>
+							   <td  bgcolor="lightblue" >547.79</td>
+							    <td  bgcolor="lightblue" >389.77</td>
+								 <td  bgcolor="lightblue" >194.89</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>78</td>
+                <td>SONACOMS</td>
+                <td>14-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>741.4</td>
+                <td>747.7</td>
+				 <td bgcolor="lightblue">813</td>
+				  <td>718.35</td>
+				   
+				    <td>758.5</td>
+					 <td>755.15</td>
+					 
+					 <td>749 </td>
+					  <td>547.15</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.85%					  </td>
+					 
+						 
+						 <td>5972558</td>
+						  <td>4,617,461,739.05</td>
+						   <td>164522</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >686.06</td>
+						    <td  bgcolor="lightblue" >647.19</td>
+							 <td  bgcolor="lightblue" >601.5</td>
+							  <td  bgcolor="lightblue" >553.11</td>
+							   <td  bgcolor="lightblue" >540.92</td>
+							    <td  bgcolor="lightblue" >382.12</td>
+								 <td  bgcolor="lightblue" >191.06</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>77</td>
+                <td>SONACOMS</td>
+                <td>13-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>651</td>
+                <td>670</td>
+				 <td bgcolor="lightblue">749</td>
+				  <td>670</td>
+				   
+				    <td>740</td>
+					 <td>741.4</td>
+					 
+					 <td>689 </td>
+					  <td>547.15</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				13.89%					  </td>
+					 
+						 
+						 <td>7037231</td>
+						  <td>5,095,495,545.70</td>
+						   <td>137115</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >665.62</td>
+						    <td  bgcolor="lightblue" >625.79</td>
+							 <td  bgcolor="lightblue" >593.01</td>
+							  <td  bgcolor="lightblue" >547.29</td>
+							   <td  bgcolor="lightblue" >534.54</td>
+							    <td  bgcolor="lightblue" >374.57</td>
+								 <td  bgcolor="lightblue" >187.28</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>76</td>
+                <td>SONACOMS</td>
+                <td>12-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>651.8</td>
+                <td>651</td>
+				 <td bgcolor="">660</td>
+				  <td>635</td>
+				   
+				    <td>655</td>
+					 <td>651</td>
+					 
+					 <td>689 </td>
+					  <td>547.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.12%					  </td>
+					 
+						 
+						 <td>1197495</td>
+						  <td>772,230,609.75</td>
+						   <td>33727</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >633.55</td>
+						    <td  bgcolor="lightblue" >605.18</td>
+							 <td  bgcolor="lightblue" >585.07</td>
+							  <td  bgcolor="lightblue" >541.56</td>
+							   <td  bgcolor="lightblue" >528.49</td>
+							    <td  bgcolor="lightblue" >367.15</td>
+								 <td  bgcolor="lightblue" >183.58</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>75</td>
+                <td>SONACOMS</td>
+                <td>11-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>630.95</td>
+                <td>632.8</td>
+				 <td bgcolor="">665.95</td>
+				  <td>628.4</td>
+				   
+				    <td>651</td>
+					 <td>651.8</td>
+					 
+					 <td>689 </td>
+					  <td>547.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				3.3%					  </td>
+					 
+						 
+						 <td>1912860</td>
+						  <td>1,244,895,358.95</td>
+						   <td>44045</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >620.4</td>
+						    <td  bgcolor="lightblue" >595.43</td>
+							 <td  bgcolor="lightblue" >581.12</td>
+							  <td  bgcolor="lightblue" >537.62</td>
+							   <td  bgcolor="lightblue" >524.26</td>
+							    <td  bgcolor="lightblue" >360.64</td>
+								 <td  bgcolor="lightblue" >180.32</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>74</td>
+                <td>SONACOMS</td>
+                <td>08-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>652.95</td>
+                <td>657.6</td>
+				 <td bgcolor="">660</td>
+				  <td>627.05</td>
+				   
+				    <td>629.85</td>
+					 <td>630.95</td>
+					 
+					 <td>689 </td>
+					  <td>546</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-3.37%					  </td>
+					 
+						 
+						 <td>2400741</td>
+						  <td>1,533,408,524.70</td>
+						   <td>80840</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >605.08</td>
+						    <td  bgcolor="lightblue" >584.81</td>
+							 <td  bgcolor="lightblue" >577.7</td>
+							  <td  bgcolor="lightblue" >532.16</td>
+							   <td  bgcolor="lightblue" >519.93</td>
+							    <td  bgcolor="lightblue" >354.12</td>
+								 <td  bgcolor="lightblue" >177.06</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>73</td>
+                <td>SONACOMS</td>
+                <td>07-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>581.05</td>
+                <td>585</td>
+				 <td bgcolor="lightblue">689</td>
+				  <td>584</td>
+				   
+				    <td>653</td>
+					 <td>652.95</td>
+					 
+					 <td>610 </td>
+					  <td>545.2</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				12.37%					  </td>
+					 
+						 
+						 <td>8928123</td>
+						  <td>5,727,283,167.00</td>
+						   <td>173079</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >591.4</td>
+						    <td  bgcolor="lightblue" >576.98</td>
+							 <td  bgcolor="lightblue" >573.68</td>
+							  <td  bgcolor="lightblue" >527.13</td>
+							   <td  bgcolor="lightblue" >515.69</td>
+							    <td  bgcolor="lightblue" >347.81</td>
+								 <td  bgcolor="lightblue" >173.91</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>72</td>
+                <td>SONACOMS</td>
+                <td>06-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>585.25</td>
+                <td>588</td>
+				 <td bgcolor="">591.5</td>
+				  <td>573</td>
+				   
+				    <td>580</td>
+					 <td>581.05</td>
+					 
+					 <td>610 </td>
+					  <td>526.1</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.72%					  </td>
+					 
+						 
+						 <td>1145894</td>
+						  <td>666,214,288.80</td>
+						   <td>25198</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >571.98</td>
+						    <td  bgcolor="lightblue" >566.43</td>
+							 <td  bgcolor="lightblue" >568.27</td>
+							  <td  bgcolor="lightblue" >521.88</td>
+							   <td  bgcolor="lightblue" >510.56</td>
+							    <td  bgcolor="lightblue" >341.28</td>
+								 <td  bgcolor="lightblue" >170.64</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>71</td>
+                <td>SONACOMS</td>
+                <td>05-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>575.2</td>
+                <td>575.6</td>
+				 <td bgcolor="">589.85</td>
+				  <td>555</td>
+				   
+				    <td>585</td>
+					 <td>585.25</td>
+					 
+					 <td>610 </td>
+					  <td>526.1</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.75%					  </td>
+					 
+						 
+						 <td>2312586</td>
+						  <td>1,341,123,778.30</td>
+						   <td>42557</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >568.42</td>
+						    <td  bgcolor="lightblue" >565.74</td>
+							 <td  bgcolor="lightblue" >566.66</td>
+							  <td  bgcolor="lightblue" >518.58</td>
+							   <td  bgcolor="lightblue" >507.05</td>
+							    <td  bgcolor="lightblue" >335.47</td>
+								 <td  bgcolor="lightblue" >167.74</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>70</td>
+                <td>SONACOMS</td>
+                <td>04-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>562.55</td>
+                <td>564.1</td>
+				 <td bgcolor="">581.8</td>
+				  <td>564.05</td>
+				   
+				    <td>574.3</td>
+					 <td>575.2</td>
+					 
+					 <td>610 </td>
+					  <td>526.1</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				2.25%					  </td>
+					 
+						 
+						 <td>1332619</td>
+						  <td>765,839,071.35</td>
+						   <td>33117</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >562.62</td>
+						    <td  bgcolor="lightblue" >564.58</td>
+							 <td  bgcolor="lightblue" >564.84</td>
+							  <td  bgcolor="lightblue" >515.27</td>
+							   <td  bgcolor="lightblue" >503.81</td>
+							    <td  bgcolor="lightblue" >329.62</td>
+								 <td  bgcolor="lightblue" >164.81</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>69</td>
+                <td>SONACOMS</td>
+                <td>01-Oct-2021</td>
+                <td>NSE:EQ</td>
+				<td>555.85</td>
+                <td>551</td>
+				 <td bgcolor="">571.85</td>
+				  <td>549.2</td>
+				   
+				    <td>560.65</td>
+					 <td>562.55</td>
+					 
+					 <td>610 </td>
+					  <td>491</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.21%					  </td>
+					 
+						 
+						 <td>1605653</td>
+						  <td>902,953,938.05</td>
+						   <td>40577</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >559.68</td>
+						    <td >563.21</td>
+							 <td  bgcolor="lightblue" >562.36</td>
+							  <td  bgcolor="lightblue" >512.18</td>
+							   <td  bgcolor="lightblue" >501.12</td>
+							    <td  bgcolor="lightblue" >323.87</td>
+								 <td  bgcolor="lightblue" >161.93</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>68</td>
+                <td>SONACOMS</td>
+                <td>30-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>563.25</td>
+                <td>565.4</td>
+				 <td bgcolor="">566.8</td>
+				  <td>554.9</td>
+				   
+				    <td>556.3</td>
+					 <td>555.85</td>
+					 
+					 <td>610 </td>
+					  <td>491</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.31%					  </td>
+					 
+						 
+						 <td>628272</td>
+						  <td>351,496,965.90</td>
+						   <td>23127</td>
+						 
+						   
+						   <td >558.77</td>
+						    <td >563.6</td>
+							 <td >558.96</td>
+							  <td  bgcolor="lightblue" >509.29</td>
+							   <td  bgcolor="lightblue" >498.66</td>
+							    <td  bgcolor="lightblue" >318.24</td>
+								 <td  bgcolor="lightblue" >159.12</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>67</td>
+                <td>SONACOMS</td>
+                <td>29-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>556.25</td>
+                <td>553</td>
+				 <td bgcolor="">573.8</td>
+				  <td>551</td>
+				   
+				    <td>563</td>
+					 <td>563.25</td>
+					 
+					 <td>610 </td>
+					  <td>491</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.26%					  </td>
+					 
+						 
+						 <td>1092189</td>
+						  <td>615,843,011.30</td>
+						   <td>27899</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >562.57</td>
+						    <td >565.22</td>
+							 <td  bgcolor="lightblue" >556.09</td>
+							  <td  bgcolor="lightblue" >506.17</td>
+							   <td  bgcolor="lightblue" >495.42</td>
+							    <td  bgcolor="lightblue" >312.69</td>
+								 <td  bgcolor="lightblue" >156.34</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>66</td>
+                <td>SONACOMS</td>
+                <td>28-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>560.5</td>
+                <td>563</td>
+				 <td bgcolor="">564.4</td>
+				  <td>552.7</td>
+				   
+				    <td>556</td>
+					 <td>556.25</td>
+					 
+					 <td>610 </td>
+					  <td>491</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.76%					  </td>
+					 
+						 
+						 <td>1117400</td>
+						  <td>623,034,002.95</td>
+						   <td>26159</td>
+						 
+						   
+						   <td >564.88</td>
+						    <td >567.67</td>
+							 <td  bgcolor="lightblue" >552.94</td>
+							  <td  bgcolor="lightblue" >502.38</td>
+							   <td  bgcolor="lightblue" >492.19</td>
+							    <td  bgcolor="lightblue" >307.05</td>
+								 <td  bgcolor="lightblue" >153.53</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>65</td>
+                <td>SONACOMS</td>
+                <td>27-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>558</td>
+                <td>563.9</td>
+				 <td bgcolor="">566.8</td>
+				  <td>548</td>
+				   
+				    <td>560.5</td>
+					 <td>560.5</td>
+					 
+					 <td>610 </td>
+					  <td>483</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.45%					  </td>
+					 
+						 
+						 <td>1602071</td>
+						  <td>893,636,916.10</td>
+						   <td>72689</td>
+						 
+						   
+						   <td >566.19</td>
+						    <td >570.58</td>
+							 <td  bgcolor="lightblue" >550.76</td>
+							  <td  bgcolor="lightblue" >498.96</td>
+							   <td  bgcolor="lightblue" >488.96</td>
+							    <td  bgcolor="lightblue" >301.49</td>
+								 <td  bgcolor="lightblue" >150.75</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>64</td>
+                <td>SONACOMS</td>
+                <td>24-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>574.85</td>
+                <td>576.8</td>
+				 <td bgcolor="">578.75</td>
+				  <td>555.05</td>
+				   
+				    <td>560</td>
+					 <td>558</td>
+					 
+					 <td>610 </td>
+					  <td>467.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-2.93%					  </td>
+					 
+						 
+						 <td>1243064</td>
+						  <td>701,786,142.30</td>
+						   <td>41548</td>
+						 
+						   
+						   <td >567.31</td>
+						    <td >571.86</td>
+							 <td  bgcolor="lightblue" >546.44</td>
+							  <td  bgcolor="lightblue" >495.84</td>
+							   <td  bgcolor="lightblue" >485.78</td>
+							    <td  bgcolor="lightblue" >295.89</td>
+								 <td  bgcolor="lightblue" >147.94</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>63</td>
+                <td>SONACOMS</td>
+                <td>23-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>574.8</td>
+                <td>580.45</td>
+				 <td bgcolor="">587.75</td>
+				  <td>572.1</td>
+				   
+				    <td>572.95</td>
+					 <td>574.85</td>
+					 
+					 <td>610 </td>
+					  <td>466.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.01%					  </td>
+					 
+						 
+						 <td>1348917</td>
+						  <td>782,150,790.30</td>
+						   <td>36968</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >569.79</td>
+						    <td  bgcolor="lightblue" >574.69</td>
+							 <td  bgcolor="lightblue" >542.12</td>
+							  <td  bgcolor="lightblue" >493.17</td>
+							   <td  bgcolor="lightblue" >482.66</td>
+							    <td  bgcolor="lightblue" >290.31</td>
+								 <td  bgcolor="lightblue" >145.15</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>62</td>
+                <td>SONACOMS</td>
+                <td>22-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>562.8</td>
+                <td>565.6</td>
+				 <td bgcolor="">584</td>
+				  <td>561.05</td>
+				   
+				    <td>575</td>
+					 <td>574.8</td>
+					 
+					 <td>610 </td>
+					  <td>455.25</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				2.13%					  </td>
+					 
+						 
+						 <td>1786786</td>
+						  <td>1,029,701,357.25</td>
+						   <td>40526</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >571.89</td>
+						    <td  bgcolor="lightblue" >571.98</td>
+							 <td  bgcolor="lightblue" >537</td>
+							  <td  bgcolor="lightblue" >490.1</td>
+							   <td  bgcolor="lightblue" >479.35</td>
+							    <td  bgcolor="lightblue" >284.56</td>
+								 <td  bgcolor="lightblue" >142.28</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>61</td>
+                <td>SONACOMS</td>
+                <td>21-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>566.1</td>
+                <td>569.8</td>
+				 <td bgcolor="">572.7</td>
+				  <td>547.15</td>
+				   
+				    <td>563.9</td>
+					 <td>562.8</td>
+					 
+					 <td>610 </td>
+					  <td>440.2</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.58%					  </td>
+					 
+						 
+						 <td>2457993</td>
+						  <td>1,373,227,301.20</td>
+						   <td>59105</td>
+						 
+						   
+						   <td >573.42</td>
+						    <td >568.66</td>
+							 <td  bgcolor="lightblue" >530.76</td>
+							  <td  bgcolor="lightblue" >485.99</td>
+							   <td  bgcolor="lightblue" >476.3</td>
+							    <td  bgcolor="lightblue" >278.81</td>
+								 <td  bgcolor="lightblue" >139.4</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>60</td>
+                <td>SONACOMS</td>
+                <td>20-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>570.4</td>
+                <td>564</td>
+				 <td bgcolor="">580</td>
+				  <td>556.1</td>
+				   
+				    <td>572</td>
+					 <td>566.1</td>
+					 
+					 <td>610 </td>
+					  <td>438.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.75%					  </td>
+					 
+						 
+						 <td>1784926</td>
+						  <td>1,013,526,224.95</td>
+						   <td>42265</td>
+						 
+						   
+						   <td >575.26</td>
+						    <td >567.11</td>
+							 <td  bgcolor="lightblue" >524.88</td>
+							  <td  bgcolor="lightblue" >482.32</td>
+							   <td  bgcolor="lightblue" >473.09</td>
+							    <td  bgcolor="lightblue" >273.18</td>
+								 <td  bgcolor="lightblue" >136.59</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>59</td>
+                <td>SONACOMS</td>
+                <td>17-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>585.35</td>
+                <td>589</td>
+				 <td bgcolor="">592.25</td>
+				  <td>560.25</td>
+				   
+				    <td>570</td>
+					 <td>570.4</td>
+					 
+					 <td>610 </td>
+					  <td>438.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-2.55%					  </td>
+					 
+						 
+						 <td>2113066</td>
+						  <td>1,213,218,966.35</td>
+						   <td>60832</td>
+						 
+						   
+						   <td >578.73</td>
+						    <td  bgcolor="lightblue" >565.18</td>
+							 <td  bgcolor="lightblue" >519.9</td>
+							  <td  bgcolor="lightblue" >478.43</td>
+							   <td  bgcolor="lightblue" >469.87</td>
+							    <td  bgcolor="lightblue" >267.52</td>
+								 <td  bgcolor="lightblue" >133.76</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>58</td>
+                <td>SONACOMS</td>
+                <td>16-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>582.45</td>
+                <td>584.15</td>
+				 <td bgcolor="lightblue">610</td>
+				  <td>582.55</td>
+				   
+				    <td>587.95</td>
+					 <td>585.35</td>
+					 
+					 <td>596.8 </td>
+					  <td>438.15</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.5%					  </td>
+					 
+						 
+						 <td>4361456</td>
+						  <td>2,604,242,329.45</td>
+						   <td>98067</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >574.75</td>
+						    <td  bgcolor="lightblue" >560.22</td>
+							 <td  bgcolor="lightblue" >515.06</td>
+							  <td  bgcolor="lightblue" >474.59</td>
+							   <td  bgcolor="lightblue" >466.23</td>
+							    <td  bgcolor="lightblue" >261.82</td>
+								 <td  bgcolor="lightblue" >130.91</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>57</td>
+                <td>SONACOMS</td>
+                <td>15-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>572</td>
+                <td>575.4</td>
+				 <td bgcolor="">589.3</td>
+				  <td>567.2</td>
+				   
+				    <td>580.9</td>
+					 <td>582.45</td>
+					 
+					 <td>596.8 </td>
+					  <td>438.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.83%					  </td>
+					 
+						 
+						 <td>3207889</td>
+						  <td>1,854,124,343.75</td>
+						   <td>83841</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >566.65</td>
+						    <td  bgcolor="lightblue" >550.13</td>
+							 <td  bgcolor="lightblue" >510.61</td>
+							  <td  bgcolor="lightblue" >470.43</td>
+							   <td  bgcolor="lightblue" >462.18</td>
+							    <td  bgcolor="lightblue" >255.96</td>
+								 <td  bgcolor="lightblue" >127.98</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>56</td>
+                <td>SONACOMS</td>
+                <td>14-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>583.45</td>
+                <td>587.45</td>
+				 <td bgcolor="lightblue">596.8</td>
+				  <td>567.2</td>
+				   
+				    <td>572</td>
+					 <td>572</td>
+					 
+					 <td>589.3 </td>
+					  <td>438.15</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.96%					  </td>
+					 
+						 
+						 <td>3046264</td>
+						  <td>1,769,202,175.85</td>
+						   <td>78254</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >559.94</td>
+						    <td  bgcolor="lightblue" >540.79</td>
+							 <td  bgcolor="lightblue" >507.3</td>
+							  <td  bgcolor="lightblue" >466.49</td>
+							   <td  bgcolor="lightblue" >458.08</td>
+							    <td  bgcolor="lightblue" >250.14</td>
+								 <td  bgcolor="lightblue" >125.07</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>55</td>
+                <td>SONACOMS</td>
+                <td>13-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>550.5</td>
+                <td>553</td>
+				 <td bgcolor="lightblue">589.3</td>
+				  <td>546</td>
+				   
+				    <td>582.6</td>
+					 <td>583.45</td>
+					 
+					 <td>571 </td>
+					  <td>438.15</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				5.99%					  </td>
+					 
+						 
+						 <td>5695633</td>
+						  <td>3,256,542,292.20</td>
+						   <td>104010</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >555.29</td>
+						    <td  bgcolor="lightblue" >532.81</td>
+							 <td  bgcolor="lightblue" >503.79</td>
+							  <td  bgcolor="lightblue" >463.08</td>
+							   <td  bgcolor="lightblue" >453.54</td>
+							    <td  bgcolor="lightblue" >244.42</td>
+								 <td  bgcolor="lightblue" >122.21</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>54</td>
+                <td>SONACOMS</td>
+                <td>09-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>544.85</td>
+                <td>545.5</td>
+				 <td bgcolor="lightblue">571</td>
+				  <td>545.2</td>
+				   
+				    <td>550</td>
+					 <td>550.5</td>
+					 
+					 <td>561.9 </td>
+					  <td>438.15</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.04%					  </td>
+					 
+						 
+						 <td>4521235</td>
+						  <td>2,526,332,448.35</td>
+						   <td>88130</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >543.74</td>
+						    <td  bgcolor="lightblue" >524.94</td>
+							 <td  bgcolor="lightblue" >499.18</td>
+							  <td  bgcolor="lightblue" >458.97</td>
+							   <td  bgcolor="lightblue" >448.72</td>
+							    <td  bgcolor="lightblue" >238.58</td>
+								 <td  bgcolor="lightblue" >119.29</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>53</td>
+                <td>SONACOMS</td>
+                <td>08-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>548.9</td>
+                <td>551.9</td>
+				 <td bgcolor="">551.9</td>
+				  <td>526.1</td>
+				   
+				    <td>545.65</td>
+					 <td>544.85</td>
+					 
+					 <td>561.9 </td>
+					  <td>438.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.74%					  </td>
+					 
+						 
+						 <td>3217349</td>
+						  <td>1,735,544,720.30</td>
+						   <td>71027</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >532.55</td>
+						    <td  bgcolor="lightblue" >516.46</td>
+							 <td  bgcolor="lightblue" >496.6</td>
+							  <td  bgcolor="lightblue" >455.67</td>
+							   <td  bgcolor="lightblue" >444.69</td>
+							    <td  bgcolor="lightblue" >233.08</td>
+								 <td  bgcolor="lightblue" >116.54</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>52</td>
+                <td>SONACOMS</td>
+                <td>07-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>548.75</td>
+                <td>550.45</td>
+				 <td bgcolor="">560.9</td>
+				  <td>540.6</td>
+				   
+				    <td>547</td>
+					 <td>548.9</td>
+					 
+					 <td>561.9 </td>
+					  <td>438.15</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.03%					  </td>
+					 
+						 
+						 <td>3524987</td>
+						  <td>1,942,424,138.55</td>
+						   <td>73062</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >523.27</td>
+						    <td  bgcolor="lightblue" >508.31</td>
+							 <td  bgcolor="lightblue" >493.83</td>
+							  <td  bgcolor="lightblue" >452.11</td>
+							   <td  bgcolor="lightblue" >440.74</td>
+							    <td  bgcolor="lightblue" >227.63</td>
+								 <td  bgcolor="lightblue" >113.81</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>51</td>
+                <td>SONACOMS</td>
+                <td>06-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>525.7</td>
+                <td>532.4</td>
+				 <td bgcolor="lightblue">561.9</td>
+				  <td>527.3</td>
+				   
+				    <td>547</td>
+					 <td>548.75</td>
+					 
+					 <td>559.4 </td>
+					  <td>427.25</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				4.38%					  </td>
+					 
+						 
+						 <td>5941536</td>
+						  <td>3,242,151,284.95</td>
+						   <td>116945</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >513.51</td>
+						    <td  bgcolor="lightblue" >499.81</td>
+							 <td  bgcolor="lightblue" >490.27</td>
+							  <td  bgcolor="lightblue" >448.34</td>
+							   <td  bgcolor="lightblue" >437.06</td>
+							    <td  bgcolor="lightblue" >222.14</td>
+								 <td  bgcolor="lightblue" >111.07</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>50</td>
+                <td>SONACOMS</td>
+                <td>03-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>494.55</td>
+                <td>496</td>
+				 <td bgcolor="">538.8</td>
+				  <td>491</td>
+				   
+				    <td>526.5</td>
+					 <td>525.7</td>
+					 
+					 <td>559.4 </td>
+					  <td>408</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				6.3%					  </td>
+					 
+						 
+						 <td>8377452</td>
+						  <td>4,384,490,281.05</td>
+						   <td>151847</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >506.29</td>
+						    <td  bgcolor="lightblue" >488.86</td>
+							 <td  bgcolor="lightblue" >483.41</td>
+							  <td  bgcolor="lightblue" >444.44</td>
+							   <td  bgcolor="lightblue" >433.31</td>
+							    <td  bgcolor="lightblue" >216.65</td>
+								 <td  bgcolor="lightblue" >108.33</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>49</td>
+                <td>SONACOMS</td>
+                <td>02-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>498.45</td>
+                <td>498.5</td>
+				 <td bgcolor="">511</td>
+				  <td>493</td>
+				   
+				    <td>494</td>
+					 <td>494.55</td>
+					 
+					 <td>559.4 </td>
+					  <td>408</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.78%					  </td>
+					 
+						 
+						 <td>1525755</td>
+						  <td>763,829,529.95</td>
+						   <td>48127</td>
+						 
+						   
+						   <td >495.99</td>
+						    <td  bgcolor="lightblue" >479.91</td>
+							 <td  bgcolor="lightblue" >477.6</td>
+							  <td  bgcolor="lightblue" >440.34</td>
+							   <td  bgcolor="lightblue" >422.79</td>
+							    <td  bgcolor="lightblue" >211.4</td>
+								 <td  bgcolor="lightblue" >105.7</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>48</td>
+                <td>SONACOMS</td>
+                <td>01-Sep-2021</td>
+                <td>NSE:EQ</td>
+				<td>500.1</td>
+                <td>500.1</td>
+				 <td bgcolor="">513.1</td>
+				  <td>496</td>
+				   
+				    <td>498</td>
+					 <td>498.45</td>
+					 
+					 <td>559.4 </td>
+					  <td>408</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.33%					  </td>
+					 
+						 
+						 <td>1701574</td>
+						  <td>855,396,949.20</td>
+						   <td>35778</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >491.38</td>
+						    <td  bgcolor="lightblue" >476.78</td>
+							 <td  bgcolor="lightblue" >473.97</td>
+							  <td  bgcolor="lightblue" >436.88</td>
+							   <td  bgcolor="lightblue" >412.9</td>
+							    <td  bgcolor="lightblue" >206.45</td>
+								 <td  bgcolor="lightblue" >103.23</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>47</td>
+                <td>SONACOMS</td>
+                <td>31-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>512.65</td>
+                <td>510</td>
+				 <td bgcolor="">518.8</td>
+				  <td>496.4</td>
+				   
+				    <td>499.5</td>
+					 <td>500.1</td>
+					 
+					 <td>559.4 </td>
+					  <td>408</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-2.45%					  </td>
+					 
+						 
+						 <td>2502460</td>
+						  <td>1,272,178,443.40</td>
+						   <td>55378</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >486.17</td>
+						    <td  bgcolor="lightblue" >474.03</td>
+							 <td  bgcolor="lightblue" >470.85</td>
+							  <td  bgcolor="lightblue" >433.48</td>
+							   <td  bgcolor="lightblue" >402.93</td>
+							    <td  bgcolor="lightblue" >201.47</td>
+								 <td  bgcolor="lightblue" >100.73</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>46</td>
+                <td>SONACOMS</td>
+                <td>30-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>474.2</td>
+                <td>483</td>
+				 <td bgcolor="">521.7</td>
+				  <td>483</td>
+				   
+				    <td>514.5</td>
+					 <td>512.65</td>
+					 
+					 <td>559.4 </td>
+					  <td>408</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				8.11%					  </td>
+					 
+						 
+						 <td>5769574</td>
+						  <td>2,920,563,517.25</td>
+						   <td>121288</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >476.18</td>
+						    <td  bgcolor="lightblue" >473.62</td>
+							 <td  bgcolor="lightblue" >467.81</td>
+							  <td  bgcolor="lightblue" >430.01</td>
+							   <td  bgcolor="lightblue" >392.93</td>
+							    <td  bgcolor="lightblue" >196.47</td>
+								 <td  bgcolor="lightblue" >98.23</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>45</td>
+                <td>SONACOMS</td>
+                <td>27-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>471.5</td>
+                <td>471</td>
+				 <td bgcolor="">478.9</td>
+				  <td>467.2</td>
+				   
+				    <td>475.2</td>
+					 <td>474.2</td>
+					 
+					 <td>559.4 </td>
+					  <td>408</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.57%					  </td>
+					 
+						 
+						 <td>1346020</td>
+						  <td>636,128,870.15</td>
+						   <td>29591</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >462.69</td>
+						    <td  bgcolor="lightblue" >474.02</td>
+							 <td  bgcolor="lightblue" >464.14</td>
+							  <td  bgcolor="lightblue" >426.65</td>
+							   <td  bgcolor="lightblue" >382.68</td>
+							    <td  bgcolor="lightblue" >191.34</td>
+								 <td  bgcolor="lightblue" >95.67</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>44</td>
+                <td>SONACOMS</td>
+                <td>26-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>472.4</td>
+                <td>475</td>
+				 <td bgcolor="">484</td>
+				  <td>466.15</td>
+				   
+				    <td>470.3</td>
+					 <td>471.5</td>
+					 
+					 <td>559.4 </td>
+					  <td>408</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.19%					  </td>
+					 
+						 
+						 <td>2658679</td>
+						  <td>1,260,122,024.70</td>
+						   <td>57216</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >461.12</td>
+						    <td >477.08</td>
+							 <td  bgcolor="lightblue" >462.19</td>
+							  <td  bgcolor="lightblue" >424.08</td>
+							   <td  bgcolor="lightblue" >373.19</td>
+							    <td  bgcolor="lightblue" >186.6</td>
+								 <td  bgcolor="lightblue" >93.3</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>43</td>
+                <td>SONACOMS</td>
+                <td>25-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>450.15</td>
+                <td>457</td>
+				 <td bgcolor="">491.15</td>
+				  <td>455.25</td>
+				   
+				    <td>475.5</td>
+					 <td>472.4</td>
+					 
+					 <td>559.4 </td>
+					  <td>395.5</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				4.94%					  </td>
+					 
+						 
+						 <td>4691070</td>
+						  <td>2,231,425,447.30</td>
+						   <td>105706</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >461.57</td>
+						    <td >479.28</td>
+							 <td  bgcolor="lightblue" >459.56</td>
+							  <td  bgcolor="lightblue" >413.37</td>
+							   <td  bgcolor="lightblue" >363.76</td>
+							    <td  bgcolor="lightblue" >181.88</td>
+								 <td  bgcolor="lightblue" >90.94</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>42</td>
+                <td>SONACOMS</td>
+                <td>24-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>445.2</td>
+                <td>448.65</td>
+				 <td bgcolor="">456.5</td>
+				  <td>440.2</td>
+				   
+				    <td>454</td>
+					 <td>450.15</td>
+					 
+					 <td>559.4 </td>
+					  <td>393.85</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.11%					  </td>
+					 
+						 
+						 <td>2849668</td>
+						  <td>1,276,573,375.20</td>
+						   <td>66885</td>
+						 
+						   
+						   <td >466.36</td>
+						    <td >482.22</td>
+							 <td >455.77</td>
+							  <td  bgcolor="lightblue" >402.63</td>
+							   <td  bgcolor="lightblue" >354.32</td>
+							    <td  bgcolor="lightblue" >177.16</td>
+								 <td  bgcolor="lightblue" >88.58</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>41</td>
+                <td>SONACOMS</td>
+                <td>23-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>466.35</td>
+                <td>472.15</td>
+				 <td bgcolor="">480.9</td>
+				  <td>438.15</td>
+				   
+				    <td>444.45</td>
+					 <td>445.2</td>
+					 
+					 <td>559.4 </td>
+					  <td>393.85</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-4.54%					  </td>
+					 
+						 
+						 <td>2657952</td>
+						  <td>1,202,332,871.30</td>
+						   <td>66378</td>
+						 
+						   
+						   <td >479.58</td>
+						    <td >486.58</td>
+							 <td >453.54</td>
+							  <td  bgcolor="lightblue" >392.4</td>
+							   <td  bgcolor="lightblue" >345.31</td>
+							    <td  bgcolor="lightblue" >172.66</td>
+								 <td  bgcolor="lightblue" >86.33</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>40</td>
+                <td>SONACOMS</td>
+                <td>20-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>473.75</td>
+                <td>467.6</td>
+				 <td bgcolor="">493</td>
+				  <td>463</td>
+				   
+				    <td>465</td>
+					 <td>466.35</td>
+					 
+					 <td>559.4 </td>
+					  <td>393.85</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.56%					  </td>
+					 
+						 
+						 <td>2441515</td>
+						  <td>1,160,381,726.25</td>
+						   <td>64280</td>
+						 
+						   
+						   <td >490.9</td>
+						    <td >490.2</td>
+							 <td  bgcolor="lightblue" >452.44</td>
+							  <td  bgcolor="lightblue" >382.28</td>
+							   <td  bgcolor="lightblue" >336.41</td>
+							    <td  bgcolor="lightblue" >168.2</td>
+								 <td  bgcolor="lightblue" >84.1</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>39</td>
+                <td>SONACOMS</td>
+                <td>18-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>496.35</td>
+                <td>498.95</td>
+				 <td bgcolor="">504.75</td>
+				  <td>464.1</td>
+				   
+				    <td>474</td>
+					 <td>473.75</td>
+					 
+					 <td>559.4 </td>
+					  <td>393.85</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-4.55%					  </td>
+					 
+						 
+						 <td>3623680</td>
+						  <td>1,742,682,876.70</td>
+						   <td>89779</td>
+						 
+						   
+						   <td >495.88</td>
+						    <td >484.1</td>
+							 <td  bgcolor="lightblue" >451.15</td>
+							  <td  bgcolor="lightblue" >371.68</td>
+							   <td  bgcolor="lightblue" >327.08</td>
+							    <td  bgcolor="lightblue" >163.54</td>
+								 <td  bgcolor="lightblue" >81.77</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>38</td>
+                <td>SONACOMS</td>
+                <td>17-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>516.25</td>
+                <td>515.4</td>
+				 <td bgcolor="">523.8</td>
+				  <td>494</td>
+				   
+				    <td>496.55</td>
+					 <td>496.35</td>
+					 
+					 <td>559.4 </td>
+					  <td>392</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-3.85%					  </td>
+					 
+						 
+						 <td>2846613</td>
+						  <td>1,444,308,460.10</td>
+						   <td>81553</td>
+						 
+						   
+						   <td >500.91</td>
+						    <td  bgcolor="lightblue" >476.96</td>
+							 <td  bgcolor="lightblue" >449.45</td>
+							  <td  bgcolor="lightblue" >360.92</td>
+							   <td  bgcolor="lightblue" >317.61</td>
+							    <td  bgcolor="lightblue" >158.8</td>
+								 <td  bgcolor="lightblue" >79.4</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>37</td>
+                <td>SONACOMS</td>
+                <td>16-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>501.8</td>
+                <td>503.5</td>
+				 <td bgcolor="">542</td>
+				  <td>493.05</td>
+				   
+				    <td>514.8</td>
+					 <td>516.25</td>
+					 
+					 <td>559.4 </td>
+					  <td>388</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				2.88%					  </td>
+					 
+						 
+						 <td>5838267</td>
+						  <td>3,041,224,736.65</td>
+						   <td>149834</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >499.51</td>
+						    <td  bgcolor="lightblue" >468.69</td>
+							 <td  bgcolor="lightblue" >444.32</td>
+							  <td  bgcolor="lightblue" >349.64</td>
+							   <td  bgcolor="lightblue" >307.68</td>
+							    <td  bgcolor="lightblue" >153.84</td>
+								 <td  bgcolor="lightblue" >76.92</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>36</td>
+                <td>SONACOMS</td>
+                <td>13-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>491.25</td>
+                <td>494.15</td>
+				 <td bgcolor="">517.4</td>
+				  <td>494.15</td>
+				   
+				    <td>499.1</td>
+					 <td>501.8</td>
+					 
+					 <td>559.4 </td>
+					  <td>388</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				2.15%					  </td>
+					 
+						 
+						 <td>2797664</td>
+						  <td>1,416,993,584.60</td>
+						   <td>63712</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >491.82</td>
+						    <td  bgcolor="lightblue" >459.78</td>
+							 <td  bgcolor="lightblue" >438.59</td>
+							  <td  bgcolor="lightblue" >337.9</td>
+							   <td  bgcolor="lightblue" >297.35</td>
+							    <td  bgcolor="lightblue" >148.68</td>
+								 <td  bgcolor="lightblue" >74.34</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>35</td>
+                <td>SONACOMS</td>
+                <td>12-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>498.9</td>
+                <td>503.7</td>
+				 <td bgcolor="">508.75</td>
+				  <td>486.85</td>
+				   
+				    <td>492.2</td>
+					 <td>491.25</td>
+					 
+					 <td>559.4 </td>
+					  <td>388</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.53%					  </td>
+					 
+						 
+						 <td>1918516</td>
+						  <td>951,418,834.00</td>
+						   <td>46032</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >473.75</td>
+						    <td  bgcolor="lightblue" >452.83</td>
+							 <td  bgcolor="lightblue" >433.23</td>
+							  <td  bgcolor="lightblue" >326.5</td>
+							   <td  bgcolor="lightblue" >287.32</td>
+							    <td  bgcolor="lightblue" >143.66</td>
+								 <td  bgcolor="lightblue" >71.83</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>34</td>
+                <td>SONACOMS</td>
+                <td>11-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>489.35</td>
+                <td>497.8</td>
+				 <td bgcolor="">522.9</td>
+				  <td>478.35</td>
+				   
+				    <td>499</td>
+					 <td>498.9</td>
+					 
+					 <td>559.4 </td>
+					  <td>388</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.95%					  </td>
+					 
+						 
+						 <td>7578893</td>
+						  <td>3,801,209,407.10</td>
+						   <td>153914</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >457.4</td>
+						    <td  bgcolor="lightblue" >447.06</td>
+							 <td  bgcolor="lightblue" >428.76</td>
+							  <td  bgcolor="lightblue" >315.33</td>
+							   <td  bgcolor="lightblue" >277.49</td>
+							    <td  bgcolor="lightblue" >138.75</td>
+								 <td  bgcolor="lightblue" >69.37</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>33</td>
+                <td>SONACOMS</td>
+                <td>10-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>477.8</td>
+                <td>481.25</td>
+				 <td bgcolor="lightblue">559.4</td>
+				  <td>474</td>
+				   
+				    <td>492</td>
+					 <td>489.35</td>
+					 
+					 <td>486.7 </td>
+					  <td>388</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				2.42%					  </td>
+					 
+						 
+						 <td>20850838</td>
+						  <td>10,737,136,480.15</td>
+						   <td>385955</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >442.01</td>
+						    <td  bgcolor="lightblue" >440</td>
+							 <td  bgcolor="lightblue" >423.92</td>
+							  <td  bgcolor="lightblue" >303.99</td>
+							   <td  bgcolor="lightblue" >267.52</td>
+							    <td  bgcolor="lightblue" >133.76</td>
+								 <td  bgcolor="lightblue" >66.88</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>32</td>
+                <td>SONACOMS</td>
+                <td>09-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>411.45</td>
+                <td>427.7</td>
+				 <td bgcolor="lightblue">486.7</td>
+				  <td>427.25</td>
+				   
+				    <td>472.9</td>
+					 <td>477.8</td>
+					 
+					 <td>456.9 </td>
+					  <td>388</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				16.13%					  </td>
+					 
+						 
+						 <td>13161558</td>
+						  <td>6,126,985,381.05</td>
+						   <td>204715</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >431.35</td>
+						    <td  bgcolor="lightblue" >432.16</td>
+							 <td  bgcolor="lightblue" >419.9</td>
+							  <td  bgcolor="lightblue" >292.87</td>
+							   <td  bgcolor="lightblue" >257.73</td>
+							    <td  bgcolor="lightblue" >128.86</td>
+								 <td  bgcolor="lightblue" >64.43</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>31</td>
+                <td>SONACOMS</td>
+                <td>06-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>409.5</td>
+                <td>410.2</td>
+				 <td bgcolor="">422.5</td>
+				  <td>408</td>
+				   
+				    <td>415.55</td>
+					 <td>411.45</td>
+					 
+					 <td>456.9 </td>
+					  <td>388</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.48%					  </td>
+					 
+						 
+						 <td>1736766</td>
+						  <td>718,960,225.05</td>
+						   <td>38643</td>
+						 
+						   
+						   <td >423.64</td>
+						    <td >423.13</td>
+							 <td >417.13</td>
+							  <td  bgcolor="lightblue" >282.01</td>
+							   <td  bgcolor="lightblue" >248.17</td>
+							    <td  bgcolor="lightblue" >124.09</td>
+								 <td  bgcolor="lightblue" >62.04</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>30</td>
+                <td>SONACOMS</td>
+                <td>05-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>421.95</td>
+                <td>424.9</td>
+				 <td bgcolor="">425</td>
+				  <td>408</td>
+				   
+				    <td>409</td>
+					 <td>409.5</td>
+					 
+					 <td>456.9 </td>
+					  <td>388</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-2.95%					  </td>
+					 
+						 
+						 <td>1476251</td>
+						  <td>610,378,088.85</td>
+						   <td>69714</td>
+						 
+						   
+						   <td >429.2</td>
+						    <td >422.48</td>
+							 <td >416.68</td>
+							  <td  bgcolor="lightblue" >272.66</td>
+							   <td  bgcolor="lightblue" >239.94</td>
+							    <td  bgcolor="lightblue" >119.97</td>
+								 <td  bgcolor="lightblue" >59.99</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>29</td>
+                <td>SONACOMS</td>
+                <td>04-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>436.05</td>
+                <td>439.75</td>
+				 <td bgcolor="">439.75</td>
+				  <td>421</td>
+				   
+				    <td>422</td>
+					 <td>421.95</td>
+					 
+					 <td>456.9 </td>
+					  <td>378.5</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-3.23%					  </td>
+					 
+						 
+						 <td>1674935</td>
+						  <td>720,978,920.55</td>
+						   <td>50078</td>
+						 
+						   
+						   <td >434.38</td>
+						    <td >424.01</td>
+							 <td  bgcolor="lightblue" >416.47</td>
+							  <td  bgcolor="lightblue" >263.36</td>
+							   <td  bgcolor="lightblue" >231.75</td>
+							    <td  bgcolor="lightblue" >115.88</td>
+								 <td  bgcolor="lightblue" >57.94</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>28</td>
+                <td>SONACOMS</td>
+                <td>03-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>439.25</td>
+                <td>443</td>
+				 <td bgcolor="">446.8</td>
+				  <td>432.2</td>
+				   
+				    <td>434.3</td>
+					 <td>436.05</td>
+					 
+					 <td>456.9 </td>
+					  <td>376</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.73%					  </td>
+					 
+						 
+						 <td>909060</td>
+						  <td>400,930,123.20</td>
+						   <td>29956</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >433.74</td>
+						    <td  bgcolor="lightblue" >426.07</td>
+							 <td  bgcolor="lightblue" >414.77</td>
+							  <td  bgcolor="lightblue" >253.77</td>
+							   <td  bgcolor="lightblue" >223.31</td>
+							    <td  bgcolor="lightblue" >111.66</td>
+								 <td  bgcolor="lightblue" >55.83</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>27</td>
+                <td>SONACOMS</td>
+                <td>02-Aug-2021</td>
+                <td>NSE:EQ</td>
+				<td>439.25</td>
+                <td>442.65</td>
+				 <td bgcolor="">454.25</td>
+				  <td>435.5</td>
+				   
+				    <td>439</td>
+					 <td>439.25</td>
+					 
+					 <td>456.9 </td>
+					  <td>366.5</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0%					  </td>
+					 
+						 
+						 <td>2478124</td>
+						  <td>1,102,491,337.50</td>
+						   <td>60205</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >425.85</td>
+						    <td  bgcolor="lightblue" >426.49</td>
+							 <td  bgcolor="lightblue" >412.12</td>
+							  <td  bgcolor="lightblue" >243.86</td>
+							   <td  bgcolor="lightblue" >214.59</td>
+							    <td  bgcolor="lightblue" >107.3</td>
+								 <td  bgcolor="lightblue" >53.65</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>26</td>
+                <td>SONACOMS</td>
+                <td>30-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>435.4</td>
+                <td>432.85</td>
+				 <td bgcolor="">443.95</td>
+				  <td>426.7</td>
+				   
+				    <td>436.05</td>
+					 <td>439.25</td>
+					 
+					 <td>456.9 </td>
+					  <td>341.3</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.88%					  </td>
+					 
+						 
+						 <td>1833069</td>
+						  <td>802,572,597.65</td>
+						   <td>29559</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >419.11</td>
+						    <td  bgcolor="lightblue" >421.44</td>
+							 <td  bgcolor="lightblue" >409.03</td>
+							  <td  bgcolor="lightblue" >233.87</td>
+							   <td  bgcolor="lightblue" >205.81</td>
+							    <td  bgcolor="lightblue" >102.9</td>
+								 <td  bgcolor="lightblue" >51.45</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>25</td>
+                <td>SONACOMS</td>
+                <td>29-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>418.75</td>
+                <td>420.75</td>
+				 <td bgcolor="">438.95</td>
+				  <td>416.1</td>
+				   
+				    <td>435.25</td>
+					 <td>435.4</td>
+					 
+					 <td>456.9 </td>
+					  <td>333.25</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				3.98%					  </td>
+					 
+						 
+						 <td>2548002</td>
+						  <td>1,100,422,941.95</td>
+						   <td>53220</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >415.91</td>
+						    <td  bgcolor="lightblue" >417.24</td>
+							 <td  bgcolor="lightblue" >404.32</td>
+							  <td  bgcolor="lightblue" >223.89</td>
+							   <td  bgcolor="lightblue" >197.02</td>
+							    <td  bgcolor="lightblue" >98.51</td>
+								 <td  bgcolor="lightblue" >49.26</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>24</td>
+                <td>SONACOMS</td>
+                <td>28-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>396.6</td>
+                <td>400.45</td>
+				 <td bgcolor="">424.3</td>
+				  <td>395.5</td>
+				   
+				    <td>416.25</td>
+					 <td>418.75</td>
+					 
+					 <td>456.9 </td>
+					  <td>333.25</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				5.58%					  </td>
+					 
+						 
+						 <td>4790986</td>
+						  <td>1,971,898,053.55</td>
+						   <td>101539</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >416.93</td>
+						    <td  bgcolor="lightblue" >412.72</td>
+							 <td  bgcolor="lightblue" >399.66</td>
+							  <td  bgcolor="lightblue" >213.99</td>
+							   <td  bgcolor="lightblue" >188.32</td>
+							    <td  bgcolor="lightblue" >94.16</td>
+								 <td  bgcolor="lightblue" >47.08</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>23</td>
+                <td>SONACOMS</td>
+                <td>27-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>405.55</td>
+                <td>408</td>
+				 <td bgcolor="">415.45</td>
+				  <td>393.85</td>
+				   
+				    <td>396</td>
+					 <td>396.6</td>
+					 
+					 <td>456.9 </td>
+					  <td>333.25</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-2.21%					  </td>
+					 
+						 
+						 <td>2330599</td>
+						  <td>943,779,322.60</td>
+						   <td>59571</td>
+						 
+						   
+						   <td >421.15</td>
+						    <td >410.84</td>
+							 <td  bgcolor="lightblue" >396.18</td>
+							  <td  bgcolor="lightblue" >204.48</td>
+							   <td  bgcolor="lightblue" >179.94</td>
+							    <td  bgcolor="lightblue" >89.97</td>
+								 <td  bgcolor="lightblue" >44.99</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>22</td>
+                <td>SONACOMS</td>
+                <td>26-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>423.25</td>
+                <td>424</td>
+				 <td bgcolor="">424</td>
+				  <td>402.6</td>
+				   
+				    <td>403.5</td>
+					 <td>405.55</td>
+					 
+					 <td>456.9 </td>
+					  <td>333.25</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-4.18%					  </td>
+					 
+						 
+						 <td>3491888</td>
+						  <td>1,438,930,962.55</td>
+						   <td>66349</td>
+						 
+						   
+						   <td >420.59</td>
+						    <td >411.44</td>
+							 <td  bgcolor="lightblue" >393.73</td>
+							  <td  bgcolor="lightblue" >195.46</td>
+							   <td  bgcolor="lightblue" >172.01</td>
+							    <td  bgcolor="lightblue" >86</td>
+								 <td  bgcolor="lightblue" >43</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>21</td>
+                <td>SONACOMS</td>
+                <td>23-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>440.5</td>
+                <td>441</td>
+				 <td bgcolor="">452.9</td>
+				  <td>418.75</td>
+				   
+				    <td>420.6</td>
+					 <td>423.25</td>
+					 
+					 <td>456.9 </td>
+					  <td>333.25</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-3.92%					  </td>
+					 
+						 
+						 <td>4378428</td>
+						  <td>1,904,129,694.40</td>
+						   <td>77243</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >419.78</td>
+						    <td  bgcolor="lightblue" >411.84</td>
+							 <td  bgcolor="lightblue" >391.68</td>
+							  <td  bgcolor="lightblue" >186.25</td>
+							   <td  bgcolor="lightblue" >163.9</td>
+							    <td  bgcolor="lightblue" >81.95</td>
+								 <td  bgcolor="lightblue" >40.97</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>20</td>
+                <td>SONACOMS</td>
+                <td>22-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>439.85</td>
+                <td>428</td>
+				 <td bgcolor="">452</td>
+				  <td>411.1</td>
+				   
+				    <td>452</td>
+					 <td>440.5</td>
+					 
+					 <td>456.9 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.15%					  </td>
+					 
+						 
+						 <td>9450575</td>
+						  <td>4,032,170,481.75</td>
+						   <td>138994</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >414.07</td>
+						    <td  bgcolor="lightblue" >411.73</td>
+							 <td  bgcolor="lightblue" >388.58</td>
+							  <td  bgcolor="lightblue" >176.63</td>
+							   <td  bgcolor="lightblue" >155.43</td>
+							    <td  bgcolor="lightblue" >77.72</td>
+								 <td  bgcolor="lightblue" >38.86</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>19</td>
+                <td>SONACOMS</td>
+                <td>20-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>393.8</td>
+                <td>401.7</td>
+				 <td bgcolor="lightblue">456.9</td>
+				  <td>392</td>
+				   
+				    <td>426</td>
+					 <td>439.85</td>
+					 
+					 <td>427 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				11.69%					  </td>
+					 
+						 
+						 <td>8324982</td>
+						  <td>3,531,580,214.55</td>
+						   <td>124930</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >406.33</td>
+						    <td  bgcolor="lightblue" >407.5</td>
+							 <td  bgcolor="lightblue" >366.56</td>
+							  <td  bgcolor="lightblue" >166.62</td>
+							   <td  bgcolor="lightblue" >146.62</td>
+							    <td  bgcolor="lightblue" >73.31</td>
+								 <td  bgcolor="lightblue" >36.66</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>18</td>
+                <td>SONACOMS</td>
+                <td>19-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>401.5</td>
+                <td>399.5</td>
+				 <td bgcolor="">404.95</td>
+				  <td>388</td>
+				   
+				    <td>396.5</td>
+					 <td>393.8</td>
+					 
+					 <td>427 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.92%					  </td>
+					 
+						 
+						 <td>1220437</td>
+						  <td>482,959,240.50</td>
+						   <td>33038</td>
+						 
+						   
+						   <td >398.77</td>
+						    <td >403.67</td>
+							 <td  bgcolor="lightblue" >344.56</td>
+							  <td  bgcolor="lightblue" >156.62</td>
+							   <td  bgcolor="lightblue" >137.83</td>
+							    <td  bgcolor="lightblue" >68.91</td>
+								 <td  bgcolor="lightblue" >34.46</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>17</td>
+                <td>SONACOMS</td>
+                <td>16-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>394.7</td>
+                <td>400</td>
+				 <td bgcolor="">409</td>
+				  <td>399.2</td>
+				   
+				    <td>400.95</td>
+					 <td>401.5</td>
+					 
+					 <td>427 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.72%					  </td>
+					 
+						 
+						 <td>1023571</td>
+						  <td>413,555,585.70</td>
+						   <td>20322</td>
+						 
+						   
+						   <td >401.83</td>
+						    <td >403.02</td>
+							 <td  bgcolor="lightblue" >324.87</td>
+							  <td  bgcolor="lightblue" >147.67</td>
+							   <td  bgcolor="lightblue" >129.95</td>
+							    <td  bgcolor="lightblue" >64.97</td>
+								 <td  bgcolor="lightblue" >32.49</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>16</td>
+                <td>SONACOMS</td>
+                <td>15-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>401.8</td>
+                <td>404.7</td>
+				 <td bgcolor="">409.3</td>
+				  <td>392.2</td>
+				   
+				    <td>392.85</td>
+					 <td>394.7</td>
+					 
+					 <td>427 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.77%					  </td>
+					 
+						 
+						 <td>727281</td>
+						  <td>292,386,044.75</td>
+						   <td>14828</td>
+						 
+						   
+						   <td >405.98</td>
+						    <td >400.97</td>
+							 <td  bgcolor="lightblue" >304.8</td>
+							  <td  bgcolor="lightblue" >138.54</td>
+							   <td  bgcolor="lightblue" >121.92</td>
+							    <td  bgcolor="lightblue" >60.96</td>
+								 <td  bgcolor="lightblue" >30.48</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>15</td>
+                <td>SONACOMS</td>
+                <td>14-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>402.05</td>
+                <td>404.95</td>
+				 <td bgcolor="">406.95</td>
+				  <td>399</td>
+				   
+				    <td>402.1</td>
+					 <td>401.8</td>
+					 
+					 <td>427 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.06%					  </td>
+					 
+						 
+						 <td>625983</td>
+						  <td>252,131,910.85</td>
+						   <td>11652</td>
+						 
+						   
+						   <td >407.53</td>
+						    <td  bgcolor="lightblue" >399.06</td>
+							 <td  bgcolor="lightblue" >285.06</td>
+							  <td  bgcolor="lightblue" >129.57</td>
+							   <td  bgcolor="lightblue" >114.03</td>
+							    <td  bgcolor="lightblue" >57.01</td>
+								 <td  bgcolor="lightblue" >28.51</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>14</td>
+                <td>SONACOMS</td>
+                <td>13-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>409.1</td>
+                <td>411</td>
+				 <td bgcolor="">415.5</td>
+				  <td>400.4</td>
+				   
+				    <td>401.25</td>
+					 <td>402.05</td>
+					 
+					 <td>427 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.72%					  </td>
+					 
+						 
+						 <td>1526457</td>
+						  <td>622,133,516.95</td>
+						   <td>29164</td>
+						 
+						   
+						   <td >408.24</td>
+						    <td  bgcolor="lightblue" >392.74</td>
+							 <td  bgcolor="lightblue" >264.97</td>
+							  <td  bgcolor="lightblue" >120.44</td>
+							   <td  bgcolor="lightblue" >105.99</td>
+							    <td  bgcolor="lightblue" >52.99</td>
+								 <td  bgcolor="lightblue" >26.5</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>13</td>
+                <td>SONACOMS</td>
+                <td>12-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>422.25</td>
+                <td>424.9</td>
+				 <td bgcolor="lightblue">427</td>
+				  <td>402</td>
+				   
+				    <td>408</td>
+					 <td>409.1</td>
+					 
+					 <td>426.8 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-3.11%					  </td>
+					 
+						 
+						 <td>1845286</td>
+						  <td>760,055,514.00</td>
+						   <td>35542</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >405.43</td>
+						    <td  bgcolor="lightblue" >386.1</td>
+							 <td  bgcolor="lightblue" >244.87</td>
+							  <td  bgcolor="lightblue" >111.3</td>
+							   <td  bgcolor="lightblue" >97.95</td>
+							    <td  bgcolor="lightblue" >48.97</td>
+								 <td  bgcolor="lightblue" >24.49</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>12</td>
+                <td>SONACOMS</td>
+                <td>09-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>402.45</td>
+                <td>400</td>
+				 <td bgcolor="lightblue">426.8</td>
+				  <td>398.05</td>
+				   
+				    <td>420</td>
+					 <td>422.25</td>
+					 
+					 <td>420.8 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				4.92%					  </td>
+					 
+						 
+						 <td>3886823</td>
+						  <td>1,598,168,867.05</td>
+						   <td>62784</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >400.22</td>
+						    <td  bgcolor="lightblue" >379.43</td>
+							 <td  bgcolor="lightblue" >224.42</td>
+							  <td  bgcolor="lightblue" >102.01</td>
+							   <td  bgcolor="lightblue" >89.77</td>
+							    <td  bgcolor="lightblue" >44.88</td>
+								 <td  bgcolor="lightblue" >22.44</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>11</td>
+                <td>SONACOMS</td>
+                <td>08-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>405.35</td>
+                <td>404.75</td>
+				 <td bgcolor="">412.4</td>
+				  <td>396.1</td>
+				   
+				    <td>401</td>
+					 <td>402.45</td>
+					 
+					 <td>420.8 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-0.72%					  </td>
+					 
+						 
+						 <td>2421453</td>
+						  <td>974,782,683.45</td>
+						   <td>34395</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >391.26</td>
+						    <td  bgcolor="lightblue" >371.13</td>
+							 <td  bgcolor="lightblue" >203.3</td>
+							  <td  bgcolor="lightblue" >92.41</td>
+							   <td  bgcolor="lightblue" >81.32</td>
+							    <td  bgcolor="lightblue" >40.66</td>
+								 <td  bgcolor="lightblue" >20.33</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>10</td>
+                <td>SONACOMS</td>
+                <td>07-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>388</td>
+                <td>384.25</td>
+				 <td bgcolor="lightblue">420.8</td>
+				  <td>378.5</td>
+				   
+				    <td>401.7</td>
+					 <td>405.35</td>
+					 
+					 <td>413.9 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				4.47%					  </td>
+					 
+						 
+						 <td>5935443</td>
+						  <td>2,396,281,825.50</td>
+						   <td>106686</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >379.76</td>
+						    <td  bgcolor="lightblue" >366.93</td>
+							 <td  bgcolor="lightblue" >183.18</td>
+							  <td  bgcolor="lightblue" >83.26</td>
+							   <td  bgcolor="lightblue" >73.27</td>
+							    <td  bgcolor="lightblue" >36.64</td>
+								 <td  bgcolor="lightblue" >18.32</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>9</td>
+                <td>SONACOMS</td>
+                <td>06-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>383.05</td>
+                <td>382.65</td>
+				 <td bgcolor="">395.7</td>
+				  <td>376</td>
+				   
+				    <td>380.15</td>
+					 <td>388</td>
+					 
+					 <td>413.9 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.29%					  </td>
+					 
+						 
+						 <td>3504682</td>
+						  <td>1,356,829,588.85</td>
+						   <td>79929</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >367.15</td>
+						    <td  bgcolor="lightblue" >362.03</td>
+							 <td  bgcolor="lightblue" >162.91</td>
+							  <td  bgcolor="lightblue" >74.05</td>
+							   <td  bgcolor="lightblue" >65.17</td>
+							    <td  bgcolor="lightblue" >32.58</td>
+								 <td  bgcolor="lightblue" >16.29</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>8</td>
+                <td>SONACOMS</td>
+                <td>05-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>377.45</td>
+                <td>381.4</td>
+				 <td bgcolor="">387.9</td>
+				  <td>366.5</td>
+				   
+				    <td>382.05</td>
+					 <td>383.05</td>
+					 
+					 <td>413.9 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				1.48%					  </td>
+					 
+						 
+						 <td>3150274</td>
+						  <td>1,188,326,917.20</td>
+						   <td>65106</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >359.37</td>
+						    <td  bgcolor="lightblue" >318.92</td>
+							 <td  bgcolor="lightblue" >143.51</td>
+							  <td  bgcolor="lightblue" >65.23</td>
+							   <td  bgcolor="lightblue" >57.41</td>
+							    <td  bgcolor="lightblue" >28.7</td>
+								 <td  bgcolor="lightblue" >14.35</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>7</td>
+                <td>SONACOMS</td>
+                <td>02-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>344.95</td>
+                <td>343</td>
+				 <td bgcolor="">385</td>
+				  <td>341.3</td>
+				   
+				    <td>377</td>
+					 <td>377.45</td>
+					 
+					 <td>413.9 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				9.42%					  </td>
+					 
+						 
+						 <td>4600866</td>
+						  <td>1,699,120,507.75</td>
+						   <td>139571</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >352.26</td>
+						    <td  bgcolor="lightblue" >276.36</td>
+							 <td  bgcolor="lightblue" >124.36</td>
+							  <td  bgcolor="lightblue" >56.53</td>
+							   <td  bgcolor="lightblue" >49.74</td>
+							    <td  bgcolor="lightblue" >24.87</td>
+								 <td  bgcolor="lightblue" >12.44</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>6</td>
+                <td>SONACOMS</td>
+                <td>01-Jul-2021</td>
+                <td>NSE:EQ</td>
+				<td>342.3</td>
+                <td>342</td>
+				 <td bgcolor="">350</td>
+				  <td>333.25</td>
+				   
+				    <td>345.1</td>
+					 <td>344.95</td>
+					 
+					 <td>413.9 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.77%					  </td>
+					 
+						 
+						 <td>1740419</td>
+						  <td>597,299,380.45</td>
+						   <td>41653</td>
+						 
+						   
+						   <td >349.71</td>
+						    <td  bgcolor="lightblue" >234.42</td>
+							 <td  bgcolor="lightblue" >105.49</td>
+							  <td  bgcolor="lightblue" >47.95</td>
+							   <td  bgcolor="lightblue" >42.2</td>
+							    <td  bgcolor="lightblue" >21.1</td>
+								 <td  bgcolor="lightblue" >10.55</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>5</td>
+                <td>SONACOMS</td>
+                <td>30-Jun-2021</td>
+                <td>NSE:EQ</td>
+				<td>349.1</td>
+                <td>350.75</td>
+				 <td bgcolor="">359</td>
+				  <td>341.3</td>
+				   
+				    <td>341.95</td>
+					 <td>342.3</td>
+					 
+					 <td>413.9 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-1.95%					  </td>
+					 
+						 
+						 <td>983870</td>
+						  <td>342,482,311.20</td>
+						   <td>32463</td>
+						 
+						   
+						   <td >352.96</td>
+						    <td  bgcolor="lightblue" >196.09</td>
+							 <td  bgcolor="lightblue" >88.24</td>
+							  <td  bgcolor="lightblue" >40.11</td>
+							   <td  bgcolor="lightblue" >35.3</td>
+							    <td  bgcolor="lightblue" >17.65</td>
+								 <td  bgcolor="lightblue" >8.82</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>4</td>
+                <td>SONACOMS</td>
+                <td>29-Jun-2021</td>
+                <td>NSE:EQ</td>
+				<td>347.5</td>
+                <td>345</td>
+				 <td bgcolor="">352</td>
+				  <td>340.85</td>
+				   
+				    <td>346.25</td>
+					 <td>349.1</td>
+					 
+					 <td>413.9 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.46%					  </td>
+					 
+						 
+						 <td>2476272</td>
+						  <td>857,302,892.10</td>
+						   <td>58018</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >284.5</td>
+						    <td  bgcolor="lightblue" >158.06</td>
+							 <td  bgcolor="lightblue" >71.13</td>
+							  <td  bgcolor="lightblue" >32.33</td>
+							   <td  bgcolor="lightblue" >28.45</td>
+							    <td  bgcolor="lightblue" >14.23</td>
+								 <td  bgcolor="lightblue" >7.11</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="">
+                <td>3</td>
+                <td>SONACOMS</td>
+                <td>28-Jun-2021</td>
+                <td>NSE:EQ</td>
+				<td>364.7</td>
+                <td>357</td>
+				 <td bgcolor="">361.7</td>
+				  <td>337.3</td>
+				   
+				    <td>348.95</td>
+					 <td>347.5</td>
+					 
+					 <td>413.9 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  									
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				-4.72%					  </td>
+					 
+						 
+						 <td>5967165</td>
+						  <td>2,094,683,415.90</td>
+						   <td>217419</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >214.68</td>
+						    <td  bgcolor="lightblue" >119.27</td>
+							 <td  bgcolor="lightblue" >53.67</td>
+							  <td  bgcolor="lightblue" >24.4</td>
+							   <td  bgcolor="lightblue" >21.47</td>
+							    <td  bgcolor="lightblue" >10.73</td>
+								 <td  bgcolor="lightblue" >5.37</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>2</td>
+                <td>SONACOMS</td>
+                <td>25-Jun-2021</td>
+                <td>NSE:EQ</td>
+				<td>361.2</td>
+                <td>387.9</td>
+				 <td bgcolor="lightblue">413.9</td>
+				  <td>355.45</td>
+				   
+				    <td>365.55</td>
+					 <td>364.7</td>
+					 
+					 <td>361.2 </td>
+					  <td>295</td>
+					  
+					  <td>
+					  	Buy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				0.97%					  </td>
+					 
+						 
+						 <td>30784367</td>
+						  <td>11,814,301,478.60</td>
+						   <td>478191</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >145.18</td>
+						    <td  bgcolor="lightblue" >80.66</td>
+							 <td  bgcolor="lightblue" >36.3</td>
+							  <td  bgcolor="lightblue" >16.5</td>
+							   <td  bgcolor="lightblue" >14.52</td>
+							    <td  bgcolor="lightblue" >7.26</td>
+								 <td  bgcolor="lightblue" >3.63</td>
+						 
+						
+            </tr>
+        								
+		            <tr bgcolor="lightgreen">
+                <td>1</td>
+                <td>SONACOMS</td>
+                <td>24-Jun-2021</td>
+                <td>NSE:EQ</td>
+				<td>291</td>
+                <td>301</td>
+				 <td bgcolor="lightblue">361.2</td>
+				  <td>295</td>
+				   
+				    <td>361.2</td>
+					 <td>361.2</td>
+					 
+					 <td> </td>
+					  <td>295</td>
+					  
+					  <td>
+					  	Action Days LowBuy Today								
+						
+					  
+					  
+					  </td>
+					  
+					  <td>
+					  				24.12%					  </td>
+					 
+						 
+						 <td>41848082</td>
+						  <td>13,878,260,819.05</td>
+						   <td>453287</td>
+						 
+						   
+						   <td  bgcolor="lightblue" >72.24</td>
+						    <td  bgcolor="lightblue" >40.13</td>
+							 <td  bgcolor="lightblue" >18.06</td>
+							  <td  bgcolor="lightblue" >8.21</td>
+							   <td  bgcolor="lightblue" >7.22</td>
+							    <td  bgcolor="lightblue" >3.61</td>
+								 <td  bgcolor="lightblue" >1.81</td>
+						 
+						
+            </tr>
+                </tbody>
+    </table>
+</body>
+</html>

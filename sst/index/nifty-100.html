@@ -1,0 +1,3627 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Umesh Kamboj Stock Panel</title>
+    <meta name="viewport" content="width=device-width" />	
+	<style>
+	body{
+		background: #eee url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAMAAAC6sdbXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAZQTFRF3d3d////riJKgAAAAAJ0Uk5T/wDltzBKAAAAFUlEQVR42mJgBAEGGMmAxAYCgAADAAGGABmnk/7aAAAAAElFTkSuQmCC);
+		font: 13px 'trebuchet MS', Arial, Helvetica;
+		margin:0;
+		padding:0;
+	}
+	
+	h2, p {
+		text-align: center;
+		color: #444;
+		text-shadow: 0 1px 0 #fff;	
+	}
+	
+	a {
+		color: #2A679F;
+	}
+	
+	/* You don't need the above styles, they are demo-specific ----------- */
+	
+	#menu, #menu ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	
+	#menu {
+		width: 99.80%;
+		margin: 0px auto;
+		border: 1px solid #222;
+		background-color: #111;
+		background-image: -moz-linear-gradient(#444, #111); 
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#444), to(#111));	
+		background-image: -webkit-linear-gradient(#444, #111);	
+		background-image: -o-linear-gradient(#444, #111);
+		background-image: -ms-linear-gradient(#444, #111);
+		background-image: linear-gradient(#444, #111);
+		-moz-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+		-webkit-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+		box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+	}
+	
+	#menu:before,
+	#menu:after {
+		content: "";
+		display: table;
+	}
+	
+	#menu:after {
+		clear: both;
+	}
+	
+	#menu {
+		zoom:1;
+	}
+	
+	#menu li {
+		float: left;
+		border-right: 1px solid #222;
+		-moz-box-shadow: 1px 0 0 #444;
+		-webkit-box-shadow: 1px 0 0 #444;
+		box-shadow: 1px 0 0 #444;
+		position: relative;
+	}
+	
+	#menu a {
+		float: left;
+		padding: 12px 30px;
+		color: #999;
+		text-transform: uppercase;
+		font: bold 12px Arial, Helvetica;
+		text-decoration: none;
+		text-shadow: 0 1px 0 #000;
+	}
+	
+	#menu li:hover > a {
+		color: #fafafa;
+	}
+	
+	*html #menu li a:hover { /* IE6 only */
+		color: #fafafa;
+	}
+	
+	#menu ul {
+		margin: 20px 0 0 0;
+		_margin: 0; /*IE6 only*/
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		top: 38px;
+		left: 0;
+		z-index: 1;    
+		background: #444;
+		background: -moz-linear-gradient(#444, #111);
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#444), to(#111));
+		background: -webkit-linear-gradient(#444, #111);    
+		background: -o-linear-gradient(#444, #111);	
+		background: -ms-linear-gradient(#444, #111);	
+		background: linear-gradient(#444, #111);
+		-moz-box-shadow: 0 -1px rgba(255,255,255,.3);
+		-webkit-box-shadow: 0 -1px 0 rgba(255,255,255,.3);
+		box-shadow: 0 -1px 0 rgba(255,255,255,.3);	
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+		-webkit-transition: all .2s ease-in-out;
+		-moz-transition: all .2s ease-in-out;
+		-ms-transition: all .2s ease-in-out;
+		-o-transition: all .2s ease-in-out;
+		transition: all .2s ease-in-out;  
+	}
+
+	#menu li:hover > ul {
+		opacity: 1;
+		visibility: visible;
+		margin: 0;
+	}
+	
+	#menu ul ul {
+		top: 0;
+		left: 150px;
+		margin: 0 0 0 20px;
+		_margin: 0; /*IE6 only*/
+		-moz-box-shadow: -1px 0 0 rgba(255,255,255,.3);
+		-webkit-box-shadow: -1px 0 0 rgba(255,255,255,.3);
+		box-shadow: -1px 0 0 rgba(255,255,255,.3);		
+	}
+	
+	#menu ul li {
+		float: none;
+		display: block;
+		border: 0;
+		_line-height: 0; /*IE6 only*/
+		-moz-box-shadow: 0 1px 0 #111, 0 2px 0 #666;
+		-webkit-box-shadow: 0 1px 0 #111, 0 2px 0 #666;
+		box-shadow: 0 1px 0 #111, 0 2px 0 #666;
+	}
+	
+	#menu ul li:last-child {   
+		-moz-box-shadow: none;
+		-webkit-box-shadow: none;
+		box-shadow: none;    
+	}
+	
+	#menu ul a {    
+		padding: 10px;
+		width:auto;
+		min-width:130px;
+		_height: 10px; /*IE6 only*/
+		display: block;
+		white-space: nowrap;
+		float: none;
+		text-transform: none;
+	}
+	
+	#menu ul a:hover {
+		background-color: #0186ba;
+		background-image: -moz-linear-gradient(#04acec,  #0186ba);	
+		background-image: -webkit-gradient(linear, left top, left bottom, from(#04acec), to(#0186ba));
+		background-image: -webkit-linear-gradient(#04acec, #0186ba);
+		background-image: -o-linear-gradient(#04acec, #0186ba);
+		background-image: -ms-linear-gradient(#04acec, #0186ba);
+		background-image: linear-gradient(#04acec, #0186ba);
+	}
+	
+	#menu ul li:first-child > a {
+		-moz-border-radius: 3px 3px 0 0;
+		-webkit-border-radius: 3px 3px 0 0;
+		border-radius: 3px 3px 0 0;
+	}
+	
+	#menu ul li:first-child > a:after {
+		content: '';
+		position: absolute;
+		left: 40px;
+		top: -6px;
+		border-left: 6px solid transparent;
+		border-right: 6px solid transparent;
+		border-bottom: 6px solid #444;
+	}
+	
+	#menu ul ul li:first-child a:after {
+		left: -6px;
+		top: 50%;
+		margin-top: -6px;
+		border-left: 0;	
+		border-bottom: 6px solid transparent;
+		border-top: 6px solid transparent;
+		border-right: 6px solid #3b3b3b;
+	}
+	
+	#menu ul li:first-child a:hover:after {
+		border-bottom-color: #04acec; 
+	}
+	
+	#menu ul ul li:first-child a:hover:after {
+		border-right-color: #0299d3; 
+		border-bottom-color: transparent; 	
+	}
+	
+	#menu ul li:last-child > a {
+		-moz-border-radius: 0 0 3px 3px;
+		-webkit-border-radius: 0 0 3px 3px;
+		border-radius: 0 0 3px 3px;
+	}
+	
+	/* Mobile */
+	#menu-trigger {
+		display: none;
+	}
+
+	@media screen and (max-width: 600px) {
+
+		/* nav-wrap */
+		#menu-wrap {
+			position: relative;
+		}
+
+		#menu-wrap * {
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		/* menu icon */
+		#menu-trigger {
+			display: block; /* show menu icon */
+			height: 40px;
+			line-height: 40px;
+			cursor: pointer;		
+			padding: 0 0 0 35px;
+			border: 1px solid #222;
+			color: #fafafa;
+			font-weight: bold;
+			background-color: #111;
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAMAAADeWG8gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE2QjAxNjRDOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE2QjAxNjREOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTZCMDE2NEE5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTZCMDE2NEI5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz42AEtnAAAABlBMVEX///////9VfPVsAAAAAnRSTlP/AOW3MEoAAAAWSURBVHjaYmAgFzBiACKFho6NAAEGAD07AG1pn932AAAAAElFTkSuQmCC) no-repeat 10px center, -moz-linear-gradient(#444, #111); 
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAMAAADeWG8gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE2QjAxNjRDOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE2QjAxNjREOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTZCMDE2NEE5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTZCMDE2NEI5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz42AEtnAAAABlBMVEX///////9VfPVsAAAAAnRSTlP/AOW3MEoAAAAWSURBVHjaYmAgFzBiACKFho6NAAEGAD07AG1pn932AAAAAElFTkSuQmCC) no-repeat 10px center, -webkit-linear-gradient(#444, #111);	
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAMAAADeWG8gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE2QjAxNjRDOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE2QjAxNjREOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTZCMDE2NEE5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTZCMDE2NEI5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz42AEtnAAAABlBMVEX///////9VfPVsAAAAAnRSTlP/AOW3MEoAAAAWSURBVHjaYmAgFzBiACKFho6NAAEGAD07AG1pn932AAAAAElFTkSuQmCC) no-repeat 10px center, -o-linear-gradient(#444, #111);
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAMAAADeWG8gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE2QjAxNjRDOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE2QjAxNjREOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTZCMDE2NEE5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTZCMDE2NEI5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz42AEtnAAAABlBMVEX///////9VfPVsAAAAAnRSTlP/AOW3MEoAAAAWSURBVHjaYmAgFzBiACKFho6NAAEGAD07AG1pn932AAAAAElFTkSuQmCC) no-repeat 10px center, -ms-linear-gradient(#444, #111);
+			background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAMAAADeWG8gAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjE2QjAxNjRDOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjE2QjAxNjREOUNEOTExRTE4RTNFRkI1RDQ2MUYxOTQ3Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MTZCMDE2NEE5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MTZCMDE2NEI5Q0Q5MTFFMThFM0VGQjVENDYxRjE5NDciLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz42AEtnAAAABlBMVEX///////9VfPVsAAAAAnRSTlP/AOW3MEoAAAAWSURBVHjaYmAgFzBiACKFho6NAAEGAD07AG1pn932AAAAAElFTkSuQmCC) no-repeat 10px center, linear-gradient(#444, #111);
+			-moz-border-radius: 6px;
+			-webkit-border-radius: 6px;
+			border-radius: 6px;
+			-moz-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+			-webkit-box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+			box-shadow: 0 1px 1px #777, 0 1px 0 #666 inset;
+		}
+		
+		/* main nav */
+		#menu {
+			margin: 0; padding: 10px;
+			position: absolute;
+			top: 40px;
+			width: 100%;
+			z-index: 1;
+			background-color: #444;
+			display: none;
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;		
+		}
+
+		#menu:after {
+			content: '';
+			position: absolute;
+			left: 25px;
+			top: -8px;
+			border-left: 8px solid transparent;
+			border-right: 8px solid transparent;
+			border-bottom: 8px solid #444;
+		}	
+
+		#menu ul {
+			position: static;
+			visibility: visible;
+			opacity: 1;
+			margin: 0;
+			background: none;
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;				
+		}
+
+		#menu ul ul {
+			margin: 0 0 0 20px !important;
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;		
+		}
+
+		#menu li {
+			position: static;
+			display: block;
+			float: none;
+			border: 0;
+			margin: 5px;
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;			
+		}
+
+		#menu ul li{
+			margin-left: 20px;
+			-moz-box-shadow: none;
+			-webkit-box-shadow: none;
+			box-shadow: none;		
+		}
+
+		#menu a{
+			display: block;
+			float: none;
+			padding: 0;
+			color: #999;
+		}
+
+		#menu a:hover{
+			color: #fafafa;
+		}	
+
+		#menu ul a{
+			padding: 0;
+			width: auto;		
+		}
+
+		#menu ul a:hover{
+			background: none;	
+		}
+
+		#menu ul li:first-child a:after,
+		#menu ul ul li:first-child a:after {
+			border: 0;
+		}		
+
+	}
+
+	@media screen and (min-width: 600px) {
+		#menu {
+			display: block !important;
+		}
+	}	
+
+	/* iPad */
+	.no-transition {
+		-webkit-transition: none;
+		-moz-transition: none;
+		-ms-transition: none;
+		-o-transition: none;
+		transition: none;
+		opacity: 1;
+		visibility: visible;
+		display: none;  		
+	}
+
+	#menu li:hover > .no-transition {
+		display: block;
+	}
+	</style>
+
+</head>
+<body>
+
+<nav id="menu-wrap">    
+	<ul id="menu">
+		<li><a href="http://trendypunch.com/">Home</a></li>
+
+		
+		<li>
+			<a href="#">20 Days High Low (SST)</a>
+			<ul>
+
+			<!------------------------------------------------------------------------>
+				<li>
+					<a href="#">20 Days High Buy</a>
+					<ul>
+						
+											<li>
+							<a href="http://trendypunch.com/sst/index/nifty-50.html">NIFTY 50</a>		
+										
+						</li>
+						
+											<li>
+							<a href="http://trendypunch.com/sst/index/nifty-100.html">NIFTY 100</a>		
+										
+						</li>
+						
+											<li>
+							<a href="http://trendypunch.com/sst/index/nifty-200.html">NIFTY 200</a>		
+										
+						</li>
+						
+											<li>
+							<a href="http://trendypunch.com/sst/index/nifty-500.html">NIFTY 500</a>		
+										
+						</li>
+						
+											<li>
+							<a href="http://trendypunch.com/sst/index/nifty-midsmallcap-400.html">NIFTY MIDSMALLCAP 400</a>		
+										
+						</li>
+						
+						
+						
+											
+
+						
+					</ul>					
+				</li>
+				<!--------------------------------------------------------------------------------->
+
+
+
+				
+			
+			</ul>
+		</li>
+		
+		
+		<li><a href="">About</a></li>
+		<li><a href="">Contact</a></li>
+	</ul>
+</nav>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script>
+    $(function() {
+		if ($.browser.msie && $.browser.version.substr(0,1)<7)
+		{
+		$('li').has('ul').mouseover(function(){
+			$(this).children('ul').css('visibility','visible');
+			}).mouseout(function(){
+			$(this).children('ul').css('visibility','hidden');
+			})
+		}
+
+		/* Mobile */
+		$('#menu-wrap').prepend('<div id="menu-trigger">Menu</div>');		
+		$("#menu-trigger").on("click", function(){
+			$("#menu").slideToggle();
+		});
+
+		// iPad
+		var isiPad = navigator.userAgent.match(/iPad/i) != null;
+		if (isiPad) $('#menu ul').addClass('no-transition');      
+    });          
+</script>
+
+</body>
+</html><style type="text/css">
+tr.red th {
+  background: #fada5e;
+  color: #000;
+}
+.red th {
+  position: sticky;
+  top: 0; /* Don't forget this, required for the stickiness */
+  height:40px;
+  border-color:#f2f2f2;
+}
+td{
+	height:30px;
+	width:auto;
+	border-color:#f2f2f2;
+}
+
+.fancySearchRow input{width:99.40%; height:30px;}
+#search_sy{width:99.40%; height:30px;}
+.d-none {
+    display: none !important;
+}
+</style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <div class="result">
+ 		<h2>NIFTY 100</h2>
+		 <input type="text" class="form-control mb-3 tablesearch-input " id="search_sy" data-tablesearch-table="#data-table"  placeholder="Search">
+ <table class="table tablesearch-table table-bordered table-striped" id="data-table" width="100%" border="1" cellpadding="0" cellspacing="0">
+        <thead class="thead-dark">
+            <tr class="red">
+						<th>ID</th>
+						<th>Symbol</th>
+						<th>SRT</th>
+						<th>Date</th>
+						<th>Prev Close</th>
+						<th>Open</th>
+						<th>High</th>
+						<th>Low</th>
+						<th>Close</th>
+						<th>Chart</th>
+						<th>20 Days High</th>
+						<th>20 Days Low</th>
+						<th>Today</th>
+						<th>Buy Price</th>
+						<th>Profit</th>
+						<th>GTT Action</th>
+						<th>Action Date</th>
+						<th>Away</th>
+						<th>Volume</th>
+						<th>Value</th>
+						<th>No Of Trades</th>
+				</tr>
+		</thead>
+		
+		<tbody>
+													
+								<tr>
+									<td>1</td>
+									<td><a href="http://trendypunch.com/sst/data/hdfcbank.html" target="blank">HDFCBANK</a></td>
+									<td>1</td>
+									<td>
+											14-01-2022									</td>
+									<td>1528</td>
+									<td>1530</td>
+									<td>1548.7</td>
+									<td>1519</td>
+									<td>1545.15</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:HDFCBANK" target="_blank">Chart</a></td>
+									<td>1576.65</td>
+									<td>1414.1</td>
+									<td>
+											Wait									</td>
+									<td>1554.7</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-0.61</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-05									</td>
+									<td>
+											1000									</td>
+									<td>5604484</td>
+									<td>8604102722.25</td>
+									<td>149071</td>
+								</tr>
+					
+													
+								<tr>
+									<td>2</td>
+									<td><a href="http://trendypunch.com/sst/data/yesbank.html" target="blank">YESBANK</a></td>
+									<td>1.1</td>
+									<td>
+											14-01-2022									</td>
+									<td>14</td>
+									<td>13.95</td>
+									<td>14.15</td>
+									<td>13.85</td>
+									<td>14.05</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:YESBANK" target="_blank">Chart</a></td>
+									<td>14.95</td>
+									<td>12.55</td>
+									<td>
+											Wait									</td>
+									<td>13.6</td>
+									<td>
+												<span style="color:green; font-weight: bold;">3.31</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-07									</td>
+									<td>
+											1000									</td>
+									<td>76620802</td>
+									<td>1074473112.95</td>
+									<td>117750</td>
+								</tr>
+					
+													
+								<tr>
+									<td>3</td>
+									<td><a href="http://trendypunch.com/sst/data/godrejcp.html" target="blank">GODREJCP</a></td>
+									<td>0.93</td>
+									<td>
+											14-01-2022									</td>
+									<td>924.35</td>
+									<td>915.9</td>
+									<td>924.45</td>
+									<td>909</td>
+									<td>918.75</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:GODREJCP" target="_blank">Chart</a></td>
+									<td>976</td>
+									<td>871.2</td>
+									<td>
+											Wait									</td>
+									<td>959.95</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-4.29</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-22									</td>
+									<td>
+											1000									</td>
+									<td>690471</td>
+									<td>633460010.45</td>
+									<td>21544</td>
+								</tr>
+					
+													
+								<tr>
+									<td>4</td>
+									<td><a href="http://trendypunch.com/sst/data/vedl.html" target="blank">VEDL</a></td>
+									<td>1.06</td>
+									<td>
+											14-01-2022									</td>
+									<td>339.7</td>
+									<td>340</td>
+									<td>343.2</td>
+									<td>334.05</td>
+									<td>336.2</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:VEDL" target="_blank">Chart</a></td>
+									<td>357.4</td>
+									<td>315.65</td>
+									<td>
+											Wait									</td>
+									<td>357.4</td>
+									<td>
+																					</td>
+									<td>	
+											Yes, Start GTT Order									</td>
+									<td>
+											2021-12-20									</td>
+									<td>
+											6.31									</td>
+									<td>6325976</td>
+									<td>2149516137.2</td>
+									<td>66865</td>
+								</tr>
+					
+													
+								<tr>
+									<td>5</td>
+									<td><a href="http://trendypunch.com/sst/data/cholafin.html" target="blank">CHOLAFIN</a></td>
+									<td>1.05</td>
+									<td>
+											14-01-2022									</td>
+									<td>589.4</td>
+									<td>591</td>
+									<td>594.35</td>
+									<td>582.25</td>
+									<td>586.2</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:CHOLAFIN" target="_blank">Chart</a></td>
+									<td>602</td>
+									<td>469.25</td>
+									<td>
+											Wait									</td>
+									<td>579.15</td>
+									<td>
+												<span style="color:green; font-weight: bold;">1.22</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-10									</td>
+									<td>
+											1000									</td>
+									<td>1443887</td>
+									<td>849530273.85</td>
+									<td>40878</td>
+								</tr>
+					
+													
+								<tr>
+									<td>6</td>
+									<td><a href="http://trendypunch.com/sst/data/adaniports.html" target="blank">ADANIPORTS</a></td>
+									<td>1.07</td>
+									<td>
+											14-01-2022									</td>
+									<td>772.2</td>
+									<td>769</td>
+									<td>795</td>
+									<td>763.65</td>
+									<td>780.1</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:ADANIPORTS" target="_blank">Chart</a></td>
+									<td>776</td>
+									<td>685.5</td>
+									<td>
+											Wait									</td>
+									<td>774.3</td>
+									<td>
+												<span style="color:green; font-weight: bold;">0.75</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-09									</td>
+									<td>
+											1000									</td>
+									<td>9627761</td>
+									<td>7547029585.6</td>
+									<td>147081</td>
+								</tr>
+					
+													
+								<tr>
+									<td>7</td>
+									<td><a href="http://trendypunch.com/sst/data/industower.html" target="blank">INDUSTOWER</a></td>
+									<td>1.04</td>
+									<td>
+											14-01-2022									</td>
+									<td>275.95</td>
+									<td>275</td>
+									<td>276.55</td>
+									<td>271.2</td>
+									<td>272.1</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:INDUSTOWER" target="_blank">Chart</a></td>
+									<td>278.1</td>
+									<td>237.05</td>
+									<td>
+											Wait									</td>
+									<td>269.45</td>
+									<td>
+												<span style="color:green; font-weight: bold;">0.98</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-12									</td>
+									<td>
+											1000									</td>
+									<td>1940406</td>
+									<td>530122709.5</td>
+									<td>25858</td>
+								</tr>
+					
+													
+								<tr>
+									<td>8</td>
+									<td><a href="http://trendypunch.com/sst/data/reliance.html" target="blank">RELIANCE</a></td>
+									<td>1.06</td>
+									<td>
+											14-01-2022									</td>
+									<td>2535.3</td>
+									<td>2535</td>
+									<td>2567.3</td>
+									<td>2525.85</td>
+									<td>2539</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:RELIANCE" target="_blank">Chart</a></td>
+									<td>2541</td>
+									<td>2247.1</td>
+									<td>
+											Wait									</td>
+									<td>2474.9</td>
+									<td>
+												<span style="color:green; font-weight: bold;">2.59</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-05									</td>
+									<td>
+											1000									</td>
+									<td>9197773</td>
+									<td>23414360751.05</td>
+									<td>195865</td>
+								</tr>
+					
+													
+								<tr>
+									<td>9</td>
+									<td><a href="http://trendypunch.com/sst/data/gland.html" target="blank">GLAND</a></td>
+									<td>0.98</td>
+									<td>
+											14-01-2022									</td>
+									<td>3749.8</td>
+									<td>3745</td>
+									<td>3760</td>
+									<td>3707</td>
+									<td>3723.85</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:GLAND" target="_blank">Chart</a></td>
+									<td>4062.95</td>
+									<td>3566.25</td>
+									<td>
+											Wait									</td>
+									<td>3685</td>
+									<td>
+												<span style="color:green; font-weight: bold;">1.05</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-16									</td>
+									<td>
+											1000									</td>
+									<td>75581</td>
+									<td>281627537.5</td>
+									<td>20580</td>
+								</tr>
+					
+													
+								<tr>
+									<td>10</td>
+									<td><a href="http://trendypunch.com/sst/data/upl.html" target="blank">UPL</a></td>
+									<td>1.1</td>
+									<td>
+											14-01-2022									</td>
+									<td>841</td>
+									<td>836</td>
+									<td>836.05</td>
+									<td>818</td>
+									<td>824.65</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:UPL" target="_blank">Chart</a></td>
+									<td>844.9</td>
+									<td>693.3</td>
+									<td>
+											Wait									</td>
+									<td>755.7</td>
+									<td>
+												<span style="color:green; font-weight: bold;">9.12</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-22									</td>
+									<td>
+											1000									</td>
+									<td>3690548</td>
+									<td>3047189842.4</td>
+									<td>57649</td>
+								</tr>
+					
+													
+								<tr>
+									<td>11</td>
+									<td><a href="http://trendypunch.com/sst/data/sail.html" target="blank">SAIL</a></td>
+									<td>0.92</td>
+									<td>
+											14-01-2022									</td>
+									<td>108.05</td>
+									<td>107.7</td>
+									<td>108.85</td>
+									<td>107.25</td>
+									<td>108.2</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:SAIL" target="_blank">Chart</a></td>
+									<td>114.65</td>
+									<td>104.25</td>
+									<td>
+											Wait									</td>
+									<td>114.65</td>
+									<td>
+																					</td>
+									<td>	
+											Yes, Start GTT Order									</td>
+									<td>
+											2022-01-11									</td>
+									<td>
+											5.96									</td>
+									<td>22683240</td>
+									<td>2453720977.7</td>
+									<td>59118</td>
+								</tr>
+					
+													
+								<tr>
+									<td>12</td>
+									<td><a href="http://trendypunch.com/sst/data/coalindia.html" target="blank">COALINDIA</a></td>
+									<td>1.05</td>
+									<td>
+											14-01-2022									</td>
+									<td>164.75</td>
+									<td>164.75</td>
+									<td>166.15</td>
+									<td>163.25</td>
+									<td>164.75</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:COALINDIA" target="_blank">Chart</a></td>
+									<td>166.45</td>
+									<td>139.15</td>
+									<td>
+											Wait									</td>
+									<td>153.75</td>
+									<td>
+												<span style="color:green; font-weight: bold;">7.15</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-03									</td>
+									<td>
+											1000									</td>
+									<td>10211720</td>
+									<td>1680823094.65</td>
+									<td>64614</td>
+								</tr>
+					
+													
+								<tr>
+									<td>13</td>
+									<td><a href="http://trendypunch.com/sst/data/bpcl.html" target="blank">BPCL</a></td>
+									<td>0.93</td>
+									<td>
+											14-01-2022									</td>
+									<td>394.5</td>
+									<td>395</td>
+									<td>399.95</td>
+									<td>392.5</td>
+									<td>398.45</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:BPCL" target="_blank">Chart</a></td>
+									<td>402.9</td>
+									<td>357.4</td>
+									<td>
+											Wait									</td>
+									<td>400.5</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-0.51</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-07									</td>
+									<td>
+											1000									</td>
+									<td>3457752</td>
+									<td>1374048145.75</td>
+									<td>54464</td>
+								</tr>
+					
+													
+								<tr>
+									<td>14</td>
+									<td><a href="http://trendypunch.com/sst/data/bajfinance.html" target="blank">BAJFINANCE</a></td>
+									<td>1.09</td>
+									<td>
+											14-01-2022									</td>
+									<td>7808.35</td>
+									<td>7775</td>
+									<td>7846.1</td>
+									<td>7728.5</td>
+									<td>7832.2</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:BAJFINANCE" target="_blank">Chart</a></td>
+									<td>7869</td>
+									<td>6492.6</td>
+									<td>
+											Wait									</td>
+									<td>7477</td>
+									<td>
+												<span style="color:green; font-weight: bold;">4.75</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-05									</td>
+									<td>
+											1000									</td>
+									<td>569635</td>
+									<td>4445242426</td>
+									<td>61554</td>
+								</tr>
+					
+													
+								<tr>
+									<td>15</td>
+									<td><a href="http://trendypunch.com/sst/data/pel.html" target="blank">PEL</a></td>
+									<td>1.01</td>
+									<td>
+											14-01-2022									</td>
+									<td>2637.95</td>
+									<td>2637</td>
+									<td>2672</td>
+									<td>2617</td>
+									<td>2642.95</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:PEL" target="_blank">Chart</a></td>
+									<td>2750</td>
+									<td>2430</td>
+									<td>
+											Wait									</td>
+									<td>2675</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-1.2</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-13									</td>
+									<td>
+											1000									</td>
+									<td>292867</td>
+									<td>774471422.7</td>
+									<td>15928</td>
+								</tr>
+					
+													
+								<tr>
+									<td>16</td>
+									<td><a href="http://trendypunch.com/sst/data/pghh.html" target="blank">PGHH</a></td>
+									<td>1.13</td>
+									<td>
+											14-01-2022									</td>
+									<td>15992.7</td>
+									<td>16039.3</td>
+									<td>16170</td>
+									<td>15880.8</td>
+									<td>16015.7</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:PGHH" target="_blank">Chart</a></td>
+									<td>16314.3</td>
+									<td>14137.8</td>
+									<td>
+											Wait									</td>
+									<td>15433</td>
+									<td>
+												<span style="color:green; font-weight: bold;">3.78</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-27									</td>
+									<td>
+											1000									</td>
+									<td>37212</td>
+									<td>595861471</td>
+									<td>2955</td>
+								</tr>
+					
+													
+								<tr>
+									<td>17</td>
+									<td><a href="http://trendypunch.com/sst/data/adanient.html" target="blank">ADANIENT</a></td>
+									<td>1.19</td>
+									<td>
+											14-01-2022									</td>
+									<td>1853.35</td>
+									<td>1850</td>
+									<td>1890.45</td>
+									<td>1831.1</td>
+									<td>1870.25</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:ADANIENT" target="_blank">Chart</a></td>
+									<td>1873</td>
+									<td>1555.2</td>
+									<td>
+											Wait									</td>
+									<td>1760</td>
+									<td>
+												<span style="color:green; font-weight: bold;">6.26</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-10									</td>
+									<td>
+											1000									</td>
+									<td>2357616</td>
+									<td>4402539546.4</td>
+									<td>58570</td>
+								</tr>
+					
+													
+								<tr>
+									<td>18</td>
+									<td><a href="http://trendypunch.com/sst/data/asianpaint.html" target="blank">ASIANPAINT</a></td>
+									<td>1.05</td>
+									<td>
+											14-01-2022									</td>
+									<td>3456.25</td>
+									<td>3462</td>
+									<td>3462</td>
+									<td>3346</td>
+									<td>3364.4</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:ASIANPAINT" target="_blank">Chart</a></td>
+									<td>3590</td>
+									<td>3181</td>
+									<td>
+											Wait									</td>
+									<td>3308.35</td>
+									<td>
+												<span style="color:green; font-weight: bold;">1.69</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-13									</td>
+									<td>
+											1000									</td>
+									<td>1558978</td>
+									<td>5247444521.9</td>
+									<td>146062</td>
+								</tr>
+					
+													
+								<tr>
+									<td>19</td>
+									<td><a href="http://trendypunch.com/sst/data/lt.html" target="blank">LT</a></td>
+									<td>1.16</td>
+									<td>
+											14-01-2022									</td>
+									<td>2018.4</td>
+									<td>2014</td>
+									<td>2049.95</td>
+									<td>2007</td>
+									<td>2044.75</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:LT" target="_blank">Chart</a></td>
+									<td>2029</td>
+									<td>1771.5</td>
+									<td>
+											Wait									</td>
+									<td>1908</td>
+									<td>
+												<span style="color:green; font-weight: bold;">7.17</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-28									</td>
+									<td>
+											1000									</td>
+									<td>3124945</td>
+									<td>6369645018.55</td>
+									<td>110302</td>
+								</tr>
+					
+													
+								<tr>
+									<td>20</td>
+									<td><a href="http://trendypunch.com/sst/data/jindalstel.html" target="blank">JINDALSTEL</a></td>
+									<td>1.06</td>
+									<td>
+											14-01-2022									</td>
+									<td>413.2</td>
+									<td>411</td>
+									<td>421.4</td>
+									<td>408.6</td>
+									<td>418.65</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:JINDALSTEL" target="_blank">Chart</a></td>
+									<td>414.5</td>
+									<td>357.1</td>
+									<td>
+											Wait									</td>
+									<td>401.6</td>
+									<td>
+												<span style="color:green; font-weight: bold;">4.25</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-13									</td>
+									<td>
+											1000									</td>
+									<td>6714395</td>
+									<td>2800413078.85</td>
+									<td>71581</td>
+								</tr>
+					
+													
+								<tr>
+									<td>21</td>
+									<td><a href="http://trendypunch.com/sst/data/muthootfin.html" target="blank">MUTHOOTFIN</a></td>
+									<td>0.98</td>
+									<td>
+											14-01-2022									</td>
+									<td>1498.05</td>
+									<td>1498</td>
+									<td>1502.45</td>
+									<td>1477.1</td>
+									<td>1484.85</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:MUTHOOTFIN" target="_blank">Chart</a></td>
+									<td>1559.95</td>
+									<td>1381</td>
+									<td>
+											Wait									</td>
+									<td>1516</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-2.05</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-03									</td>
+									<td>
+											1000									</td>
+									<td>648098</td>
+									<td>964491653</td>
+									<td>24728</td>
+								</tr>
+					
+													
+								<tr>
+									<td>22</td>
+									<td><a href="http://trendypunch.com/sst/data/acc.html" target="blank">ACC</a></td>
+									<td>1.02</td>
+									<td>
+											14-01-2022									</td>
+									<td>2314.15</td>
+									<td>2319.9</td>
+									<td>2374</td>
+									<td>2304.75</td>
+									<td>2358.1</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:ACC" target="_blank">Chart</a></td>
+									<td>2344.55</td>
+									<td>2087.8</td>
+									<td>
+											Wait									</td>
+									<td>2330.8</td>
+									<td>
+												<span style="color:green; font-weight: bold;">1.17</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-11									</td>
+									<td>
+											1000									</td>
+									<td>676328</td>
+									<td>1592774618.9</td>
+									<td>40268</td>
+								</tr>
+					
+													
+								<tr>
+									<td>23</td>
+									<td><a href="http://trendypunch.com/sst/data/pnb.html" target="blank">PNB</a></td>
+									<td>1.02</td>
+									<td>
+											14-01-2022									</td>
+									<td>40.2</td>
+									<td>39.95</td>
+									<td>40.35</td>
+									<td>39.8</td>
+									<td>40.15</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:PNB" target="_blank">Chart</a></td>
+									<td>40.75</td>
+									<td>35.95</td>
+									<td>
+											Wait									</td>
+									<td>40.45</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-0.74</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-10									</td>
+									<td>
+											1000									</td>
+									<td>28246979</td>
+									<td>1131934747.2</td>
+									<td>38963</td>
+								</tr>
+					
+													
+								<tr>
+									<td>24</td>
+									<td><a href="http://trendypunch.com/sst/data/sunpharma.html" target="blank">SUNPHARMA</a></td>
+									<td>1.09</td>
+									<td>
+											14-01-2022									</td>
+									<td>865.5</td>
+									<td>865.5</td>
+									<td>868.9</td>
+									<td>856.8</td>
+									<td>859.75</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:SUNPHARMA" target="_blank">Chart</a></td>
+									<td>871</td>
+									<td>753.05</td>
+									<td>
+											Wait									</td>
+									<td>798.9</td>
+									<td>
+												<span style="color:green; font-weight: bold;">7.62</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-22									</td>
+									<td>
+											1000									</td>
+									<td>2351963</td>
+									<td>2026577112.9</td>
+									<td>59348</td>
+								</tr>
+					
+													
+								<tr>
+									<td>25</td>
+									<td><a href="http://trendypunch.com/sst/data/nmdc.html" target="blank">NMDC</a></td>
+									<td>0.98</td>
+									<td>
+											14-01-2022									</td>
+									<td>146.05</td>
+									<td>145.15</td>
+									<td>146.9</td>
+									<td>144.3</td>
+									<td>145.95</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:NMDC" target="_blank">Chart</a></td>
+									<td>146.45</td>
+									<td>125</td>
+									<td>
+											Wait									</td>
+									<td>141.2</td>
+									<td>
+												<span style="color:green; font-weight: bold;">3.36</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-12									</td>
+									<td>
+											1000									</td>
+									<td>5211695</td>
+									<td>758156903.4</td>
+									<td>31400</td>
+								</tr>
+					
+													
+								<tr>
+									<td>26</td>
+									<td><a href="http://trendypunch.com/sst/data/siemens.html" target="blank">SIEMENS</a></td>
+									<td>1.07</td>
+									<td>
+											14-01-2022									</td>
+									<td>2360.1</td>
+									<td>2349</td>
+									<td>2401.1</td>
+									<td>2336.4</td>
+									<td>2394.55</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:SIEMENS" target="_blank">Chart</a></td>
+									<td>2470</td>
+									<td>2244.05</td>
+									<td>
+											Wait									</td>
+									<td>2470</td>
+									<td>
+																					</td>
+									<td>	
+											Yes, Start GTT Order									</td>
+									<td>
+											2022-01-10									</td>
+									<td>
+											3.15									</td>
+									<td>578464</td>
+									<td>1377479606.2</td>
+									<td>35174</td>
+								</tr>
+					
+													
+								<tr>
+									<td>27</td>
+									<td><a href="http://trendypunch.com/sst/data/pidilitind.html" target="blank">PIDILITIND</a></td>
+									<td>1.14</td>
+									<td>
+											14-01-2022									</td>
+									<td>2724.35</td>
+									<td>2720</td>
+									<td>2724.45</td>
+									<td>2650</td>
+									<td>2700.55</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:PIDILITIND" target="_blank">Chart</a></td>
+									<td>2764.7</td>
+									<td>2329.25</td>
+									<td>
+											Wait									</td>
+									<td>2423.65</td>
+									<td>
+												<span style="color:green; font-weight: bold;">11.42</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-21									</td>
+									<td>
+											1000									</td>
+									<td>493603</td>
+									<td>1332757711.5</td>
+									<td>34273</td>
+								</tr>
+					
+													
+								<tr>
+									<td>28</td>
+									<td><a href="http://trendypunch.com/sst/data/icicibank.html" target="blank">ICICIBANK</a></td>
+									<td>1.12</td>
+									<td>
+											14-01-2022									</td>
+									<td>824.7</td>
+									<td>821</td>
+									<td>822</td>
+									<td>811.6</td>
+									<td>820</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:ICICIBANK" target="_blank">Chart</a></td>
+									<td>828</td>
+									<td>698.2</td>
+									<td>
+											Wait									</td>
+									<td>769.7</td>
+									<td>
+												<span style="color:green; font-weight: bold;">6.54</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-04									</td>
+									<td>
+											1000									</td>
+									<td>7552844</td>
+									<td>6170324363.2</td>
+									<td>137003</td>
+								</tr>
+					
+													
+								<tr>
+									<td>29</td>
+									<td><a href="http://trendypunch.com/sst/data/bhartiartl.html" target="blank">BHARTIARTL</a></td>
+									<td>1.07</td>
+									<td>
+											14-01-2022									</td>
+									<td>731.8</td>
+									<td>729.95</td>
+									<td>730.9</td>
+									<td>718.45</td>
+									<td>720.6</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:BHARTIARTL" target="_blank">Chart</a></td>
+									<td>735.65</td>
+									<td>645.1</td>
+									<td>
+											Wait									</td>
+									<td>718.9</td>
+									<td>
+												<span style="color:green; font-weight: bold;">0.24</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-06									</td>
+									<td>
+											1000									</td>
+									<td>5344096</td>
+									<td>3863767970.55</td>
+									<td>145842</td>
+								</tr>
+					
+													
+								<tr>
+									<td>30</td>
+									<td><a href="http://trendypunch.com/sst/data/adanitrans.html" target="blank">ADANITRANS</a></td>
+									<td>1.27</td>
+									<td>
+											14-01-2022									</td>
+									<td>2019.7</td>
+									<td>1998</td>
+									<td>2030</td>
+									<td>1930</td>
+									<td>2020.6</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:ADANITRANS" target="_blank">Chart</a></td>
+									<td>2024.65</td>
+									<td>1650.25</td>
+									<td>
+											Wait									</td>
+									<td>1889</td>
+									<td>
+												<span style="color:green; font-weight: bold;">6.97</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-12									</td>
+									<td>
+											1000									</td>
+									<td>55454</td>
+									<td>110373790.6</td>
+									<td>5622</td>
+								</tr>
+					
+													
+								<tr>
+									<td>31</td>
+									<td><a href="http://trendypunch.com/sst/data/drreddy.html" target="blank">DRREDDY</a></td>
+									<td>0.98</td>
+									<td>
+											14-01-2022									</td>
+									<td>4725.95</td>
+									<td>4720.2</td>
+									<td>4723</td>
+									<td>4660.55</td>
+									<td>4689.2</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:DRREDDY" target="_blank">Chart</a></td>
+									<td>4931.05</td>
+									<td>4462</td>
+									<td>
+											Wait									</td>
+									<td>4745</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-1.18</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-28									</td>
+									<td>
+											1000									</td>
+									<td>318860</td>
+									<td>1495076432.95</td>
+									<td>27039</td>
+								</tr>
+					
+													
+								<tr>
+									<td>32</td>
+									<td><a href="http://trendypunch.com/sst/data/auropharma.html" target="blank">AUROPHARMA</a></td>
+									<td>0.94</td>
+									<td>
+											14-01-2022									</td>
+									<td>717.6</td>
+									<td>686</td>
+									<td>705</td>
+									<td>684.45</td>
+									<td>695.15</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:AUROPHARMA" target="_blank">Chart</a></td>
+									<td>742</td>
+									<td>664.55</td>
+									<td>
+											Wait									</td>
+									<td>703.25</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-1.15</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-09									</td>
+									<td>
+											1000									</td>
+									<td>5879939</td>
+									<td>4077511086.05</td>
+									<td>132353</td>
+								</tr>
+					
+													
+								<tr>
+									<td>33</td>
+									<td><a href="http://trendypunch.com/sst/data/jublfood.html" target="blank">JUBLFOOD</a></td>
+									<td>1.03</td>
+									<td>
+											14-01-2022									</td>
+									<td>3918.55</td>
+									<td>3900</td>
+									<td>4032</td>
+									<td>3860</td>
+									<td>3931.5</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:JUBLFOOD" target="_blank">Chart</a></td>
+									<td>3955</td>
+									<td>3340</td>
+									<td>
+											Wait									</td>
+									<td>3773</td>
+									<td>
+												<span style="color:green; font-weight: bold;">4.2</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-10									</td>
+									<td>
+											1000									</td>
+									<td>1091610</td>
+									<td>4298285862.1</td>
+									<td>74892</td>
+								</tr>
+					
+													
+								<tr>
+									<td>34</td>
+									<td><a href="http://trendypunch.com/sst/data/boschltd.html" target="blank">BOSCHLTD</a></td>
+									<td>1.09</td>
+									<td>
+											14-01-2022									</td>
+									<td>17396.6</td>
+									<td>17350</td>
+									<td>17746.9</td>
+									<td>17318</td>
+									<td>17486</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:BOSCHLTD" target="_blank">Chart</a></td>
+									<td>17592.6</td>
+									<td>15200</td>
+									<td>
+											Wait									</td>
+									<td>16979</td>
+									<td>
+												<span style="color:green; font-weight: bold;">2.99</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-30									</td>
+									<td>
+											1000									</td>
+									<td>37139</td>
+									<td>653830431.15</td>
+									<td>7910</td>
+								</tr>
+					
+													
+								<tr>
+									<td>35</td>
+									<td><a href="http://trendypunch.com/sst/data/ambujacem.html" target="blank">AMBUJACEM</a></td>
+									<td>1.01</td>
+									<td>
+											14-01-2022									</td>
+									<td>396.4</td>
+									<td>395.1</td>
+									<td>405</td>
+									<td>394.2</td>
+									<td>402.7</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:AMBUJACEM" target="_blank">Chart</a></td>
+									<td>405</td>
+									<td>347</td>
+									<td>
+											Wait									</td>
+									<td>382.65</td>
+									<td>
+												<span style="color:green; font-weight: bold;">5.24</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-31									</td>
+									<td>
+											1000									</td>
+									<td>2146874</td>
+									<td>863018846.55</td>
+									<td>32589</td>
+								</tr>
+					
+													
+								<tr>
+									<td>36</td>
+									<td><a href="http://trendypunch.com/sst/data/hindpetro.html" target="blank">HINDPETRO</a></td>
+									<td>1.1</td>
+									<td>
+											14-01-2022									</td>
+									<td>321.75</td>
+									<td>321.5</td>
+									<td>326.4</td>
+									<td>319.5</td>
+									<td>325</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:HINDPETRO" target="_blank">Chart</a></td>
+									<td>327.85</td>
+									<td>274.75</td>
+									<td>
+											Wait									</td>
+									<td>312.1</td>
+									<td>
+												<span style="color:green; font-weight: bold;">4.13</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-05									</td>
+									<td>
+											1000									</td>
+									<td>3786535</td>
+									<td>1227398153.15</td>
+									<td>42668</td>
+								</tr>
+					
+													
+								<tr>
+									<td>37</td>
+									<td><a href="http://trendypunch.com/sst/data/m&m.html" target="blank">M&M</a></td>
+									<td>1.07</td>
+									<td>
+											14-01-2022									</td>
+									<td>896</td>
+									<td>889.8</td>
+									<td>895.95</td>
+									<td>879.65</td>
+									<td>881.2</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:M&M" target="_blank">Chart</a></td>
+									<td>909.5</td>
+									<td>797</td>
+									<td>
+											Wait									</td>
+									<td>862.25</td>
+									<td>
+												<span style="color:green; font-weight: bold;">2.2</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-12									</td>
+									<td>
+											1000									</td>
+									<td>2027852</td>
+									<td>1796888169.5</td>
+									<td>52749</td>
+								</tr>
+					
+													
+								<tr>
+									<td>38</td>
+									<td><a href="http://trendypunch.com/sst/data/dabur.html" target="blank">DABUR</a></td>
+									<td>0.96</td>
+									<td>
+											14-01-2022									</td>
+									<td>580.7</td>
+									<td>576.6</td>
+									<td>584.2</td>
+									<td>571.05</td>
+									<td>575.8</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:DABUR" target="_blank">Chart</a></td>
+									<td>591.25</td>
+									<td>550.4</td>
+									<td>
+											Wait									</td>
+									<td>583.65</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-1.34</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-03									</td>
+									<td>
+											1000									</td>
+									<td>2009075</td>
+									<td>1156593097.55</td>
+									<td>45098</td>
+								</tr>
+					
+													
+								<tr>
+									<td>39</td>
+									<td><a href="http://trendypunch.com/sst/data/bajajfinsv.html" target="blank">BAJAJFINSV</a></td>
+									<td>1.09</td>
+									<td>
+											14-01-2022									</td>
+									<td>18225</td>
+									<td>18044</td>
+									<td>18333.4</td>
+									<td>18000</td>
+									<td>18209.7</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:BAJAJFINSV" target="_blank">Chart</a></td>
+									<td>18274.9</td>
+									<td>15450</td>
+									<td>
+											Wait									</td>
+									<td>17835.9</td>
+									<td>
+												<span style="color:green; font-weight: bold;">2.1</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-05									</td>
+									<td>
+											1000									</td>
+									<td>155328</td>
+									<td>2829029031.2</td>
+									<td>26980</td>
+								</tr>
+					
+													
+								<tr>
+									<td>40</td>
+									<td><a href="http://trendypunch.com/sst/data/gail.html" target="blank">GAIL</a></td>
+									<td>1</td>
+									<td>
+											14-01-2022									</td>
+									<td>144.95</td>
+									<td>144.4</td>
+									<td>145.6</td>
+									<td>143.2</td>
+									<td>144.3</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:GAIL" target="_blank">Chart</a></td>
+									<td>145.35</td>
+									<td>125.2</td>
+									<td>
+											Wait									</td>
+									<td>137.25</td>
+									<td>
+												<span style="color:green; font-weight: bold;">5.14</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-06									</td>
+									<td>
+											1000									</td>
+									<td>4196916</td>
+									<td>606468314.2</td>
+									<td>29734</td>
+								</tr>
+					
+													
+								<tr>
+									<td>41</td>
+									<td><a href="http://trendypunch.com/sst/data/mcdowell-n.html" target="blank">MCDOWELL-N</a></td>
+									<td>1.14</td>
+									<td>
+											14-01-2022									</td>
+									<td>942.35</td>
+									<td>939.8</td>
+									<td>958</td>
+									<td>932.1</td>
+									<td>944.2</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:MCDOWELL-N" target="_blank">Chart</a></td>
+									<td>950.6</td>
+									<td>848.5</td>
+									<td>
+											Wait									</td>
+									<td>925.95</td>
+									<td>
+												<span style="color:green; font-weight: bold;">1.97</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-13									</td>
+									<td>
+											1000									</td>
+									<td>1892243</td>
+									<td>1792516210.6</td>
+									<td>43748</td>
+								</tr>
+					
+													
+								<tr>
+									<td>42</td>
+									<td><a href="http://trendypunch.com/sst/data/bankbaroda.html" target="blank">BANKBARODA</a></td>
+									<td>1.09</td>
+									<td>
+											14-01-2022									</td>
+									<td>93.9</td>
+									<td>93.1</td>
+									<td>94.6</td>
+									<td>92.95</td>
+									<td>93.6</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:BANKBARODA" target="_blank">Chart</a></td>
+									<td>94.65</td>
+									<td>77.05</td>
+									<td>
+											Wait									</td>
+									<td>92.95</td>
+									<td>
+												<span style="color:green; font-weight: bold;">0.7</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-12									</td>
+									<td>
+											1000									</td>
+									<td>17230925</td>
+									<td>1616265599.4</td>
+									<td>54933</td>
+								</tr>
+					
+													
+								<tr>
+									<td>43</td>
+									<td><a href="http://trendypunch.com/sst/data/adanigreen.html" target="blank">ADANIGREEN</a></td>
+									<td>1.79</td>
+									<td>
+											14-01-2022									</td>
+									<td>1661.8</td>
+									<td>1657</td>
+									<td>1720.5</td>
+									<td>1637.05</td>
+									<td>1697.95</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:ADANIGREEN" target="_blank">Chart</a></td>
+									<td>1684.4</td>
+									<td>1295</td>
+									<td>
+											Wait									</td>
+									<td>1469</td>
+									<td>
+												<span style="color:green; font-weight: bold;">15.59</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-11									</td>
+									<td>
+											1000									</td>
+									<td>656706</td>
+									<td>1102595533</td>
+									<td>30167</td>
+								</tr>
+					
+													
+								<tr>
+									<td>44</td>
+									<td><a href="http://trendypunch.com/sst/data/cadilahc.html" target="blank">CADILAHC</a></td>
+									<td>0.85</td>
+									<td>
+											14-01-2022									</td>
+									<td>447.25</td>
+									<td>447.25</td>
+									<td>448.75</td>
+									<td>441.25</td>
+									<td>442.1</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:CADILAHC" target="_blank">Chart</a></td>
+									<td>486.85</td>
+									<td>436.3</td>
+									<td>
+											Wait									</td>
+									<td>474.4</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-6.81</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-30									</td>
+									<td>
+											1000									</td>
+									<td>1656575</td>
+									<td>734900179.15</td>
+									<td>29061</td>
+								</tr>
+					
+													
+								<tr>
+									<td>45</td>
+									<td><a href="http://trendypunch.com/sst/data/ongc.html" target="blank">ONGC</a></td>
+									<td>1.16</td>
+									<td>
+											14-01-2022									</td>
+									<td>163.95</td>
+									<td>162.95</td>
+									<td>163.3</td>
+									<td>160.2</td>
+									<td>161.05</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:ONGC" target="_blank">Chart</a></td>
+									<td>165.7</td>
+									<td>131.65</td>
+									<td>
+											Wait									</td>
+									<td>150.5</td>
+									<td>
+												<span style="color:green; font-weight: bold;">7.01</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-05									</td>
+									<td>
+											1000									</td>
+									<td>11646259</td>
+									<td>1878452262.85</td>
+									<td>77709</td>
+								</tr>
+					
+													
+								<tr>
+									<td>46</td>
+									<td><a href="http://trendypunch.com/sst/data/indigo.html" target="blank">INDIGO</a></td>
+									<td>1.11</td>
+									<td>
+											14-01-2022									</td>
+									<td>2144.9</td>
+									<td>2121.35</td>
+									<td>2169</td>
+									<td>2121.35</td>
+									<td>2165.45</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:INDIGO" target="_blank">Chart</a></td>
+									<td>2160.9</td>
+									<td>1771</td>
+									<td>
+											Wait									</td>
+									<td>2028.95</td>
+									<td>
+												<span style="color:green; font-weight: bold;">6.73</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-28									</td>
+									<td>
+											1000									</td>
+									<td>628330</td>
+									<td>1353306466.65</td>
+									<td>42470</td>
+								</tr>
+					
+													
+								<tr>
+									<td>47</td>
+									<td><a href="http://trendypunch.com/sst/data/indusindbk.html" target="blank">INDUSINDBK</a></td>
+									<td>0.9</td>
+									<td>
+											14-01-2022									</td>
+									<td>927.1</td>
+									<td>919.1</td>
+									<td>926.65</td>
+									<td>913.25</td>
+									<td>920.05</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:INDUSINDBK" target="_blank">Chart</a></td>
+									<td>950</td>
+									<td>811.5</td>
+									<td>
+											Wait									</td>
+									<td>946.6</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-2.8</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-13									</td>
+									<td>
+											1000									</td>
+									<td>2557488</td>
+									<td>2351540842.45</td>
+									<td>77167</td>
+								</tr>
+					
+													
+								<tr>
+									<td>48</td>
+									<td><a href="http://trendypunch.com/sst/data/heromotoco.html" target="blank">HEROMOTOCO</a></td>
+									<td>0.96</td>
+									<td>
+											14-01-2022									</td>
+									<td>2593.6</td>
+									<td>2590</td>
+									<td>2594.8</td>
+									<td>2555</td>
+									<td>2569.7</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:HEROMOTOCO" target="_blank">Chart</a></td>
+									<td>2600</td>
+									<td>2310</td>
+									<td>
+											Wait									</td>
+									<td>2525</td>
+									<td>
+												<span style="color:green; font-weight: bold;">1.77</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-10									</td>
+									<td>
+											1000									</td>
+									<td>267065</td>
+									<td>686415400.35</td>
+									<td>30904</td>
+								</tr>
+					
+													
+								<tr>
+									<td>49</td>
+									<td><a href="http://trendypunch.com/sst/data/tatamotors.html" target="blank">TATAMOTORS</a></td>
+									<td>1.26</td>
+									<td>
+											14-01-2022									</td>
+									<td>511.95</td>
+									<td>509</td>
+									<td>515.4</td>
+									<td>505.65</td>
+									<td>509.9</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:TATAMOTORS" target="_blank">Chart</a></td>
+									<td>513.8</td>
+									<td>440</td>
+									<td>
+											Wait									</td>
+									<td>500.85</td>
+									<td>
+												<span style="color:green; font-weight: bold;">1.81</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-10									</td>
+									<td>
+											1000									</td>
+									<td>12655602</td>
+									<td>6464423090.35</td>
+									<td>137895</td>
+								</tr>
+					
+													
+								<tr>
+									<td>50</td>
+									<td><a href="http://trendypunch.com/sst/data/igl.html" target="blank">IGL</a></td>
+									<td>0.9</td>
+									<td>
+											14-01-2022									</td>
+									<td>463.55</td>
+									<td>464.75</td>
+									<td>466.6</td>
+									<td>460.05</td>
+									<td>461.45</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:IGL" target="_blank">Chart</a></td>
+									<td>504</td>
+									<td>456.9</td>
+									<td>
+											Wait									</td>
+									<td>504</td>
+									<td>
+																					</td>
+									<td>	
+											Yes, Start GTT Order									</td>
+									<td>
+											2022-01-12									</td>
+									<td>
+											9.22									</td>
+									<td>1623010</td>
+									<td>750216707.25</td>
+									<td>25347</td>
+								</tr>
+					
+													
+								<tr>
+									<td>51</td>
+									<td><a href="http://trendypunch.com/sst/data/britannia.html" target="blank">BRITANNIA</a></td>
+									<td>1</td>
+									<td>
+											14-01-2022									</td>
+									<td>3749.05</td>
+									<td>3749.05</td>
+									<td>3754.9</td>
+									<td>3695.3</td>
+									<td>3712.05</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:BRITANNIA" target="_blank">Chart</a></td>
+									<td>3800.95</td>
+									<td>3430.1</td>
+									<td>
+											Wait									</td>
+									<td>3658.35</td>
+									<td>
+												<span style="color:green; font-weight: bold;">1.47</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-05									</td>
+									<td>
+											1000									</td>
+									<td>97013</td>
+									<td>361437497.6</td>
+									<td>10269</td>
+								</tr>
+					
+													
+								<tr>
+									<td>52</td>
+									<td><a href="http://trendypunch.com/sst/data/ultracemco.html" target="blank">ULTRACEMCO</a></td>
+									<td>1.01</td>
+									<td>
+											14-01-2022									</td>
+									<td>7606.8</td>
+									<td>7634</td>
+									<td>7700</td>
+									<td>7566.9</td>
+									<td>7660.55</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:ULTRACEMCO" target="_blank">Chart</a></td>
+									<td>7772.85</td>
+									<td>7035.2</td>
+									<td>
+											Wait									</td>
+									<td>7539.9</td>
+									<td>
+												<span style="color:green; font-weight: bold;">1.6</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-31									</td>
+									<td>
+											1000									</td>
+									<td>250253</td>
+									<td>1912700308.3</td>
+									<td>37985</td>
+								</tr>
+					
+													
+								<tr>
+									<td>53</td>
+									<td><a href="http://trendypunch.com/sst/data/bergepaint.html" target="blank">BERGEPAINT</a></td>
+									<td>0.97</td>
+									<td>
+											14-01-2022									</td>
+									<td>781.95</td>
+									<td>783</td>
+									<td>784.85</td>
+									<td>766</td>
+									<td>771.35</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:BERGEPAINT" target="_blank">Chart</a></td>
+									<td>799.45</td>
+									<td>728.3</td>
+									<td>
+											Wait									</td>
+									<td>768</td>
+									<td>
+												<span style="color:green; font-weight: bold;">0.44</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-31									</td>
+									<td>
+											1000									</td>
+									<td>329564</td>
+									<td>254503919.95</td>
+									<td>17485</td>
+								</tr>
+					
+													
+								<tr>
+									<td>54</td>
+									<td><a href="http://trendypunch.com/sst/data/itc.html" target="blank">ITC</a></td>
+									<td>1</td>
+									<td>
+											14-01-2022									</td>
+									<td>223.95</td>
+									<td>223.95</td>
+									<td>224.8</td>
+									<td>222.3</td>
+									<td>222.6</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:ITC" target="_blank">Chart</a></td>
+									<td>225.8</td>
+									<td>209.8</td>
+									<td>
+											Wait									</td>
+									<td>224.7</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-0.93</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-13									</td>
+									<td>
+											1000									</td>
+									<td>10569725</td>
+									<td>2362226365.7</td>
+									<td>84726</td>
+								</tr>
+					
+													
+								<tr>
+									<td>55</td>
+									<td><a href="http://trendypunch.com/sst/data/grasim.html" target="blank">GRASIM</a></td>
+									<td>1.13</td>
+									<td>
+											14-01-2022									</td>
+									<td>1856.85</td>
+									<td>1859.9</td>
+									<td>1867.75</td>
+									<td>1832.35</td>
+									<td>1857.3</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:GRASIM" target="_blank">Chart</a></td>
+									<td>1883</td>
+									<td>1587.55</td>
+									<td>
+											Wait									</td>
+									<td>1769.7</td>
+									<td>
+												<span style="color:green; font-weight: bold;">4.95</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-07									</td>
+									<td>
+											1000									</td>
+									<td>1234583</td>
+									<td>2285696262.85</td>
+									<td>65544</td>
+								</tr>
+					
+													
+								<tr>
+									<td>56</td>
+									<td><a href="http://trendypunch.com/sst/data/tatasteel.html" target="blank">TATASTEEL</a></td>
+									<td>0.94</td>
+									<td>
+											14-01-2022									</td>
+									<td>1221.15</td>
+									<td>1213</td>
+									<td>1226.3</td>
+									<td>1206.1</td>
+									<td>1213.6</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:TATASTEEL" target="_blank">Chart</a></td>
+									<td>1225.5</td>
+									<td>1066.05</td>
+									<td>
+											Wait									</td>
+									<td>1183</td>
+									<td>
+												<span style="color:green; font-weight: bold;">2.59</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-13									</td>
+									<td>
+											1000									</td>
+									<td>5267907</td>
+									<td>6402740872.75</td>
+									<td>162565</td>
+								</tr>
+					
+													
+								<tr>
+									<td>57</td>
+									<td><a href="http://trendypunch.com/sst/data/bajaj-auto.html" target="blank">BAJAJ-AUTO</a></td>
+									<td>0.95</td>
+									<td>
+											14-01-2022									</td>
+									<td>3451</td>
+									<td>3451</td>
+									<td>3462.2</td>
+									<td>3425</td>
+									<td>3432.8</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:BAJAJ-AUTO" target="_blank">Chart</a></td>
+									<td>3474.3</td>
+									<td>3027.05</td>
+									<td>
+											Wait									</td>
+									<td>3372.45</td>
+									<td>
+												<span style="color:green; font-weight: bold;">1.79</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-06									</td>
+									<td>
+											1000									</td>
+									<td>127752</td>
+									<td>439466879.4</td>
+									<td>16949</td>
+								</tr>
+					
+													
+								<tr>
+									<td>58</td>
+									<td><a href="http://trendypunch.com/sst/data/dlf.html" target="blank">DLF</a></td>
+									<td>1.1</td>
+									<td>
+											14-01-2022									</td>
+									<td>410.8</td>
+									<td>408</td>
+									<td>419</td>
+									<td>405.1</td>
+									<td>417.35</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:DLF" target="_blank">Chart</a></td>
+									<td>426.8</td>
+									<td>361.55</td>
+									<td>
+											Wait									</td>
+									<td>416</td>
+									<td>
+												<span style="color:green; font-weight: bold;">0.32</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-12									</td>
+									<td>
+											1000									</td>
+									<td>5761279</td>
+									<td>2386273472.9</td>
+									<td>75109</td>
+								</tr>
+					
+													
+								<tr>
+									<td>59</td>
+									<td><a href="http://trendypunch.com/sst/data/hdfc.html" target="blank">HDFC</a></td>
+									<td>0.99</td>
+									<td>
+											14-01-2022									</td>
+									<td>2756</td>
+									<td>2712</td>
+									<td>2731.6</td>
+									<td>2687.3</td>
+									<td>2712.45</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:HDFC" target="_blank">Chart</a></td>
+									<td>2762</td>
+									<td>2506.05</td>
+									<td>
+											Wait									</td>
+									<td>2752</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-1.44</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-13									</td>
+									<td>
+											1000									</td>
+									<td>1765906</td>
+									<td>4783840335.3</td>
+									<td>102510</td>
+								</tr>
+					
+													
+								<tr>
+									<td>60</td>
+									<td><a href="http://trendypunch.com/sst/data/ioc.html" target="blank">IOC</a></td>
+									<td>1.04</td>
+									<td>
+											14-01-2022									</td>
+									<td>121.15</td>
+									<td>121.5</td>
+									<td>124.4</td>
+									<td>121.35</td>
+									<td>123.3</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:IOC" target="_blank">Chart</a></td>
+									<td>121.5</td>
+									<td>108.15</td>
+									<td>
+											Wait									</td>
+									<td>119.2</td>
+									<td>
+												<span style="color:green; font-weight: bold;">3.44</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-10									</td>
+									<td>
+											1000									</td>
+									<td>14954005</td>
+									<td>1842700267</td>
+									<td>88644</td>
+								</tr>
+					
+													
+								<tr>
+									<td>61</td>
+									<td><a href="http://trendypunch.com/sst/data/bajajhldng.html" target="blank">BAJAJHLDNG</a></td>
+									<td>1.15</td>
+									<td>
+											14-01-2022									</td>
+									<td>5353</td>
+									<td>5355</td>
+									<td>5449</td>
+									<td>5310.05</td>
+									<td>5431.15</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:BAJAJHLDNG" target="_blank">Chart</a></td>
+									<td>5590</td>
+									<td>4890</td>
+									<td>
+											Wait									</td>
+									<td>3623.6</td>
+									<td>
+												<span style="color:green; font-weight: bold;">49.88</span>									</td>
+									<td>	
+											No wait and watch										</td>
+									<td>
+											2021-06-23									</td>
+									<td>
+											1000									</td>
+									<td>19882</td>
+									<td>107486775.75</td>
+									<td>4777</td>
+								</tr>
+					
+													
+								<tr>
+									<td>62</td>
+									<td><a href="http://trendypunch.com/sst/data/infy.html" target="blank">INFY</a></td>
+									<td>1.11</td>
+									<td>
+											14-01-2022									</td>
+									<td>1896.8</td>
+									<td>1882</td>
+									<td>1933</td>
+									<td>1881</td>
+									<td>1929.35</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:INFY" target="_blank">Chart</a></td>
+									<td>1914.05</td>
+									<td>1787.3</td>
+									<td>
+											Wait									</td>
+									<td>1786.65</td>
+									<td>
+												<span style="color:green; font-weight: bold;">7.99</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-17									</td>
+									<td>
+											1000									</td>
+									<td>7688506</td>
+									<td>14706988627.3</td>
+									<td>225842</td>
+								</tr>
+					
+													
+								<tr>
+									<td>63</td>
+									<td><a href="http://trendypunch.com/sst/data/tataconsum.html" target="blank">TATACONSUM</a></td>
+									<td>0.95</td>
+									<td>
+											14-01-2022									</td>
+									<td>730.2</td>
+									<td>730.2</td>
+									<td>777</td>
+									<td>727</td>
+									<td>762.5</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:TATACONSUM" target="_blank">Chart</a></td>
+									<td>756.7</td>
+									<td>696.6</td>
+									<td>
+											 GTT Trigger									</td>
+									<td>756.7</td>
+									<td>
+												<span style="color:green; font-weight: bold;">0.77</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-14									</td>
+									<td>
+											1000									</td>
+									<td>8733345</td>
+									<td>6651540701.2</td>
+									<td>162032</td>
+								</tr>
+					
+													
+								<tr>
+									<td>64</td>
+									<td><a href="http://trendypunch.com/sst/data/hindalco.html" target="blank">HINDALCO</a></td>
+									<td>1.1</td>
+									<td>
+											14-01-2022									</td>
+									<td>507.5</td>
+									<td>506</td>
+									<td>509.5</td>
+									<td>503</td>
+									<td>506.35</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:HINDALCO" target="_blank">Chart</a></td>
+									<td>509</td>
+									<td>426.7</td>
+									<td>
+											Wait									</td>
+									<td>469.5</td>
+									<td>
+												<span style="color:green; font-weight: bold;">7.85</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-31									</td>
+									<td>
+											1000									</td>
+									<td>5461072</td>
+									<td>2766055297.75</td>
+									<td>68540</td>
+								</tr>
+					
+													
+								<tr>
+									<td>65</td>
+									<td><a href="http://trendypunch.com/sst/data/wipro.html" target="blank">WIPRO</a></td>
+									<td>0.98</td>
+									<td>
+											14-01-2022									</td>
+									<td>649.75</td>
+									<td>649.25</td>
+									<td>649.25</td>
+									<td>636.5</td>
+									<td>639.8</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:WIPRO" target="_blank">Chart</a></td>
+									<td>726.8</td>
+									<td>636.5</td>
+									<td>
+											Start GTT									</td>
+									<td>726.8</td>
+									<td>
+																					</td>
+									<td>	
+											Yes, Start GTT Order									</td>
+									<td>
+											2022-01-14									</td>
+									<td>
+											13.6									</td>
+									<td>13257274</td>
+									<td>8494094446.5</td>
+									<td>295017</td>
+								</tr>
+					
+													
+								<tr>
+									<td>66</td>
+									<td><a href="http://trendypunch.com/sst/data/shreecem.html" target="blank">SHREECEM</a></td>
+									<td>0.97</td>
+									<td>
+											14-01-2022									</td>
+									<td>26855.3</td>
+									<td>26830</td>
+									<td>27150</td>
+									<td>26577.2</td>
+									<td>27078.4</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:SHREECEM" target="_blank">Chart</a></td>
+									<td>27349.8</td>
+									<td>25000.1</td>
+									<td>
+											Wait									</td>
+									<td>26749</td>
+									<td>
+												<span style="color:green; font-weight: bold;">1.23</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-28									</td>
+									<td>
+											1000									</td>
+									<td>24063</td>
+									<td>649270042.9</td>
+									<td>7891</td>
+								</tr>
+					
+													
+								<tr>
+									<td>67</td>
+									<td><a href="http://trendypunch.com/sst/data/bandhanbnk.html" target="blank">BANDHANBNK</a></td>
+									<td>1.02</td>
+									<td>
+											14-01-2022									</td>
+									<td>294.55</td>
+									<td>291.5</td>
+									<td>300.15</td>
+									<td>289.25</td>
+									<td>296.55</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:BANDHANBNK" target="_blank">Chart</a></td>
+									<td>296.8</td>
+									<td>229.55</td>
+									<td>
+											Wait									</td>
+									<td>281.95</td>
+									<td>
+												<span style="color:green; font-weight: bold;">5.18</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-12									</td>
+									<td>
+											1000									</td>
+									<td>9323670</td>
+									<td>2764681902.65</td>
+									<td>81866</td>
+								</tr>
+					
+													
+								<tr>
+									<td>68</td>
+									<td><a href="http://trendypunch.com/sst/data/piind.html" target="blank">PIIND</a></td>
+									<td>0.91</td>
+									<td>
+											14-01-2022									</td>
+									<td>2832.3</td>
+									<td>2830</td>
+									<td>2835.9</td>
+									<td>2791.25</td>
+									<td>2802.25</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:PIIND" target="_blank">Chart</a></td>
+									<td>3108</td>
+									<td>2762.45</td>
+									<td>
+											Wait									</td>
+									<td>3106.5</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-9.79</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-03									</td>
+									<td>
+											1000									</td>
+									<td>368513</td>
+									<td>1034635084.2</td>
+									<td>29766</td>
+								</tr>
+					
+													
+								<tr>
+									<td>69</td>
+									<td><a href="http://trendypunch.com/sst/data/lupin.html" target="blank">LUPIN</a></td>
+									<td>0.99</td>
+									<td>
+											14-01-2022									</td>
+									<td>958.95</td>
+									<td>958.95</td>
+									<td>962.85</td>
+									<td>948.55</td>
+									<td>951.8</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:LUPIN" target="_blank">Chart</a></td>
+									<td>971.45</td>
+									<td>853.55</td>
+									<td>
+											Wait									</td>
+									<td>950.7</td>
+									<td>
+												<span style="color:green; font-weight: bold;">0.12</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-14									</td>
+									<td>
+											1000									</td>
+									<td>534975</td>
+									<td>510714748.45</td>
+									<td>18005</td>
+								</tr>
+					
+													
+								<tr>
+									<td>70</td>
+									<td><a href="http://trendypunch.com/sst/data/dmart.html" target="blank">DMART</a></td>
+									<td>1</td>
+									<td>
+											14-01-2022									</td>
+									<td>4254.6</td>
+									<td>4266</td>
+									<td>4344.45</td>
+									<td>4256.15</td>
+									<td>4322.7</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:DMART" target="_blank">Chart</a></td>
+									<td>4799</td>
+									<td>4165.3</td>
+									<td>
+											Wait									</td>
+									<td>4799</td>
+									<td>
+																					</td>
+									<td>	
+											Yes, Start GTT Order									</td>
+									<td>
+											2022-01-12									</td>
+									<td>
+											11.02									</td>
+									<td>896929</td>
+									<td>3868511353.7</td>
+									<td>100324</td>
+								</tr>
+					
+													
+								<tr>
+									<td>71</td>
+									<td><a href="http://trendypunch.com/sst/data/techm.html" target="blank">TECHM</a></td>
+									<td>1.16</td>
+									<td>
+											14-01-2022									</td>
+									<td>1718.8</td>
+									<td>1714.5</td>
+									<td>1746.8</td>
+									<td>1696.5</td>
+									<td>1737.75</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:TECHM" target="_blank">Chart</a></td>
+									<td>1838</td>
+									<td>1576.6</td>
+									<td>
+											Wait									</td>
+									<td>1547.85</td>
+									<td>
+												<span style="color:green; font-weight: bold;">12.27</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-10-19									</td>
+									<td>
+											1000									</td>
+									<td>1889385</td>
+									<td>3251839877.9</td>
+									<td>80148</td>
+								</tr>
+					
+													
+								<tr>
+									<td>72</td>
+									<td><a href="http://trendypunch.com/sst/data/hdfclife.html" target="blank">HDFCLIFE</a></td>
+									<td>0.97</td>
+									<td>
+											14-01-2022									</td>
+									<td>670.35</td>
+									<td>668</td>
+									<td>674.85</td>
+									<td>666.2</td>
+									<td>671.45</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:HDFCLIFE" target="_blank">Chart</a></td>
+									<td>676.4</td>
+									<td>627</td>
+									<td>
+											Wait									</td>
+									<td>674.25</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-0.42</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-13									</td>
+									<td>
+											1000									</td>
+									<td>1292789</td>
+									<td>867818908.85</td>
+									<td>49707</td>
+								</tr>
+					
+													
+								<tr>
+									<td>73</td>
+									<td><a href="http://trendypunch.com/sst/data/marico.html" target="blank">MARICO</a></td>
+									<td>0.93</td>
+									<td>
+											14-01-2022									</td>
+									<td>500.75</td>
+									<td>500.75</td>
+									<td>501</td>
+									<td>496.05</td>
+									<td>499.55</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:MARICO" target="_blank">Chart</a></td>
+									<td>518.5</td>
+									<td>488.55</td>
+									<td>
+											Wait									</td>
+									<td>518.5</td>
+									<td>
+																					</td>
+									<td>	
+											Yes, Start GTT Order									</td>
+									<td>
+											2021-12-20									</td>
+									<td>
+											3.79									</td>
+									<td>637918</td>
+									<td>318526232.55</td>
+									<td>25119</td>
+								</tr>
+					
+													
+								<tr>
+									<td>74</td>
+									<td><a href="http://trendypunch.com/sst/data/maruti.html" target="blank">MARUTI</a></td>
+									<td>1.11</td>
+									<td>
+											14-01-2022									</td>
+									<td>8077.05</td>
+									<td>7951</td>
+									<td>8145</td>
+									<td>7951</td>
+									<td>8084.2</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:MARUTI" target="_blank">Chart</a></td>
+									<td>8260</td>
+									<td>7035.85</td>
+									<td>
+											Wait									</td>
+									<td>7640</td>
+									<td>
+												<span style="color:green; font-weight: bold;">5.81</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-04									</td>
+									<td>
+											1000									</td>
+									<td>299536</td>
+									<td>2422446883.6</td>
+									<td>36320</td>
+								</tr>
+					
+													
+								<tr>
+									<td>75</td>
+									<td><a href="http://trendypunch.com/sst/data/hdfcamc.html" target="blank">HDFCAMC</a></td>
+									<td>0.89</td>
+									<td>
+											14-01-2022									</td>
+									<td>2474</td>
+									<td>2470</td>
+									<td>2499</td>
+									<td>2455</td>
+									<td>2470.6</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:HDFCAMC" target="_blank">Chart</a></td>
+									<td>2538</td>
+									<td>2280</td>
+									<td>
+											Wait									</td>
+									<td>2513.4</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-1.7</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-10									</td>
+									<td>
+											1000									</td>
+									<td>589008</td>
+									<td>1459747885.3</td>
+									<td>15441</td>
+								</tr>
+					
+													
+								<tr>
+									<td>76</td>
+									<td><a href="http://trendypunch.com/sst/data/hindunilvr.html" target="blank">HINDUNILVR</a></td>
+									<td>0.95</td>
+									<td>
+											14-01-2022									</td>
+									<td>2414.2</td>
+									<td>2420</td>
+									<td>2421</td>
+									<td>2360.8</td>
+									<td>2363.7</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:HINDUNILVR" target="_blank">Chart</a></td>
+									<td>2425</td>
+									<td>2201.15</td>
+									<td>
+											Wait									</td>
+									<td>2363.95</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-0.01</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-31									</td>
+									<td>
+											1000									</td>
+									<td>1596037</td>
+									<td>3789907859</td>
+									<td>81090</td>
+								</tr>
+					
+													
+								<tr>
+									<td>77</td>
+									<td><a href="http://trendypunch.com/sst/data/torntpharm.html" target="blank">TORNTPHARM</a></td>
+									<td>1.05</td>
+									<td>
+											14-01-2022									</td>
+									<td>3189.2</td>
+									<td>3189</td>
+									<td>3208.75</td>
+									<td>3144</td>
+									<td>3194.2</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:TORNTPHARM" target="_blank">Chart</a></td>
+									<td>3298.5</td>
+									<td>3001.75</td>
+									<td>
+											Wait									</td>
+									<td>2958.95</td>
+									<td>
+												<span style="color:green; font-weight: bold;">7.95</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-11-25									</td>
+									<td>
+											1000									</td>
+									<td>169729</td>
+									<td>541303772.95</td>
+									<td>11812</td>
+								</tr>
+					
+													
+								<tr>
+									<td>78</td>
+									<td><a href="http://trendypunch.com/sst/data/powergrid.html" target="blank">POWERGRID</a></td>
+									<td>1.08</td>
+									<td>
+											14-01-2022									</td>
+									<td>208</td>
+									<td>207.95</td>
+									<td>209.65</td>
+									<td>206.55</td>
+									<td>207.75</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:POWERGRID" target="_blank">Chart</a></td>
+									<td>213</td>
+									<td>198</td>
+									<td>
+											Wait									</td>
+									<td>213</td>
+									<td>
+																					</td>
+									<td>	
+											Yes, Start GTT Order									</td>
+									<td>
+											2021-12-22									</td>
+									<td>
+											2.53									</td>
+									<td>10637741</td>
+									<td>2212100046.25</td>
+									<td>69808</td>
+								</tr>
+					
+													
+								<tr>
+									<td>79</td>
+									<td><a href="http://trendypunch.com/sst/data/jswsteel.html" target="blank">JSWSTEEL</a></td>
+									<td>1</td>
+									<td>
+											14-01-2022									</td>
+									<td>687.85</td>
+									<td>679.9</td>
+									<td>689.55</td>
+									<td>677.25</td>
+									<td>682.7</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:JSWSTEEL" target="_blank">Chart</a></td>
+									<td>697</td>
+									<td>630.5</td>
+									<td>
+											Wait									</td>
+									<td>692.95</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-1.48</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-05									</td>
+									<td>
+											1000									</td>
+									<td>2054419</td>
+									<td>1404769504.8</td>
+									<td>36994</td>
+								</tr>
+					
+													
+								<tr>
+									<td>80</td>
+									<td><a href="http://trendypunch.com/sst/data/eichermot.html" target="blank">EICHERMOT</a></td>
+									<td>1.06</td>
+									<td>
+											14-01-2022									</td>
+									<td>2832.7</td>
+									<td>2838</td>
+									<td>2845</td>
+									<td>2798.75</td>
+									<td>2819.7</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:EICHERMOT" target="_blank">Chart</a></td>
+									<td>2851</td>
+									<td>2360.4</td>
+									<td>
+											Wait									</td>
+									<td>2557.6</td>
+									<td>
+												<span style="color:green; font-weight: bold;">10.25</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-29									</td>
+									<td>
+											1000									</td>
+									<td>324014</td>
+									<td>913294133.95</td>
+									<td>20981</td>
+								</tr>
+					
+													
+								<tr>
+									<td>81</td>
+									<td><a href="http://trendypunch.com/sst/data/colpal.html" target="blank">COLPAL</a></td>
+									<td>0.92</td>
+									<td>
+											14-01-2022									</td>
+									<td>1466.35</td>
+									<td>1465</td>
+									<td>1477</td>
+									<td>1452</td>
+									<td>1463.6</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:COLPAL" target="_blank">Chart</a></td>
+									<td>1491.95</td>
+									<td>1392.85</td>
+									<td>
+											Wait									</td>
+									<td>1470.95</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-0.5</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-24									</td>
+									<td>
+											1000									</td>
+									<td>335984</td>
+									<td>493263217.65</td>
+									<td>17578</td>
+								</tr>
+					
+													
+								<tr>
+									<td>82</td>
+									<td><a href="http://trendypunch.com/sst/data/cipla.html" target="blank">CIPLA</a></td>
+									<td>1</td>
+									<td>
+											14-01-2022									</td>
+									<td>924.05</td>
+									<td>926.05</td>
+									<td>933</td>
+									<td>916.3</td>
+									<td>921.5</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:CIPLA" target="_blank">Chart</a></td>
+									<td>957.25</td>
+									<td>861.1</td>
+									<td>
+											Wait									</td>
+									<td>937.95</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-1.75</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-29									</td>
+									<td>
+											1000									</td>
+									<td>2321761</td>
+									<td>2146773130.25</td>
+									<td>81806</td>
+								</tr>
+					
+													
+								<tr>
+									<td>83</td>
+									<td><a href="http://trendypunch.com/sst/data/axisbank.html" target="blank">AXISBANK</a></td>
+									<td>0.97</td>
+									<td>
+											14-01-2022									</td>
+									<td>740.7</td>
+									<td>734.8</td>
+									<td>735.95</td>
+									<td>716.05</td>
+									<td>721.7</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:AXISBANK" target="_blank">Chart</a></td>
+									<td>751.45</td>
+									<td>655.95</td>
+									<td>
+											Wait									</td>
+									<td>720</td>
+									<td>
+												<span style="color:green; font-weight: bold;">0.24</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-16									</td>
+									<td>
+											1000									</td>
+									<td>16302342</td>
+									<td>11776487956.5</td>
+									<td>168950</td>
+								</tr>
+					
+													
+								<tr>
+									<td>84</td>
+									<td><a href="http://trendypunch.com/sst/data/naukri.html" target="blank">NAUKRI</a></td>
+									<td>0.96</td>
+									<td>
+											14-01-2022									</td>
+									<td>5590.8</td>
+									<td>5570</td>
+									<td>5748</td>
+									<td>5499.95</td>
+									<td>5696.25</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:NAUKRI" target="_blank">Chart</a></td>
+									<td>5697</td>
+									<td>5082.6</td>
+									<td>
+											 GTT Trigger									</td>
+									<td>5697</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-0.01</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-14									</td>
+									<td>
+											1000									</td>
+									<td>488131</td>
+									<td>2745815012.3</td>
+									<td>36392</td>
+								</tr>
+					
+													
+								<tr>
+									<td>85</td>
+									<td><a href="http://trendypunch.com/sst/data/hcltech.html" target="blank">HCLTECH</a></td>
+									<td>1.13</td>
+									<td>
+											14-01-2022									</td>
+									<td>1334.25</td>
+									<td>1320</td>
+									<td>1342.95</td>
+									<td>1293</td>
+									<td>1337.2</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:HCLTECH" target="_blank">Chart</a></td>
+									<td>1359.4</td>
+									<td>1145.5</td>
+									<td>
+											Wait									</td>
+									<td>1189.7</td>
+									<td>
+												<span style="color:green; font-weight: bold;">12.4</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-21									</td>
+									<td>
+											1000									</td>
+									<td>5636243</td>
+									<td>7425547840.1</td>
+									<td>175711</td>
+								</tr>
+					
+													
+								<tr>
+									<td>86</td>
+									<td><a href="http://trendypunch.com/sst/data/sbilife.html" target="blank">SBILIFE</a></td>
+									<td>1.08</td>
+									<td>
+											14-01-2022									</td>
+									<td>1258.7</td>
+									<td>1259</td>
+									<td>1272.25</td>
+									<td>1254.5</td>
+									<td>1263.6</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:SBILIFE" target="_blank">Chart</a></td>
+									<td>1261</td>
+									<td>1100.6</td>
+									<td>
+											Wait									</td>
+									<td>1204.65</td>
+									<td>
+												<span style="color:green; font-weight: bold;">4.89</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-31									</td>
+									<td>
+											1000									</td>
+									<td>895522</td>
+									<td>1132784583.55</td>
+									<td>41397</td>
+								</tr>
+					
+													
+								<tr>
+									<td>87</td>
+									<td><a href="http://trendypunch.com/sst/data/icicigi.html" target="blank">ICICIGI</a></td>
+									<td>0.95</td>
+									<td>
+											14-01-2022									</td>
+									<td>1410</td>
+									<td>1402.5</td>
+									<td>1427.75</td>
+									<td>1401.55</td>
+									<td>1415.55</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:ICICIGI" target="_blank">Chart</a></td>
+									<td>1472</td>
+									<td>1315</td>
+									<td>
+											Wait									</td>
+									<td>1451.35</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-2.47</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-05									</td>
+									<td>
+											1000									</td>
+									<td>357396</td>
+									<td>503976060</td>
+									<td>23115</td>
+								</tr>
+					
+													
+								<tr>
+									<td>88</td>
+									<td><a href="http://trendypunch.com/sst/data/ntpc.html" target="blank">NTPC</a></td>
+									<td>1.06</td>
+									<td>
+											14-01-2022									</td>
+									<td>134.95</td>
+									<td>134.4</td>
+									<td>136.15</td>
+									<td>133.3</td>
+									<td>135.35</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:NTPC" target="_blank">Chart</a></td>
+									<td>136.65</td>
+									<td>119.1</td>
+									<td>
+											Wait									</td>
+									<td>128.6</td>
+									<td>
+												<span style="color:green; font-weight: bold;">5.25</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-04									</td>
+									<td>
+											1000									</td>
+									<td>9344382</td>
+									<td>1265868058</td>
+									<td>57308</td>
+								</tr>
+					
+													
+								<tr>
+									<td>89</td>
+									<td><a href="http://trendypunch.com/sst/data/lti.html" target="blank">LTI</a></td>
+									<td>1.16</td>
+									<td>
+											14-01-2022									</td>
+									<td>7132.6</td>
+									<td>7087.2</td>
+									<td>7141.95</td>
+									<td>7030.25</td>
+									<td>7078.35</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:LTI" target="_blank">Chart</a></td>
+									<td>7588.8</td>
+									<td>6610</td>
+									<td>
+											Wait									</td>
+									<td>7099</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-0.29</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-17									</td>
+									<td>
+											1000									</td>
+									<td>291638</td>
+									<td>2065331348.15</td>
+									<td>27781</td>
+								</tr>
+					
+													
+								<tr>
+									<td>90</td>
+									<td><a href="http://trendypunch.com/sst/data/tcs.html" target="blank">TCS</a></td>
+									<td>1.1</td>
+									<td>
+											14-01-2022									</td>
+									<td>3897.9</td>
+									<td>3877.85</td>
+									<td>3977</td>
+									<td>3860.05</td>
+									<td>3968.15</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:TCS" target="_blank">Chart</a></td>
+									<td>3978</td>
+									<td>3510.15</td>
+									<td>
+											Wait									</td>
+									<td>3575.55</td>
+									<td>
+												<span style="color:green; font-weight: bold;">10.98</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-01									</td>
+									<td>
+											1000									</td>
+									<td>3348123</td>
+									<td>13138881273.1</td>
+									<td>213960</td>
+								</tr>
+					
+													
+								<tr>
+									<td>91</td>
+									<td><a href="http://trendypunch.com/sst/data/nestleind.html" target="blank">NESTLEIND</a></td>
+									<td>1.01</td>
+									<td>
+											14-01-2022									</td>
+									<td>19714.4</td>
+									<td>19714.4</td>
+									<td>19719.3</td>
+									<td>19270</td>
+									<td>19400.2</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:NESTLEIND" target="_blank">Chart</a></td>
+									<td>20025</td>
+									<td>18600</td>
+									<td>
+											Wait									</td>
+									<td>19549</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-0.76</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-30									</td>
+									<td>
+											1000									</td>
+									<td>37190</td>
+									<td>721616763</td>
+									<td>13171</td>
+								</tr>
+					
+													
+								<tr>
+									<td>92</td>
+									<td><a href="http://trendypunch.com/sst/data/kotakbank.html" target="blank">KOTAKBANK</a></td>
+									<td>1.02</td>
+									<td>
+											14-01-2022									</td>
+									<td>1926.35</td>
+									<td>1909</td>
+									<td>1945</td>
+									<td>1898</td>
+									<td>1938.2</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:KOTAKBANK" target="_blank">Chart</a></td>
+									<td>1976.15</td>
+									<td>1721</td>
+									<td>
+											Wait									</td>
+									<td>1928.35</td>
+									<td>
+												<span style="color:green; font-weight: bold;">0.51</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-10									</td>
+									<td>
+											1000									</td>
+									<td>1828762</td>
+									<td>3512667500.5</td>
+									<td>54543</td>
+								</tr>
+					
+													
+								<tr>
+									<td>93</td>
+									<td><a href="http://trendypunch.com/sst/data/icicipruli.html" target="blank">ICICIPRULI</a></td>
+									<td>0.93</td>
+									<td>
+											14-01-2022									</td>
+									<td>590.75</td>
+									<td>592.5</td>
+									<td>603.4</td>
+									<td>587.25</td>
+									<td>591.1</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:ICICIPRULI" target="_blank">Chart</a></td>
+									<td>598.55</td>
+									<td>533.65</td>
+									<td>
+											Wait									</td>
+									<td>580.95</td>
+									<td>
+												<span style="color:green; font-weight: bold;">1.75</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-07									</td>
+									<td>
+											1000									</td>
+									<td>1146250</td>
+									<td>682568391.45</td>
+									<td>23909</td>
+								</tr>
+					
+													
+								<tr>
+									<td>94</td>
+									<td><a href="http://trendypunch.com/sst/data/divislab.html" target="blank">DIVISLAB</a></td>
+									<td>0.94</td>
+									<td>
+											14-01-2022									</td>
+									<td>4590.05</td>
+									<td>4590</td>
+									<td>4636</td>
+									<td>4559</td>
+									<td>4616.6</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:DIVISLAB" target="_blank">Chart</a></td>
+									<td>4708.75</td>
+									<td>4356</td>
+									<td>
+											Wait									</td>
+									<td>4690</td>
+									<td>
+												<span style="color:red; font-weight: bold;">-1.57</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-03									</td>
+									<td>
+											1000									</td>
+									<td>399974</td>
+									<td>1844836990.15</td>
+									<td>34987</td>
+								</tr>
+					
+													
+								<tr>
+									<td>95</td>
+									<td><a href="http://trendypunch.com/sst/data/titan.html" target="blank">TITAN</a></td>
+									<td>1.17</td>
+									<td>
+											14-01-2022									</td>
+									<td>2619.25</td>
+									<td>2626</td>
+									<td>2639</td>
+									<td>2588.85</td>
+									<td>2592.75</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:TITAN" target="_blank">Chart</a></td>
+									<td>2687.25</td>
+									<td>2205</td>
+									<td>
+											Wait									</td>
+									<td>2424</td>
+									<td>
+												<span style="color:green; font-weight: bold;">6.96</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2021-12-30									</td>
+									<td>
+											1000									</td>
+									<td>1166457</td>
+									<td>3035802991.05</td>
+									<td>68573</td>
+								</tr>
+					
+													
+								<tr>
+									<td>96</td>
+									<td><a href="http://trendypunch.com/sst/data/havells.html" target="blank">HAVELLS</a></td>
+									<td>1.01</td>
+									<td>
+											14-01-2022									</td>
+									<td>1326.9</td>
+									<td>1326.9</td>
+									<td>1350</td>
+									<td>1313.25</td>
+									<td>1344.85</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:HAVELLS" target="_blank">Chart</a></td>
+									<td>1419</td>
+									<td>1253.4</td>
+									<td>
+											Wait									</td>
+									<td>1419</td>
+									<td>
+																					</td>
+									<td>	
+											Yes, Start GTT Order									</td>
+									<td>
+											2021-12-20									</td>
+									<td>
+											5.51									</td>
+									<td>690763</td>
+									<td>924261050.7</td>
+									<td>31351</td>
+								</tr>
+					
+													
+								<tr>
+									<td>97</td>
+									<td><a href="http://trendypunch.com/sst/data/apollohosp.html" target="blank">APOLLOHOSP</a></td>
+									<td>1.06</td>
+									<td>
+											14-01-2022									</td>
+									<td>4983.35</td>
+									<td>4997.9</td>
+									<td>5015</td>
+									<td>4930</td>
+									<td>4974.05</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:APOLLOHOSP" target="_blank">Chart</a></td>
+									<td>5141.5</td>
+									<td>4643.15</td>
+									<td>
+											Wait									</td>
+									<td>5141.5</td>
+									<td>
+																					</td>
+									<td>	
+											Yes, Start GTT Order									</td>
+									<td>
+											2021-12-20									</td>
+									<td>
+											3.37									</td>
+									<td>207639</td>
+									<td>1031215968.5</td>
+									<td>22865</td>
+								</tr>
+					
+													
+								<tr>
+									<td>98</td>
+									<td><a href="http://trendypunch.com/sst/data/biocon.html" target="blank">BIOCON</a></td>
+									<td>0.99</td>
+									<td>
+											14-01-2022									</td>
+									<td>370.25</td>
+									<td>370.25</td>
+									<td>374.35</td>
+									<td>356.3</td>
+									<td>357.7</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:BIOCON" target="_blank">Chart</a></td>
+									<td>376.25</td>
+									<td>343.05</td>
+									<td>
+											Wait									</td>
+									<td>376.25</td>
+									<td>
+																					</td>
+									<td>	
+											Yes, Start GTT Order									</td>
+									<td>
+											2021-12-20									</td>
+									<td>
+											5.19									</td>
+									<td>4700387</td>
+									<td>1707418891.75</td>
+									<td>60684</td>
+								</tr>
+					
+													
+								<tr>
+									<td>99</td>
+									<td><a href="http://trendypunch.com/sst/data/sbicard.html" target="blank">SBICARD</a></td>
+									<td>0.87</td>
+									<td>
+											14-01-2022									</td>
+									<td>896.05</td>
+									<td>896.5</td>
+									<td>897.15</td>
+									<td>890</td>
+									<td>893.95</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:SBICARD" target="_blank">Chart</a></td>
+									<td>941.8</td>
+									<td>860.2</td>
+									<td>
+											Wait									</td>
+									<td>941.8</td>
+									<td>
+																					</td>
+									<td>	
+											Yes, Start GTT Order									</td>
+									<td>
+											2021-12-20									</td>
+									<td>
+											5.35									</td>
+									<td>538419</td>
+									<td>480986205.25</td>
+									<td>29892</td>
+								</tr>
+					
+													
+								<tr>
+									<td>100</td>
+									<td><a href="http://trendypunch.com/sst/data/sbin.html" target="blank">SBIN</a></td>
+									<td>1.09</td>
+									<td>
+											14-01-2022									</td>
+									<td>511.35</td>
+									<td>509</td>
+									<td>510.35</td>
+									<td>505.15</td>
+									<td>508.35</td>
+									<td><a href="https://in.tradingview.com/chart/?symbol=NSE:SBIN" target="_blank">Chart</a></td>
+									<td>513.5</td>
+									<td>443</td>
+									<td>
+											Wait									</td>
+									<td>500.45</td>
+									<td>
+												<span style="color:green; font-weight: bold;">1.58</span>									</td>
+									<td>	
+											<span style="padding: 4px 10px;background: darkseagreen;">GTT Trigger</span>									</td>
+									<td>
+											2022-01-07									</td>
+									<td>
+											1000									</td>
+									<td>8724574</td>
+									<td>4430518916.8</td>
+									<td>151240</td>
+								</tr>
+					
+												
+		</tbody>
+ </table>
+
+
+		<script src="http://trendypunch.com/js/fancyTable.js"></script>
+		<script type="text/javascript">
+					  $(document).ready(function() {
+							var headers = $('#data-table thead th');
+							$(headers[16]).attr('data-tablesort-type', 'date');
+							$(headers[17]).attr('data-tablesort-type', 'int');
+							$(headers[2]).attr('data-tablesort-type', 'int');
+							$('table').not(".tablesort").addClass('tablesort');
+					  });
+		</script>
+ 
+ 
+ 
+ </div>
